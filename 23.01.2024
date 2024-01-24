@@ -1,0 +1,17 @@
+Algoritma bir problemi çözüme götüren doğru yoldur.
+JDK java development kit
+Java her ortamda geliştirilir.
+
+Java Platformunun Temel Özellikleri:
+- Arakodlu Calisma Sistemi: C ve C++ gibi dillerde yazilan kodlardan elde edilen (nasil elde edildigi bu asamada önemli degildir) "calisabilir dosya (executable file)" sisteme (genel olarak isletim sistemi, donanam vb.)
+Özgüdür ve koda göre her sistem igin ayraca olusturulmaladar. Hatta sisteme özgü kodlar yazalmissa diger sistemler icin bu dosya olusturulamaz. Oysa Java programlama dili ile yazilan bir program "derlendiginde (compilation)" olusan dosyanın icerisinde hiç bir sistemin dili olmayan yapay bir arakod bulunur. Bu arakoda "byte code (BC)" denir.
+Bc doğrudan çalıştırılamaz. Çaliştırılması için ayri bir uygulama (program) gerekir. Bu program, byte kodu BC'yi yorumlayarak makine koduna yani sisteme özgü koda dönüştürerek programı çalıştırır. Bu dönüştürme işlemine JIT(Just in Time) compilation denir. Geliştirme ve çalıştırma anlamına 3 temel kavram karşımıza çıkar:
+  - JVM(Java Virtual Machine): BC'yi makine koduna dönüştürür. JVM aslında BC'nin nasıl makine koduna dönüştürüleceğini tanımlayan soyut bir kavramdır.
+  
+  - JRE(Java Runtime Environment): Genel olarak Java ile yazılmış bir uygulamayı çalıştırmak (run) için gereken araçları ve uygulamaları içeren bir pakettir. Yani BC elde edildiğinde bu programın çalıştırılabilmesi için JRE'ye ihtiyaç vardır.
+  
+  - JDK(Java Development Kit): Geliştirme (development) araçlarını ve çalıştırma araçlarının bir çoğunu içeren pakettir. Buradaki çalıştırma araçları geliştirme aşamasında kullanılabilir.
+
+
+Sum: Yani anladığım kadarıyla, C ve C++ gibi diller direkt makine diline çeviriyo, Java önce arakoda sonra makine koduna çeviriyo böylece işletim sistemine vs özgü olmuyor java kodu.
+Linux bir çekirdektir kullandığımız işletim sistemi de linux distributions'tur.
