@@ -1,1 +1,9 @@
 
+JIT arakodu makine koduna dönüştürme işleminin genel adı
+
+Ticari kullanımlarda özellikle Java 11 ile birlikte bazı değişiklikler yapılmıştır. Genel olarak şöyle söylenebilir:
+Java'da geliştirme ortamı ücetsiz, çalıştırma araçları kullanılan araca göre ücretlendirilebilir.  Tamamen ücretsiz
+olarak kullanılabilen "Open JRE" gibi çalıştırma araçları da mevcuttur.  Burada anlatılanlar geneldir. Ayrıca, belirli
+bir noktadan sonra Java sürümleri için Long Term Support (LTS) kavramı da getirilmiştir. LTS sürümleri uzun süre 
+desteklenen yani güncellemesi (hızlandırılması, hataların düzeltilmesi vb.) uzun süre yapılan sürümlerdir. Java'da 
+Java 8, 11, 17 ve 21 sürümleri LTS sürümleridir. Bu kavramlar zamanla anlaşılacaktır.
