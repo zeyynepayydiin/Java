@@ -7,3 +7,56 @@ olarak kullanılabilen "Open JRE" gibi çalıştırma araçları da mevcuttur.  
 bir noktadan sonra Java sürümleri için Long Term Support (LTS) kavramı da getirilmiştir. LTS sürümleri uzun süre 
 desteklenen yani güncellemesi (hızlandırılması, hataların düzeltilmesi vb.) uzun süre yapılan sürümlerdir. Java'da 
 Java 8, 11, 17 ve 21 sürümleri LTS sürümleridir. Bu kavramlar zamanla anlaşılacaktır.
+
+Arakodlu çalışma sisteminin en önemli avantajı, geliştirilen uygulamaların genel olarak sistemden bağımsız olarak çalıştırılabilmesidir. 
+Dolayısıyla kodun çalıştırılacağı sistemden bağımsız olarak ürün geliştirilebilir. Bu kavrama "Write Once Run Anywhare (WORA)" denilmektedir. 
+Şüphesiz bu durumun istisnaları vardır.
+
+Ayrıca unutulmamalıdır ki, arakodlu çalışma sistemi ufak da olsa bir performans kaybına yol açar. Ancak Java'nın hedeflediği uygulamalar 
+düşünüldüğünde bu kaybın pek de bir önemi yoktur. Bu kaybın önemli olduğu uygulamalar için zaten Java ile geliştirme yapılmaz.
+
+Hangi dili kullanacağımıza karar vermek, geliştireceğimiz uygulamanın gereksinimlerine bağlıdır. 
+
+Hızlı uygulama geliştirme ortamı: (Bu hızlı çalışma demek değil, hızlı ürün elde etme anlamına gelir) Java, hızlı uygulama 
+geliştirme (rapid application development) ortamı sunar.
+
+Kütüphaneler bazı işlemleri programcıdan soyutlayıp hazırlanmış araçlardır.
+Geniş bir sınıf kütüphanesi: Java'da oldukça geniş bir sınıf kütüphanesi. bulunur. Veritabanı işlemleri, web programlama, dosya işlemleri
+gibi işlemler için hazır sınıflar bulunmaktadır.
+Mesela dosya işlemleri işletim sistemlerine özgü bir işlemdir, java bu işlemleri kütüphaneler aracılığıyla soyutluyor, her işletime ayrı kod
+yazmıyorum böylece. Buna portability denir. Kodumu sisteme taşıyorum. Javanın önemli bir avantajı.
+
+Güvenli çalışma ortamı: Java'da yazılmış olan bir programın sisteme zarar verme olasılığı çok azdır. Yazılan bir program yüzünden
+yanlışlıkla makinede bir problem olma olasılığı oldukça azdır.
+
+Programlama Dillerinin Sınıflandırılması:
+
+1. Seviyelerine göre sınıflandırma: Seviye, programlama dilinin insan algısına yakınlığının bir ölçümüdür. Bir dil insan algısına ne kadar 
+yakınsa o kadar yüksek seviyelidir. Aşağı seviyeli (low level) diller makinenin doğal çalışmasına daha yakındır. Olabilecek en aşağı seviyeli
+dil makine dilidir.
+
+2  Kullanım alanlarına göre sınıflandırma: Dilin hangi alanlarda kullanılabileceğine ilişkin sınıflandırmadır. Bazı diller birden fazla alanda 
+kullanılabilirler. Bazı diller ise tek bir alana yöneliktir. Mesela SQL bir veritabanı dilidir tutup da web tasarımı yapamazsın. Java genel 
+amaçlı bir dildir.
+
+3. Programlama modeline göre sınıflandırma: Bir programı yazarken kullanılan genel model (paradigm) önemlidir. Bazı dillerde sınıf yoktur, program çeşitli
+alt programların (function) birbirlerini çağırmasıyşa yazılır. Buna "procedural model" denir. Bazı dillerde sınıf vardır, program sınıflar kullanılarak
+yazılır. Başka birçok kavramla birlikte sınıflar da kullanılarak yazılan modele "object oriented model" denir. Bazı dillerde programlar formül yazıyormuş
+gibi yazılır. Bu modele "functional" model, yapılan programlamaya ise "functional programming" denir. Bazı diller birden fazla modeli desteklerler.
+Bu tip dilllere "multi-paradigm laguage" denir. Burada birden fazla modelin desteklenmesi hepsinin aynı derecede desteklenmesi anlamına gelmez. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
