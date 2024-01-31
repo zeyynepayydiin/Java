@@ -22,6 +22,7 @@ Anahtar Notlar: Bir uygulama tek bir java dosyasından oluşmak zorunda değildi
 	elde edilir. Bu işleme genel olarak "build" terimi kullanılır. Build işlemi yalnızca derleme işlemi değildir. Yani
 	bir uygulamanın ürün olarak elde edilmesi süreci "build" işlemidir. Burada anlatılanların da detayları zamanla
 	ele alınacaktır.
+Compilation yüksek seviyeli bir koddan düşük seviyeli bir koda dönüşüme deniyor. Bunun çalışırken yapılırkenine JIT compilation deniyor.
 
 İşletim Sistemi (Operating System): Makinenin donanımını yöneten, bilgisayar ile kullanıcı arasında bir köprü oluşturan
 	yazılımdır. Bir işletim sisteminin pek çok görevi vardır. Programları çalıştırmak, çeşitli cihazları ve aygıtları yönetmek,
@@ -32,9 +33,18 @@ Anahtar Notlar: Bir uygulama tek bir java dosyasından oluşmak zorunda değildi
 
 Ne bilmediğiniz hakkında hiçbir bilginiz yok - Elon Musk :D
 
-Compilation yüksek seviyeli bir koddan düşük seviyeli bir koda dönüşüme deniyor. Bunun çalışırken yapılırkenine JIT compilation deniyor.
+Linux bir çekirdek projesi, bu çekirdek kullanılarak yazılan işletim sistemlerine linux distribution denir. 250den fazla linux dağıtımı var.
 
+ 
+Açık kaynak kodlu yazılım, özgür yazılım ve mülkiyete sahip yazılım: Özgür yazılım (free software) ve açık kaynak kodlu
+	(open source) yazılımlar arasında farklar olsa da genel olarak aşağıdaki ortak özelliklere sahiptirler:
+		- Bedavadır. Kullanılabilmesi için herhangi bir lisans gerekmez.
+		- Kaynak kodlar sahiplenilemez. Kaynak koda ekleme yapıldığında ya da bir kaynak kod kullanıldığında kodlar kapatılamaz.
+		Onların da açılması gerekir.
+		- Çoğaltılabilir, izin almadan kullanılabilir.
 
+Bunun tam tersi olarak mülkiyete sahip (propriatery) yazlımlardır. Bu yazılımlar para verilerek kullanılır ve izin
+almadan çoğaltılamaz.
 
 
 
