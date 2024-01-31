@@ -10,6 +10,7 @@ Temel Kavramlar:
 	derleyici ile kullanılan, Java 11 ile birlikte "java" programı yorumlayıcı olarak da java kodunu byte code üretilmeden 
 	çalıştırabilmektedir. Yorumlayıcı ile kullanılan diller derleyici ile kullanılan dillere göre daha yavaş olma eğilimindedir.
 
-Derleyicinin önemli bir görevi de optimizasyon. Sizin algoritmanızı değiltirmeden optimize eder. Speed ya da size açıdısından
+Derleyicinin önemli bir görevi de optimizasyon. Sizin algoritmanızı değiltirmeden optimize eder. Speed ya da size açıdısından. Derleyici ile
+çalışan diller bu yüzden yorumlayıcı ile çalışan dillere göre daha hızlıdır. Optimizasyon daha derlenirken yapılır çünkü.
 
 Yorumlayıcıda bir kod üretimi yok.
