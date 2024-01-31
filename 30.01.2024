@@ -47,9 +47,18 @@ almadan çoğaltılamaz.
 
 Okul projelerimizde aldığımız kodları kullanıyoruz ancak o koddan ürün elde edeceksek ne kadarını aldığımıza vs dikkat etmek gerekir
 
+IDE (Integrated Development Environment): Derleyicler ve yorumlayıcılar komut satırından çalışan ve basit arayüzlere
+	sahip programlardır. Aslında teorik olarak bir uygulamadaki tüm Java dosyaları ve diğer dosyalar basit bir editör programla
+	yazılıp komut satırından derlenebilir. Ancak bu, uygulama büyüdükçe zahmetli olmaya başlar. Bu da programcıya zaman
+	kaybettirir. Bu amaçla pratikte yazılım geliştirmeyi kolaylaştırmak için IDE denilen yazılımlar kullanılır. IDE'lerde
+	örneğin bir takım yardımlar veren editörler, tasarım araçları, test araçları, debug araçları vb. programcının geliştirme
+	sırasında kullandığı araçlar bulunur. Java ile uygulama geliştirmede iki tane IDE yoğun olarak kullanılmaktadır:
+	Eclipse, IntelliJIDEA. Biz kursumuzda belirli bir zaman (yaklaşık kursun yarısına kadar) Eclipse, sonrasında IntelliJIDEA
+	kullanacağız.
 
 
-
+İyi bir java programcısı notepad'de bile java yazabilecek kadar javayı bilmeli. Kullandığı IDE'yi de o kadar iyi bilmeli ama o IDE 
+olmadan da java yazabilmeli
 
 Tanımlar:
 React kullanıcı arayüzü oluşturmaya yarayan açık kaynak kodlu bir javascript kütüphanesidir.
