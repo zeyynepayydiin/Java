@@ -33,9 +33,8 @@ Compilation yüksek seviyeli bir koddan düşük seviyeli bir koda dönüşüme 
 
 Ne bilmediğiniz hakkında hiçbir bilginiz yok - Elon Musk :D
 
-Linux bir çekirdek projesi, bu çekirdek kullanılarak yazılan işletim sistemlerine linux distribution denir. 250den fazla linux dağıtımı var.
+Linux bir çekirdek, bu çekirdek kullanılarak yazılan işletim sistemlerine linux distribution denir. 250den fazla linux dağıtımı var.
 
- 
 Açık kaynak kodlu yazılım, özgür yazılım ve mülkiyete sahip yazılım: Özgür yazılım (free software) ve açık kaynak kodlu
 	(open source) yazılımlar arasında farklar olsa da genel olarak aşağıdaki ortak özelliklere sahiptirler:
 		- Bedavadır. Kullanılabilmesi için herhangi bir lisans gerekmez.
@@ -46,6 +45,7 @@ Açık kaynak kodlu yazılım, özgür yazılım ve mülkiyete sahip yazılım: 
 Bunun tam tersi olarak mülkiyete sahip (propriatery) yazlımlardır. Bu yazılımlar para verilerek kullanılır ve izin
 almadan çoğaltılamaz.
 
+Okul projelerimizde aldığımız kodları kullanıyoruz ancak o koddan ürün elde edeceksek ne kadarını aldığımıza vs dikkat etmek gerekir
 
 
 
