@@ -11,6 +11,16 @@ Temel Kavramlar:
 	çalıştırabilmektedir. Yorumlayıcı ile kullanılan diller derleyici ile kullanılan dillere göre daha yavaş olma eğilimindedir.
 
 Derleyicinin önemli bir görevi de optimizasyon. Sizin algoritmanızı değiltirmeden optimize eder. Speed ya da size açıdısından. Derleyici ile
-çalışan diller bu yüzden yorumlayıcı ile çalışan dillere göre daha hızlıdır. Optimizasyon daha derlenirken yapılır çünkü.
+çalışan diller bu yüzden yorumlayıcı ile çalışan dillere göre daha hızlıdır. Optimizasyon daha derlenirken yapılır çünkü. Fakat derleyici ile 
+çalışan dillere göre yorumlayıcı ile çalışan diller daha kolaydır.
 
 Yorumlayıcıda bir kod üretimi yok.
+
+Anahtar Notlar: Bir uygulama tek bir java dosyasından oluşmak zorunda değildir. Hatta bir Java uygulaması yalnızca
+	java kodlarından da oluşmak zorunda değildir. Bu durumda farklı java dosyaları ayrı derlenir. Hatta aynı dosyada
+	bulunan sınıflar da ayrı derlenir. Bir ürün aslında tüm birimlerinin uygun şekilde derlenmesi ve ele alınmasıyla
+	elde edilir. Bu işleme genel olarak "build" terimi kullanılır. Build işlemi yalnızca derleme işlemi değildir. Yani
+	bir uygulamanın ürün olarak elde edilmesi süreci "build" işlemidir. Burada anlatılanların da detayları zamanla
+	ele alınacaktır.
+
+
