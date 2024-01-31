@@ -23,4 +23,11 @@ Anahtar Notlar: Bir uygulama tek bir java dosyasından oluşmak zorunda değildi
 	bir uygulamanın ürün olarak elde edilmesi süreci "build" işlemidir. Burada anlatılanların da detayları zamanla
 	ele alınacaktır.
 
+İşletim Sistemi (Operating System): Makinenin donanımını yöneten, bilgisayar ile kullanıcı arasında bir köprü oluşturan
+	yazılımdır. Bir işletim sisteminin pek çok görevi vardır. Programları çalıştırmak, çeşitli cihazları ve aygıtları yönetmek,
+	dosyaları ve dizinleri (directory) organize etmek vb. görevler sayılabilir. İşletim sistemleri genel olarak iki gruba
+	ayrılabilir: masaüstü işletim sistemleri (desktop operating systems), mobil işletim sistemleri (mobile operating systems).
+	Şüphesiz başka çeşit işletim sistemleri de vardır. Popüler masaüstü işletim sistemleri Windows, Mac OS X, Unix ve Linux
+	dağitımları gibi işletim sistemleridir. Popüler mobil işletim sistemleri Android ve IOS'dur.
+
 
