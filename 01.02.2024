@@ -26,7 +26,10 @@ mesajlarına yol açan durumların ortadan kaldırılması gerekir. Bazı duruma
 bazı static kod analizi araçları da derleyici bazı uyarılar verebilir. Şüphesiz bunlar da dikkate alınmalıdır
 ancak hepsinin ortadan kaldırılması gerekmeyebilir. Pratikte bir ürünün nihai (release) versiyonunda derleyicinin
 tüm uyarı mesajlarının kaldırılmış olması gerekir.
-3. Ölümcül hatalar (fatal errors):
+3. Ölümcül hatalar (fatal errors): Derleme işleminni dahi tamamlanamadığı hatalardır. Örneğin derlenecek 
+dosyanın bulunamaması, diskte yer kalmaması, sistemsel problemler oluşması vb. Bu durumda programcının 
+ölümcül hataya yol açan durumu ortadan kaldırıp derleme işlemini yapması gerekir. Yani ölümcül hata durumunda
+programcının kodu ile ilgili bir durum yoktur.
 
 
 Terimler:
