@@ -5,14 +5,28 @@ iki özellie sahipse bir dildir:
 2. Semantik (semantic): Doğru dizilmiş ögelerin anlamına denir. Ögeler doğru dizilse bile cümle anlamlı 
 değilse yine hatalıdır.
 
-Doğal
+  Doğal dillerde sentaks ve semantik dışında dda kavramlar bulunur. Bilgisayar bilimlerinde kullanılan dillere
+bilgisayar dilleri (computer languages) denir. Bir bilgisayar dili akış (flow) içeriyorsa programlama dili
+(programming language) denir. Her bilgisayar dili bir programlama dili değildir. Örneğin html, XML gibi 
+bilgisayar dilleri akış içermediği için programlama dili değildir. Java bir programlama dilidir.
 
-
+  Programlama dilleri zaman içerisinde birbirlerinden esinlenmiştir. Hatta bazı programlama kalıpları da bir
+takım dillerden alınarak kullanılmaktadır.
 
 
   Derleyicinin verdiği mesajlar: Derleyiciler koda ilişkin bazı teşhis mesajları (diagnostics) verebilirler.
 Genel olarak derleyiciler herhangi bir mesaj vermezlerse veya yalnızca firmaya yönelik bir takım mesajlar
 vermişlerse derleme işlemi başarıyla yapılmış olur. Derleyicilerin teşhis mesajları iki gruba ayrılır:
-1. Gerçek hatalar (errors):
-2. Uyarıcılar(warnings):
+1. Gerçek hatalar (errors): Sentaks veya semantik olarak geçersiz bir durumda derleyicinin verdiği mesajlardır
+Bu durumda BC üretilmez. Programcının hataya yol açan durum veya durumları düzeltmesi ve derleme işlemini 
+yapması gerekir. Derleme hatası denir.
+2. Uyarıcılar(warnings): Programcının olası programlama hatalarına yönelik mesajlardır.Örneğin kullanılmayan 
+bir değişkenin tanımlanması. Uyarı mesajları ara kodun üretimini engellemez. Özel bir durum yoksa uyarı 
+mesajlarına yol açan durumların ortadan kaldırılması gerekir. Bazı durumalarda programcının kullandıpı 
+bazı static kod analizi araçları da derleyici bazı uyarılar verebilir. Şüphesiz bunlar da dikkate alınmalıdır
+ancak hepsinin ortadan kaldırılması gerekmeyebilir. Pratikte bir ürünün nihai (release) versiyonunda derleyicinin
+tüm uyarı mesajlarının kaldırılmış olması gerekir.
 3. Ölümcül hatalar (fatal errors):
+
+
+Terimler:
