@@ -1,3 +1,15 @@
+  Dil kavramı: İletişimde kullanılan sembollere dil denir. Dilin kurallarına gramer denir. Bir olgu en az şu 
+iki özellie sahipse bir dildir:
+1. Sentaks (syntax): Dilin ögelerinin doğru dizilimine denir. Örneğin "I am a student" cümlesinde dilin
+ögeleri doğru dizilmiştir. Cümle, "Am a student I" yazılsaydı sentaks olarak hatalı olurdu.
+2. Semantik (semantic): Doğru dizilmiş ögelerin anlamına denir. Ögeler doğru dizilse bile cümle anlamlı 
+değilse yine hatalıdır.
+
+Doğal
+
+
+
+
   Derleyicinin verdiği mesajlar: Derleyiciler koda ilişkin bazı teşhis mesajları (diagnostics) verebilirler.
 Genel olarak derleyiciler herhangi bir mesaj vermezlerse veya yalnızca firmaya yönelik bir takım mesajlar
 vermişlerse derleme işlemi başarıyla yapılmış olur. Derleyicilerin teşhis mesajları iki gruba ayrılır:
