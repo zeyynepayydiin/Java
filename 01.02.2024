@@ -19,7 +19,7 @@ Genel olarak derleyiciler herhangi bir mesaj vermezlerse veya yalnızca firmaya 
 vermişlerse derleme işlemi başarıyla yapılmış olur. Derleyicilerin teşhis mesajları iki gruba ayrılır:
 1. Gerçek hatalar (errors): Sentaks veya semantik olarak geçersiz bir durumda derleyicinin verdiği mesajlardır
 Bu durumda BC üretilmez. Programcının hataya yol açan durum veya durumları düzeltmesi ve derleme işlemini 
-yapması gerekir. Derleme hatası denir.
+yapması gerekir. Derleme hatası denir. Burda derleme işlemi tamamlanıyor. Ancak başarıyla tamamlanmıyor. 
 2. Uyarıcılar(warnings): Programcının olası programlama hatalarına yönelik mesajlardır.Örneğin kullanılmayan 
 bir değişkenin tanımlanması. Uyarı mesajları ara kodun üretimini engellemez. Özel bir durum yoksa uyarı 
 mesajlarına yol açan durumların ortadan kaldırılması gerekir. Bazı durumalarda programcının kullandıpı 
@@ -30,6 +30,15 @@ tüm uyarı mesajlarının kaldırılmış olması gerekir.
 dosyanın bulunamaması, diskte yer kalmaması, sistemsel problemler oluşması vb. Bu durumda programcının 
 ölümcül hataya yol açan durumu ortadan kaldırıp derleme işlemini yapması gerekir. Yani ölümcül hata durumunda
 programcının kodu ile ilgili bir durum yoktur.
+
+Derleme işleminin başarıyla yapılmaso durumunda derleyiciler ya da derleme işleminin başarılı olduğu da 
+anlaşılan mesajlar verirler.
+
+Programın çalışma zamanında oluşan hatalı durumlara genel olarak "run time error" veya "exception" denir.
+
+
+
+
 
 
 Terimler:
