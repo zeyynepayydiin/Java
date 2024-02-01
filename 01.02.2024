@@ -1,0 +1,6 @@
+  Derleyicinin verdiği mesajlar: Derleyiciler koda ilişkin bazı teşhis mesajları (diagnostics) verebilirler.
+Genel olarak derleyiciler herhangi bir mesaj vermezlerse veya yalnızca firmaya yönelik bir takım mesajlar
+vermişlerse derleme işlemi başarıyla yapılmış olur. Derleyicilerin teşhis mesajları iki gruba ayrılır:
+1. Gerçek hatalar (errors):
+2. Uyarıcılar(warnings):
+3. Ölümcül hatalar (fatal errors):
