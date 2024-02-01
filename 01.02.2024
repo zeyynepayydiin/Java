@@ -35,6 +35,27 @@ Derleme işleminin başarıyla yapılmaso durumunda derleyiciler ya da derleme i
 anlaşılan mesajlar verirler.
 
 Programın çalışma zamanında oluşan hatalı durumlara genel olarak "run time error" veya "exception" denir.
+Exception handling konusuna gelene kadar bir exception olduğunda program abnormal bir biçimde sonlanır olarak
+düşüneceğiz. Crash de diyolar.
+
+Anahtar notlar: Bir program için programcı açısından iki durum söz konusudur:
+1. Derleme zamanı (compile time): Derleme işlemine ilişkin süreçtir.  
+2. Çalışma zamanı (run-time): Programın çalışması sürecidir.
+
+O yaptığımız javac derleme işlemi.
+Şüphesiz derleme zamanı ve çalışma zamanı birbirleri ile ilişkilidir. Sonuçta bir program derlenmeden zaten
+çalıştırılamaz. Her ne kadar ilişkili de olasalar birbirlerinden farklı kavramlardır.
+
+Atom (token): Programlama dilinin bölünmeyen en küçük birimine denir. Java programlama dilinde atomlar 
+şunlardır:
+1. Anahtar sözcükler (keywords/ reserved words):
+2. Değişkenler (variables):
+
+
+
+
+
+
 
 
 
