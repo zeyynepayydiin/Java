@@ -27,3 +27,19 @@ konular içerisinde ele allınacaktır. Sınıf kavramı Nesne Yönelimli Progra
 Java'da alt programlara metot denir. Metot bildirimi (method declaration) alt programın kodlarının yazılmasıdır. Bir metot bildirildiğinde
 kodlarının çalıştırılabilmesi için çağrılamsı (call/invoke) gerekir. Metot bildiriminin genel biçimi şu şekildedir:
 
+[erişim belirleyici] [static] <geri dönüş değeri bilgisi> <isim> ([parametre listesi])
+{
+//...
+}
+
+
+
+
+
+
+
+
+
+
+
+
