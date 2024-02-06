@@ -45,7 +45,16 @@ genel biçimi şu şekildedir:
 Argüman kavramı ileride ele alınacaktır. Bir metot çağrıldığında akış metodun kodlarına dallanır. Çağrılan metodun kodları çalıştırılır. Metot
 çağrısı bittiğinde akış çağıran metoda (çağrılan noktaya) geri döner. Akış main metodundan başlar. Akışın başladığı main metoduna "entry point"
 denir. Özel bazı durumlar dışında main metodu bittiğinde program sonlanır. Main metodu da birileri çağırmalı elbet onu da JVM çağırıyo. Bizim 
-programımımız main başladığında başlar, main bittiğinde biter.
+programımımız main başladığında başlar, main bittiğinde biter. Print ve println metotları aldıkları değerleri ekrana basmak için kullanılan
+standart metotlardır. Bu metotlar non-static metotlardır. Dolayısıyla çağrıdaki System bir paket değildir.
+
+Anahtar notlar: Aslında teknik olarak print ve println gibi metotlar ekrana yazma yapmazlar. Bu metotlar isme standard output (stdoud) denilen
+kabaca bir dosyaya yazma yaparlar. stdout dosyası ekrana yönlendirildiği için biz çıktıları ekranda görürüz. Kursumuzda basitleştirmek için 
+ekran kavramını kullanacağız. Benzer şekilde klavyeden okuma yapan metodlar, okumayı aslında standard input (stdin) denilen bir dosyadan yaparlar.
+Dosya klavyeye yönlendirildiğinde okuma klavyeden yapılmış olur. Kursumuzda basitleştirmek içim klavye terimini de kullanacağız.
+
+Anahtar Notlar: Java'nın standart (yani hazır olarak) sınıflarının ve metotlarının bulunduğu kütüphaneye genel olarak JavaSE (Java Standard Edition) 
+denilmektedir.
 
 
 
