@@ -32,6 +32,12 @@ kodlarının çalıştırılabilmesi için çağrılamsı (call/invoke) gerekir.
 //...
 }
 
+Erişim belirleyici şunlar olabilir: public, no-modified (hiçbir şey yazmamak), protected, private. İlgili konuya gelene kadar tüm metotlarımızı
+public olarak bildireceğiz. Bir metot static veya non-static olabilir. Static anahtar sözcüğü yazılmadığında metot non-static olur. İlgili 
+konuya gelene kadar tüm metotlarımızı static olarak bildireceğiz. Bir metodun geri dönüş değeri (return value) olabilir ya da olmayabilir. 
+Bir metodun geri dönüş değeri yoksa void anahtar sözcüğü yazılır. Metot ismi değişken isimlendirme kurallarına uygun bir isim olmalıdır. Java'da 
+isimsiz metot yoktur. Bir metodun parametleri olabilir ya da olmayabilir.
+
 
 
 
