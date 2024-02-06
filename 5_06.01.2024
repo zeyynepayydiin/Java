@@ -56,8 +56,8 @@ Dosya klavyeye yönlendirildiğinde okuma klavyeden yapılmış olur. Kursumuzda
 Anahtar Notlar: Java'nın standart (yani hazır olarak) sınıflarının ve metotlarının bulunduğu kütüphaneye genel olarak JavaSE (Java Standard Edition) 
 denilmektedir.
 
-
-
+Çağrılan metodun (caller) ait olduğu sınıf ile metodun (calle) ait olduğu sınıf aynı paket içerisindeyse çağrı sırasında paket ismi kullanılmasına
+gerek yoktur. Okunulabilirlik açısından da yazmamak daha uygundur.
 
 
 
