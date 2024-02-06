@@ -36,7 +36,16 @@ Erişim belirleyici şunlar olabilir: public, no-modified (hiçbir şey yazmamak
 public olarak bildireceğiz. Bir metot static veya non-static olabilir. Static anahtar sözcüğü yazılmadığında metot non-static olur. İlgili 
 konuya gelene kadar tüm metotlarımızı static olarak bildireceğiz. Bir metodun geri dönüş değeri (return value) olabilir ya da olmayabilir. 
 Bir metodun geri dönüş değeri yoksa void anahtar sözcüğü yazılır. Metot ismi değişken isimlendirme kurallarına uygun bir isim olmalıdır. Java'da 
-isimsiz metot yoktur. Bir metodun parametleri olabilir ya da olmayabilir.
+isimsiz metot yoktur. Bir metodun parametleri olabilir ya da olmayabilir. Metot bildiriminde { ile } arasında kalan kod bölümüne metodun gövdesi
+(body) denir. Metodun ne iş yaptığı yani kodları buraya yazılır. Parametre kavramı ileride ele alınacaktır. Static bir metodu çağırmanın
+genel biçimi şu şekildedir: 
+
+[paket ismi].[sınıf ismi].<metot ism>([argümanlar]);
+
+Argüman kavramı ileride ele alınacaktır. Bir metot çağrıldığında akış metodun kodlarına dallanır. Çağrılan metodun kodları çalıştırılır. Metot
+çağrısı bittiğinde akış çağıran metoda (çağrılan noktaya) geri döner. Akış main metodundan başlar. Akışın başladığı main metoduna "entry point"
+denir. Özel bazı durumlar dışında main metodu bittiğinde program sonlanır. Main metodu da birileri çağırmalı elbet onu da JVM çağırıyo. Bizim 
+programımımız main başladığında başlar, main bittiğinde biter.
 
 
 
