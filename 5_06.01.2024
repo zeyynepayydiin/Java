@@ -46,7 +46,8 @@ Argüman kavramı ileride ele alınacaktır. Bir metot çağrıldığında akı�
 çağrısı bittiğinde akış çağıran metoda (çağrılan noktaya) geri döner. Akış main metodundan başlar. Akışın başladığı main metoduna "entry point"
 denir. Özel bazı durumlar dışında main metodu bittiğinde program sonlanır. Main metodu da birileri çağırmalı elbet onu da JVM çağırıyo. Bizim 
 programımımız main başladığında başlar, main bittiğinde biter. Print ve println metotları aldıkları değerleri ekrana basmak için kullanılan
-standart metotlardır. Bu metotlar non-static metotlardır. Dolayısıyla çağrıdaki System bir paket değildir.
+standart metotlardır. Bu metotlar non-static metotlardır. Dolayısıyla çağrıdaki System bir paket değildir. println ekrana ilgili yazıyı bastıktan
+sonra imleci (cursor) bir sonraki satırın başına çeker. Yani bir sonraki yazma işlemi, bir sonraki satırın başından itibaren
 
 Anahtar notlar: Aslında teknik olarak print ve println gibi metotlar ekrana yazma yapmazlar. Bu metotlar isme standard output (stdoud) denilen
 kabaca bir dosyaya yazma yaparlar. stdout dosyası ekrana yönlendirildiği için biz çıktıları ekranda görürüz. Kursumuzda basitleştirmek için 
