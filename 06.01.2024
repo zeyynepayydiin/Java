@@ -1,5 +1,29 @@
 Javac komutu JDK'ya ait.
-Bir Java programı genel olarak paketlerden (package), paketler sınıflardan (class), sınıflar da metotlardan (methods) oluşur.
-Paket bildiriminin
 
-Bildirim (Declaration): Bir ismin derleyiciye tanıtılmasıdır.
+Bir Java programı genel olarak paketlerden (package), paketler sınıflardan (class), sınıflar da metotlardan (methods) oluşur.
+
+Bildirim (Declaration): Bir ismin derleyiciye tanıtılmasıdır. 
+Bir dilin kurallarının genel biçimlerini açıklamaya yönelik pek çok notasyon kullanılmaktadır. Biz burada "açısal parantez-köşeli parantez"
+tekniğini kullanacağız. Bu teknikte zorunlu olması gerekenler açıklamada açısal parantez içerisine alınır. Seçenekli olması gerekenler ise 
+köşeli parantez içerisine alınır. Herhangi bir paranteze alınmayanlar ayı şekilde bulundurulması gerekenlerdir. Ayrıca 
+
+//... ile "burada bir takım kodlar var ancak şu an bizi ilgilendirmiyor" anlamına gelecektir.
+
+Paket bildiriminin genel biçimi:
+package <isim>;
+
+Burada isim daha sonra ele alacağımız değişken isimlendirme kurallarına uygun bir isim olmalıdır. Paketler konusu çok detaylı bir konudur, 
+ileride detaylı olarak ele alınacaktır. Biz ilgili konuya kadar yalnızca csd paketi içerisinde kodlama yapacağız. Sınıf bildiriminin 
+genel biçimi:
+
+[bildirime ilişkin bazı anahtar sözcükler] class <isim> {
+ //...
+}
+
+Burada isim değişken isimlendirme kurallarına uygun olmalıdır. Sınıf kavramı da oldukça geniş bir kavramdır. Sınıd bildiriminin detayları 
+konular içerisinde ele allınacaktır. Sınıf kavramı Nesne Yönelimli Programa Tekniğinin de temel taşlarından biridir. Program, sınıf olmadan
+"hello world" bile yazamıyor.
+
+Java'da alt programlara metot denir. Metot bildirimi (method declaration) alt programın kodlarının yazılmasıdır. Bir metot bildirildiğinde
+kodlarının çalıştırılabilmesi için çağrılamsı (call/invoke) gerekir. Metot bildiriminin genel biçimi şu şekildedir:
+
