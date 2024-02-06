@@ -1,2 +1,5 @@
 Javac komutu JDK'ya ait.
 Bir Java programı genel olarak paketlerden (package), paketler sınıflardan (class), sınıflar da metotlardan (methods) oluşur.
+Paket bildiriminin
+
+Bildirim (Declaration): Bir ismin derleyiciye tanıtılmasıdır.
