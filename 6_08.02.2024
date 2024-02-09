@@ -13,3 +13,57 @@ Binary digit(bit)
 1 word = 2 Byte
 1 double word = 4 Byte
 1 quadro word = 8 Byte
+
+00001010 -> binary
+10       -> decimal
+A        -> hexadecimal
+12       -> octal
+
+
+0100 1010 -> 0 * 1 + 1*2 + 0 * 4 + 1 * 8 + 0 * 16 + 0 * 32 + 1 * 64 + 0 * 128 = 74
+
+Tam sayılar (integer numbers):
+Gerçek sayılar (real numbers):
+
+Tam sayılar = İşaretli (signed), işaretsiz (unsigned)
+
+10  -> 0000 1010
+-10 -> 
+
+Negatif yapma: 2ye tümleme - Bire tümleyenini al, 1 ekle
+
+0100 0010 -> 1011 1101
+                     1
+             ---------
+             1011 1110
+Kolayı: sağdan başlıyorum 1 görene kadar aynen yazıyorum, 1'i de yazıyorum ilk birden sonra diğerlerinin hepsini çeviriyorum.
+
+The most significant bit (sign bit): sayının en soldaki biti 1 ise sayı negatif, 0 ise sayı pozitif
+
+1000 0010 ->  0111 1110 <-> 2 + 4 + 8 + 16 + 32 + 64 = -126
+
+unsigned 
+11111111 -> 255
+00000000 -> 0
+
+signed
+01111111 -> 127
+10000000 -> -128
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
