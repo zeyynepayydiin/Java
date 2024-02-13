@@ -66,12 +66,9 @@ edilmelidir.
 verirler. Derleyiciler bu tip isimleri verirken $ karakterini de kullanırlar. Java programcısı da hiçbir zaman $ karakterini değişken isimlerinde kullanmaz. Bu durumda programcının belirlediği isimler ile derleyicinin
 belirlediği isimlerin çakışma olasılığı olmaz. Zaten $ karakterinin değişken isimlendirmede kullanılabilmesinin nedeni yani varlık sebebi budur. JLS'de de $ karakteri bu şekilde açıklanmış ve programcı tarafından 
 kullanılması önerilmemiştir. 
-- Değişken isimleri okunabilirlik/algılanabilirlik "kolay telaffuz edilebilir, anlamlı ve yeterince uzunlukta" olması önerilir. Bu geneş bir programlama "convention"ı olarak düşünülmelidir.
-
-
-
-
-
+- Değişken isimleri okunabilirlik/algılanabilirlik "kolay telaffuz edilebilir, anlamlı ve yeterince uzunlukta" olması önerilir. Bu geneş bir programlama "convention"ı olarak düşünülmelidir. Değişken isimlendirmede bazı 
+teknikler de kullanılabilmektedir. Genel olarak kullanılan programlama diline göre bir ya da birden fazla teknik kullanılabilmektedir. Lower camel case/ Upper camel case vs.
+- JLS'de değişken isimlerinin maksimum karakter sayısı ile ilgili herhangi bir şey söylenmemiştir. Şüphesiz bir sınıfı olur. Ancak bu sınır olduk.a fazla olma eğiliminde olduğundan isimlendirmede bir sorun oluşturmaz.
 
 
 
