@@ -66,6 +66,7 @@ edilmelidir.
 verirler. Derleyiciler bu tip isimleri verirken $ karakterini de kullanırlar. Java programcısı da hiçbir zaman $ karakterini değişken isimlerinde kullanmaz. Bu durumda programcının belirlediği isimler ile derleyicinin
 belirlediği isimlerin çakışma olasılığı olmaz. Zaten $ karakterinin değişken isimlendirmede kullanılabilmesinin nedeni yani varlık sebebi budur. JLS'de de $ karakteri bu şekilde açıklanmış ve programcı tarafından 
 kullanılması önerilmemiştir. 
+- Değişken isimleri okunabilirlik/algılanabilirlik "kolay telaffuz edilebilir, anlamlı ve yeterince uzunlukta" olması önerilir. Bu geneş bir programlama "convention"ı olarak düşünülmelidir.
 
 
 
