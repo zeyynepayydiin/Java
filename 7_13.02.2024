@@ -94,7 +94,7 @@ JavaSE: (Kabaca standart kütüphane) Pek çok insan tarafından Java programlam
 işlevselliğini sağlar. Java programlama dilinin temel türlerinden ve nesnelerinden ağ oluşturma, güvenlik, veri tabanı erişimi, grafik kullanıcı arabirimi (GUI) geliştirme ve XML ayrıştırma için kullanılan üst
 düzey sınıflara kadar her şeyi tanımlamakla birlikte bir sanal makine, geliştirme araçları, dağıtım teknolojileri ve Java teknolojisi uygulamalarında yaygın olarak kullanılan diğer sınıf kitaplıkları ve araç 
 takımlarından oluşur. Ek olarak Java SE, masaüstü bilgisayarlarda çalışan bağımsız programlar olan uygulamalar geliştirmek ve web tarayıcılarında çalışan programlar olan uygulamalar geliştirmek için kullanılır.
-JLS: Java Language Specification  kitabı.
+JLS: Java'nın Language Specification dokümanı (kitap).
 
 
 
