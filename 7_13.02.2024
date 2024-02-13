@@ -40,12 +40,16 @@ Java'da 3 çeşit değişken vardır:
 3. Sınıf veri elemanları (member variables)
 
 Bir metot içerisinde { ile } arasında kalan bölgeye parantezler ile birlikte "blok (block)" denir. Bu anlamda metodun gövdesi de bir bloktur. Bir metot içerisinde istenildiği kadar iç içe veya ayrık bloklar 
-olabilir.  Bir blok içerisinde bildirilen değişkenlere yerel değişkenler (local variables) denir.
+olabilir.  Bir blok içerisinde bildirilen değişkenlere yerel değişkenler (local variables) denir. Eğer yerel değişkenler aynı türden ise bu durumda bildirim virgül ile ayrılarak yapılabilir. Yerel bir değişkenin 
+faaliyet alanı (scope) bildirildiği yerden bildirildiği bloğun sonuna kadardır.
 
 
+Aynı faaliyet alanı içerisinde aynı isimde yerel değişken bildirimi yapılamaz. Farklı faaliyet alanları içerisinde aynı isimde yerel değişken bildirimi geçerlidir.
 
+System.out.println, System.out.print metotları aldıkları değişkenin değerini ekrana basarlar.
 
-
+Java'da değer verilmemiş bir değişken kullanılamaz. Yerel değişkenlere otomatik olarak değer verilmez. Yerel değişkenin kullanılması için faaliyet alanı içerisinde en az bir kez programcı tarafından değer
+verilmiş olması gerekir.
 
 
 
