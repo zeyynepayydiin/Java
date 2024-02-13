@@ -51,6 +51,11 @@ System.out.println, System.out.print metotları aldıkları değişkenin değeri
 Java'da değer verilmemiş bir değişken kullanılamaz. Yerel değişkenlere otomatik olarak değer verilmez. Yerel değişkenin kullanılması için faaliyet alanı içerisinde en az bir kez programcı tarafından değer
 verilmiş olması gerekir.
 
+Değişken isimlendirme kuralları (Buradaki kurallar tüm değişken atomlar):
+- Değişken isimleri rakam karakteri ile başlatılmaz. Uygun bir karakter ile başlatılıp istenildiği kadar rakam karakteri kullanılır. 1234 olmaz.
+- Değişken isimlerinde "_ (underscore)" karakteri kullanılabilir, bu karakter ile de başlatılabilir. _1234 olur.
+- Java 8 ile birlikte _ karakterinin tek başına değişken ismi olması deprecated (altta açıklandı) olmuştur.  Java 9 ile birlikte _ karakterinin tek başına kullanımı error olarak değerlendirilir.
+- Anahtar sözcükler tek başlarına değişken ismi olamazlar.
 
 
 
@@ -66,12 +71,11 @@ verilmiş olması gerekir.
 
 
 
-
-
-
+Anahtar Notlar: 
+Programlamada artık kullanılması önerilmeyen kavrama deprecated denir. Deprecated olmanın çeşitli gerekçeleri olabilir. Programcı deprecated olan bir şeyi özel bir durum yoksa kullanmamalıdır.Deprecated olmanın 
+gerekçeleri ve yerine kullanılacak şeyler dokümente edilir.
 
 Terimler:
-
 JavaSE: (Kabaca standart kütüphane) Pek çok insan tarafından Java programlama dili düşünüldüğünde Java Platformu Standart Sürümü, yani Java SE API’si akla gelir. Java SE’nin API’si, Java programlama dilinin temel 
 işlevselliğini sağlar. Java programlama dilinin temel türlerinden ve nesnelerinden ağ oluşturma, güvenlik, veri tabanı erişimi, grafik kullanıcı arabirimi (GUI) geliştirme ve XML ayrıştırma için kullanılan üst
 düzey sınıflara kadar her şeyi tanımlamakla birlikte bir sanal makine, geliştirme araçları, dağıtım teknolojileri ve Java teknolojisi uygulamalarında yaygın olarak kullanılan diğer sınıf kitaplıkları ve araç 
