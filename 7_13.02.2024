@@ -55,7 +55,17 @@ Değişken isimlendirme kuralları (Buradaki kurallar tüm değişken atomlar):
 - Değişken isimleri rakam karakteri ile başlatılmaz. Uygun bir karakter ile başlatılıp istenildiği kadar rakam karakteri kullanılır. 1234 olmaz.
 - Değişken isimlerinde "_ (underscore)" karakteri kullanılabilir, bu karakter ile de başlatılabilir. _1234 olur.
 - Java 8 ile birlikte _ karakterinin tek başına değişken ismi olması deprecated (altta açıklandı) olmuştur.  Java 9 ile birlikte _ karakterinin tek başına kullanımı error olarak değerlendirilir.
-- Anahtar sözcükler tek başlarına değişken ismi olamazlar.
+- Anahtar sözcükler tek başlarına değişken ismi olamazlar. Java'ya daha sonraya eklenen bazı sözcükler kullanım yerine göre anahtar sözcük ya da değişken gibi ele alınırlar. Aslında bu tip sözcükler JLS'de anahtar 
+sözcükler listesinde bulunmaz. Bu tip sözcüklere programlamada "contextual keywords" denilmektedir.
+- Değişken isimleri bir boşluk (whitespace) karakteri içeremez.
+- Değişken isimleri büyük-küçük harf duyarlıdır (case sensitive). Aslında Java case sensitive bir dildir. Örneğin anahtar sözcüklerin tamamı küçük harfle yazılmalıdır.
+- Değişken isimleri UNICODE alfabetik karakterler içerebilir. Örneğin değişken isimlerinde Türkçe karakterler kullanılabilir. Her ne kadar değişken isimlerinde UNICODE alfabetik karakterler kullanılabilse de
+programcı ingilizce alfabedeki karakterleri tercih etmelidir. Hatta programcı herhangi bir dilde bir değişken ismini herhangi bir dile özgü de yazmamalıdır. Değişken isimlerinde ingilizce kelimeler tercih 
+edilmelidir.
+- Değişken isimlerinde $ karakteri kullanılabilir. Değişken ismi $ karakteri ile başlatılabilir. 
+
+
+
 
 
 
