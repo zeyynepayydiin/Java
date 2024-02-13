@@ -30,6 +30,17 @@ Değişken:
 Bellekte, ayrılan bir bölgen ile işlem yapılmasını sağlar yani o bölgeyi temsil eder. Bir değişken için bellekte yer alma detayları ileride ele alınacaktır. Değişken bildiriminin genel biçimi şu şekildedir:
 <tür> <isim>;
 
+Java'da bir değişken kullanılmadan önce bildirilmelidir. Değişken ismi, değişken isimlendirme kurallarına uygun herhangi bir isim olabilir. Bir değişkene bildirim noktasında değer verilmesine "initialization" 
+denir.
+
+
+
+
+
+
+
+
+
 
 
 
