@@ -1,0 +1,37 @@
+
+Java' da boolean türù disinda kalan temel türlerin uzunluklar her sistemde aynadir. boolean türünün aldig iki tane de¢er olduâundan yani herhangi bir sinir söz konusu olmadiäindan programci acisindan uzunluäun da önemi yoktur.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Terimler:
+
+JavaSE: Pek çok insan tarafından Java programlama dili düşünüldüğünde Java Platformu Standart Sürümü, yani Java SE API’si akla gelir. Java SE’nin API’si, Java programlama dilinin temel işlevselliğini sağlar. 
+Java programlama dilinin temel türlerinden ve nesnelerinden ağ oluşturma, güvenlik, veri tabanı erişimi, grafik kullanıcı arabirimi (GUI) geliştirme ve XML ayrıştırma için kullanılan üst düzey sınıflara 
+kadar her şeyi tanımlamakla birlikte bir sanal makine, geliştirme araçları, dağıtım teknolojileri ve Java teknolojisi uygulamalarında yaygın olarak kullanılan diğer sınıf kitaplıkları ve araç takımlarından
+oluşur. Ek olarak Java SE, masaüstü bilgisayarlarda çalışan bağımsız programlar olan uygulamalar geliştirmek ve web tarayıcılarında çalışan programlar olan uygulamalar geliştirmek için kullanılır.
+
+
+
+
