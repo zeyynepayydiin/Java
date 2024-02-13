@@ -62,7 +62,10 @@ sözcükler listesinde bulunmaz. Bu tip sözcüklere programlamada "contextual k
 - Değişken isimleri UNICODE alfabetik karakterler içerebilir. Örneğin değişken isimlerinde Türkçe karakterler kullanılabilir. Her ne kadar değişken isimlerinde UNICODE alfabetik karakterler kullanılabilse de
 programcı ingilizce alfabedeki karakterleri tercih etmelidir. Hatta programcı herhangi bir dilde bir değişken ismini herhangi bir dile özgü de yazmamalıdır. Değişken isimlerinde ingilizce kelimeler tercih 
 edilmelidir.
-- Değişken isimlerinde $ karakteri kullanılabilir. Değişken ismi $ karakteri ile başlatılabilir. 
+- Değişken isimlerinde $ karakteri kullanılabilir. Değişken ismi $ karakteri ile başlatılabilir. $ karakteri tek başına değişken ismi olabilir. Derleyiciler bazı durumlarda arakoda veya arkod içerisinde isimler
+verirler. Derleyiciler bu tip isimleri verirken $ karakterini de kullanırlar. Java programcısı da hiçbir zaman $ karakterini değişken isimlerinde kullanmaz. Bu durumda programcının belirlediği isimler ile derleyicinin
+belirlediği isimlerin çakışma olasılığı olmaz. Zaten $ karakterinin değişken isimlendirmede kullanılabilmesinin nedeni yani varlık sebebi budur. JLS'de de $ karakteri bu şekilde açıklanmış ve programcı tarafından 
+kullanılması önerilmemiştir. 
 
 
 
@@ -90,7 +93,7 @@ JavaSE: (Kabaca standart kütüphane) Pek çok insan tarafından Java programlam
 işlevselliğini sağlar. Java programlama dilinin temel türlerinden ve nesnelerinden ağ oluşturma, güvenlik, veri tabanı erişimi, grafik kullanıcı arabirimi (GUI) geliştirme ve XML ayrıştırma için kullanılan üst
 düzey sınıflara kadar her şeyi tanımlamakla birlikte bir sanal makine, geliştirme araçları, dağıtım teknolojileri ve Java teknolojisi uygulamalarında yaygın olarak kullanılan diğer sınıf kitaplıkları ve araç 
 takımlarından oluşur. Ek olarak Java SE, masaüstü bilgisayarlarda çalışan bağımsız programlar olan uygulamalar geliştirmek ve web tarayıcılarında çalışan programlar olan uygulamalar geliştirmek için kullanılır.
-
+JLS: Java Language Specification  kitabı.
 
 
 
