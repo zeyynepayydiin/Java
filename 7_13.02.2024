@@ -26,7 +26,9 @@ Ancak UNICODE tablonun en yaygın kullanılan encoding'i UTF-8 encoding'idir. UT
 2 byte, 3 byte, 4 byte ve 5 byte kodlanabilmekedir. Türkçe karakterler UTF-8 encoding'inde 2 byte yer kaplamaktadr. UTF-8 encoding'i UNICODE bir yazının 
 adeta sıkıştırılmış bir hali gibi düşünülebilir. 
 
-
+Değişken:
+Bellekte, ayrılan bir bölgen ile işlem yapılmasını sağlar yani o bölgeyi temsil eder. Bir değişken için bellekte yer alma detayları ileride ele alınacaktır. Değişken bildiriminin genel biçimi şu şekildedir:
+<tür> <isim>;
 
 
 
