@@ -31,10 +31,16 @@ Bellekte, ayrılan bir bölgen ile işlem yapılmasını sağlar yani o bölgeyi
 <tür> <isim>;
 
 Java'da bir değişken kullanılmadan önce bildirilmelidir. Değişken ismi, değişken isimlendirme kurallarına uygun herhangi bir isim olabilir. Bir değişkene bildirim noktasında değer verilmesine "initialization" 
-denir.
+denir. Atama ile initialization aynı işlem değildir. Bir derleyici tarafından görülebildiği kod aralığına "faaliyet alanı (scope)" denir. Bir değişkenin bellekte kalma süresine yani yaratılmasıyla yok edilmesi 
+arasında kalan süre "ömür (storage duration)" denir. Ömür kavramı "adresler" konusuyla birlikte ileride ele alınacaktır.
 
+Java'da 3 çeşit değişken vardır:
+1. Yerel değişkenler (local variables)
+2. Parametre değişkenleri (parameter variables)
+3. Sınıf veri elemanları (member variables)
 
-
+Bir metot içerisinde { ile } arasında kalan bölgeye parantezler ile birlikte "blok (block)" denir. Bu anlamda metodun gövdesi de bir bloktur. Bir metot içerisinde istenildiği kadar iç içe veya ayrık bloklar 
+olabilir. 
 
 
 
