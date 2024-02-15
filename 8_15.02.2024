@@ -52,9 +52,18 @@ class App{
 
 İfade(expression): Sabitlerden, operatörlerden ve değişkenlerden oluşan herhangi bir kombinasyona ifade denir. Bir ifade yalnızca
 sabitlerden ve operatörlerden oluşuyorsa bu ifadeye "constant expression" denir. Bir değişken ve sabit tek başına ifadedir. Ancak
-bir operatör tek başına bir ifade olamaz
+bir operatör tek başına bir ifade olamaz. Her ifadenin bir türü vardır 
 
-
+Bir metodun geri dönüş değeri bilgisi yerine bir tür ismi yazılırsa, bu metodun geri dönüş değeri (return value) vardır denir. 
+Tersinde bir metodun geri dönüş değeri varsa geri dönüş değeri bilgisi yerine bir tür yazılır. Bir metodun geri dönüş değeri varsa,
+o metodun çağrısı bittiğinde çağrılan noktaya bir değer ile geri döner. Bir metodun geri dönüş değeri yoksa çağrılan noktaya yalnızca 
+geri döner, bir değer aktarılmaz.Bir metodun geri dönüş değeri yoksa geri dönüş değeri bilgisi yerine void anahtar sözcüğü yazılır.
+Bir metodun geri dönüş değeri metot içerisinde return deyimi ile oluşturulur. return deyiminin genel biçimi şu şekildedir:
+	return [ifade];
+Görüldüğü gibi return deyimi tek başına veya bir ifade ile kullanılabilir. Bu kullanımların detayları bölüm içerisinde anlaşılacaktır.
+return deyimi nasıl kullanılırsa kullanılsın, akış return deyimine geldiğinde metot sonlanır. Yani return deyiminin birinci görevi 
+metodu sonlandırmaktır. return deyimi ifade ile kullanılmışsa ifadenin değeri çağrılan noktaya aktarılır. Buna geri dönüş değeri
+denmesinin nedeni budur.
 
 
 
