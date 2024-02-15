@@ -1,0 +1,27 @@
+Java'da klavyeden okuma yapmak (aslında stdin'den okuma yapmak) için pek çok sınıf ve metot bulunmaktadır. Biz kursumuzda
+ağırlıklı olarak Scanner ismli bir sınıfın nextXXX metotlarını kullanacağız. Belirli konulara gelene kadar bu kullanımlar 
+birer kalıp biçiminde düşünülmelidir. Kullanılan kalıpların detayları ileride anlaşılacaktır. Kullanılan kalıplarda IDE'nin 
+static kod analizi ya da derleyici bir takım uyarılar(warnings) verebilecektir. Aksi belirtilmediği sürece bu uyarılar dikkate
+alınmayacaktır.
+
+Bu kalıplarda ilgili türden giriş yapılmadığı durumlarda exception oluşur.
+
+
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Birinci  sayıyı giriniz: ");
+		int a = Integer.parseInt(kb.nextLine());
+		System.out.print("İkinci  sayıyı giriniz: ");
+		int b = Integer.parseInt(kb.nextLine());
+		int total;
+		total = a+b;
+		System.out.println(total);
+		
+	}
+}
