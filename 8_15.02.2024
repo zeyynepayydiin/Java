@@ -149,6 +149,46 @@ class Util{
 	}
 }
 
+----------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örnekte add metodunun geri dönüş değeri getInt metodunun geri dönüş değeri yapılmıştır. Yani, getInt metodu add metodu
+çağrıldıktan sonra elede edilen değere geri dönmektedir.
+----------------------------------------------------------------------------------------------------------------------------------
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		int result;
+		
+		result = Sample.getInt();
+		
+		System.out.println(result);
+		
+	}
+	
+}
+class Sample {
+	public static int getInt() {
+		
+		System.out.print("Bir tam sayı girmeniz gerekiyor: ");
+		return Util.add();
+	}
+	
+}
+class Util{
+	public static int add() {
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+		int total = a+b;
+		
+		return total;
+		
+	}
+}
+
+
 
 
 
