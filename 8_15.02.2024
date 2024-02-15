@@ -25,3 +25,23 @@ class App{
 		
 	}
 }
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Birinci  sayıyı giriniz: ");
+		double a = Double.parseDouble(kb.nextLine());
+		System.out.print("İkinci  sayıyı giriniz: ");
+		double b = Double.parseDouble(kb.nextLine());
+		double total;
+		total = a+b;
+		System.out.println(total);
+		
+	}	
+}
+
+
