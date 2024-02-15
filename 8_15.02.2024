@@ -26,6 +26,12 @@ class App{
 	}
 }
 
+
+-----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki klavyeden double türden değer okuma kalıbında değerler ENTER karakteri ile ayrılacak şekilde girilmelidir.
+Diğer whitespace karakterlerin kullanımı exception oluşturur.
+-----------------------------------------------------------------------------------------------------------------------
+
 package csd;
 
 class App{
@@ -43,5 +49,27 @@ class App{
 		
 	}	
 }
+
+İfade(expression): Sabitlerden, operatörlerden ve değişkenlerden oluşan herhangi bir kombinasyona ifade denir. Bir ifade yalnızca
+sabitlerden ve operatörlerden oluşuyorsa bu ifadeye "constant expression" denir. Bir değişken ve sabit tek başına ifadedir. Ancak
+bir operatör tek başına bir ifade olamaz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
