@@ -199,7 +199,8 @@ Metot çağrısı için derleyici geçisi değişken (temporary variable) yarata
 Metodu çağıran kişi metodun ne yaptığını bilmeli nasıl yaptığını bilmesi önemli değil.
 Geri dönüş değeri olan bir metot geri dönüş değeri yokmuş gibi yani geri dönüş değeri işleme sokulmadan çağrılabilir. Şüphesiz
 metodun da buna uygun olması gerekir. Aşağıdaki add metodu toplam değerini  ekrana bastığı için ve motodu çağıran kod da yalnızca
-ekrana basma kısmı ile ilgilendiğinden metodu doğrudan çağırmaktadır.
+ekrana basma kısmı ile ilgilendiğinden metodu doğrudan çağırmaktadır. Demo örnekteki add metodu toplam değerini ekrana basmasaydı, 
+yani sadece geri döndürseydi, doğrudan çağrrılmasının algoritmik açıdan etkisi olur mu?
 ----------------------------------------------------------------------------------------------------------------------------------
 
 class App{
@@ -217,7 +218,8 @@ class Util{
 		int a = kb.nextInt();
 		int b = kb.nextInt();
 		int total = a+b;
-		
+
+		System.out.println(result);
 		return total;
 		
 	}
