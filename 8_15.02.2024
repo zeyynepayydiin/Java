@@ -188,9 +188,16 @@ class Util{
 	}
 }
 
+----------------------------------------------------------------------------------------------------------------------------------
+Metot çağrısı için derleyici geçisi değişken (temporary variable) yaratan ve işleme sokulan bir kod üretir. Geçici değişkenin türü
+çağrılan metodun geri dönüş değeri türü ile aynıdır. Aşağıdaki demo örnekte *** ile belirtile deyimi deyim için üretilen kod şu 
+şekildedir:
+	int temp = Util.add();
 
+	result = temp * 2;
 
-
+!! Bu durumda geri dönüş değeri olan bir metot çağrısı geçici değişkene yapılan bir atama işlemidir.
+----------------------------------------------------------------------------------------------------------------------------------
 
 
 
