@@ -65,6 +65,10 @@ return deyimi nasıl kullanılırsa kullanılsın, akış return deyimine geldi�
 metodu sonlandırmaktır. return deyimi ifade ile kullanılmışsa ifadenin değeri çağrılan noktaya aktarılır. Buna geri dönüş değeri
 denmesinin nedeni budur.
 
+----------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örnekte add metodu çağrıldığında kullanıcıdan iki değer istenmiş ve o değerlerin toplamına geri dönülmüştür. main
+metodu içerisinde ise add metodu çağrılmış, geri dönül değeri 3 ile çarpılıp sonuç result değişkenine atanmıştır.
+----------------------------------------------------------------------------------------------------------------------------------
 
 package csd;
 
@@ -76,8 +80,6 @@ class App{
 		result = Util.add() * 2;
 		
 		System.out.println(result);
-	
-		
 	}
 	
 }
@@ -92,18 +94,60 @@ class Util{
 		int total = a+b;
 		
 		return total;
+	}
+}
+----------------------------------------------------------------------------------------------------------------------------------
+Geri dönüş değeri olan bir metot içerisinde return deyiminin tek başına kullanımı geçersizdir. Yani derleyici açısından, metodun
+geri dönüş değeri varsa metot içerisinde metodun bir değer döndüremeyeceği bir durum oluşmamalıdır. 
+----------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki geri dönüş değeri olan add metodunda bir değer döndürülmediği için error oluşur
+----------------------------------------------------------------------------------------------------------------------------------
+class Util{
+	public static int add() {
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("İki sayı giriniz: ");
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+		int total = a+b;
 		
 	}
 }
 
 
+class Util{
+	public static int add() {
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("İki sayı giriniz: ");
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+		int total = a+b;
+		if (total>10
 
+		
+	}
+}
 
+----------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte return deyimine ilişkin ifadenin değeri a ile b'nin değerlerinin toplamından elde edilmiştir. Bu tarz ifadelerde 
+okunulabilirliğin/algılanabilirliğin olumsuz etkilenmesine dikkat edilmelidir.
+----------------------------------------------------------------------------------------------------------------------------------
 
+class Util{
+	public static int add() {
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("İki sayı giriniz: ");
+		int a = kb.nextInt();
+		int b = kb.nextInt();
 
-
-
-
+		return a+b;
+		
+	}
+}
 
 
 
