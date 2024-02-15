@@ -126,8 +126,7 @@ class Util{
 		int b = kb.nextInt();
 		int total = a+b;
 		if (total>10
-
-		
+	
 	}
 }
 
@@ -165,7 +164,6 @@ class App{
 		System.out.println(result);
 		
 	}
-	
 }
 class Sample {
 	public static int getInt() {
@@ -173,7 +171,6 @@ class Sample {
 		System.out.print("Bir tam sayı girmeniz gerekiyor: ");
 		return Util.add();
 	}
-	
 }
 class Util{
 	public static int add() {
@@ -198,7 +195,30 @@ Metot çağrısı için derleyici geçisi değişken (temporary variable) yarata
 
 !! Bu durumda geri dönüş değeri olan bir metot çağrısı geçici değişkene yapılan bir ATAMA işlemidir.
 ----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
 Metodu çağıran kişi metodun ne yaptığını bilmeli nasıl yaptığını bilmesi önemli değil.
+Geri dönüş değeri olan bir metot geri dönüş değeri yokmuş gibi yani geri dönüş değeri işleme sokulmadan çağrılabilir. Şüphesiz
+metodun da buna uygun olması gerekir. Aşağıdaki add metodu toplam değerini  ekrana bastığı için ve motodu çağıran kod da yalnızca
+ekrana basma kısmı ile ilgilendiğinden metodu doğrudan çağırmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------
 
+class App{
+	public static void main(String [] args) {
+		
+		Util.add();
+		
+	}
+}
 
-
+class Util{
+	public static int add() {
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+		int total = a+b;
+		
+		return total;
+		
+	}
+}
