@@ -196,9 +196,9 @@ Metot çağrısı için derleyici geçisi değişken (temporary variable) yarata
 
 	result = temp * 2;
 
-!! Bu durumda geri dönüş değeri olan bir metot çağrısı geçici değişkene yapılan bir atama işlemidir.
+!! Bu durumda geri dönüş değeri olan bir metot çağrısı geçici değişkene yapılan bir ATAMA işlemidir.
 ----------------------------------------------------------------------------------------------------------------------------------
-
+Metodu çağıran kişi metodun ne yaptığını bilmeli nasıl yaptığını bilmesi önemli değil.
 
 
 
