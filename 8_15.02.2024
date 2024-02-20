@@ -67,7 +67,7 @@ denmesinin nedeni budur.
 
 ----------------------------------------------------------------------------------------------------------------------------------
 Aşağıdaki demo örnekte add metodu çağrıldığında kullanıcıdan iki değer istenmiş ve o değerlerin toplamına geri dönülmüştür. main
-metodu içerisinde ise add metodu çağrılmış, geri dönül değeri 3 ile çarpılıp sonuç result değişkenine atanmıştır.
+metodu içerisinde ise add metodu çağrılmış, geri dönül değeri 2 ile çarpılıp sonuç result değişkenine atanmıştır.
 ----------------------------------------------------------------------------------------------------------------------------------
 
 package csd;
@@ -96,11 +96,31 @@ class Util{
 		return total;
 	}
 }
-----------------------------------------------------------------------------------------------------------------------------------
-Geri dönüş değeri olan bir metot içerisinde return deyiminin tek başına kullanımı geçersizdir. Yani derleyici açısından, metodun
-geri dönüş değeri varsa metot içerisinde metodun bir değer döndüremeyeceği bir durum oluşmamalıdır. 
-----------------------------------------------------------------------------------------------------------------------------------
 
+/*----------------------------------------------------------------------------------------------------------------------
+	Geri dönüş değeri olan bir metot içerisinde return deyiminin tek başına kullanımı geçersizdir
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class Util {
+	public static int add()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("İki sayı giriniz:");
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+		int total;
+		
+		total = a + b;
+		
+		return;	//error	
+	}
+}
+----------------------------------------------------------------------------------------------------------------------------------
+Geri dönüş değeri olan bir metot içerisinde akışın her noktasında metodun return edebilmesi gerekir. Yani derleyici
+açısından, metodun geri dönüş değeri varsa metot içerisinde metodun bir değer döndüremeyeceği bir durum oluşmamalıdır 
+----------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------
 Aşağıdaki geri dönüş değeri olan add metodunda bir değer döndürülmediği için error oluşur
 ----------------------------------------------------------------------------------------------------------------------------------
@@ -115,7 +135,11 @@ class Util{
 		
 	}
 }
-
+/*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki demo örnekte geri dönüş değeri olan add metodunda total > 10 koşulu gerçeklenmediğinde metot bir değere 
+	dönemeyeceğinden dolayı error oluşur 
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
 
 class Util{
 	public static int add() {
@@ -125,7 +149,9 @@ class Util{
 		int a = kb.nextInt();
 		int b = kb.nextInt();
 		int total = a+b;
-		if (total>10
+
+		if (total > 10)
+			return total;	
 	
 	}
 }
@@ -134,7 +160,18 @@ class Util{
 Aşağıdaki örnekte return deyimine ilişkin ifadenin değeri a ile b'nin değerlerinin toplamından elde edilmiştir. Bu tarz ifadelerde 
 okunulabilirliğin/algılanabilirliğin olumsuz etkilenmesine dikkat edilmelidir.
 ----------------------------------------------------------------------------------------------------------------------------------
+package csd;
 
+class App {
+	public static void main(String[] args) 
+	{
+		int result;
+		
+		result = Util.add() * 2;
+		
+		System.out.println(result);						
+	}
+}
 class Util{
 	public static int add() {
 		java.util.Scanner kb = new java.util.Scanner(System.in);
@@ -143,7 +180,7 @@ class Util{
 		int a = kb.nextInt();
 		int b = kb.nextInt();
 
-		return a+b;
+		return a + b;
 		
 	}
 }
@@ -195,6 +232,32 @@ Metot çağrısı için derleyici geçisi değişken (temporary variable) yarata
 
 !! Bu durumda geri dönüş değeri olan bir metot çağrısı geçici değişkene yapılan bir ATAMA işlemidir.
 ----------------------------------------------------------------------------------------------------------------------------------
+package csd;
+
+class App {
+	public static void main(String[] args) 
+	{
+		int result;
+		
+		result = Util.add() * 2; //***
+		
+		System.out.println(result);						
+	}
+}
+
+class Util {
+	public static int add()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("İki sayı giriniz:");
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+		
+		return a + b;
+	}
+}
+
 ----------------------------------------------------------------------------------------------------------------------------------
 Metodu çağıran kişi metodun ne yaptığını bilmeli nasıl yaptığını bilmesi önemli değil.
 Geri dönüş değeri olan bir metot geri dönüş değeri yokmuş gibi yani geri dönüş değeri işleme sokulmadan çağrılabilir. Şüphesiz
