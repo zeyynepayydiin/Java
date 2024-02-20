@@ -3,3 +3,32 @@ değeri olmayan metotlara "void method" da denilmektedir. void bir metot sonland
 ile dönmez. Bu durumda void metot içerisinde return deyimi bir ifade ile kullanılamaz. İstenirse metodu sonlandırmak
 için tek başına kullanılabilir. Bu anlamda void metotlarda return deyimi zorunlu değildir. Void bir metot geri dönüş
 değeri varmış gibi çağırılamaz. Yani geri dönüş değeri varmış gibi işleme sokulamaz. Aşağıdaki demo örneği inceleyiniz.
+
+package csd;
+
+class Util{
+	public static void printTotal() {
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		int total = add();
+    System.out.print(total);
+		return total; // error
+	}
+	public static int add() {
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+    System.out.print("İki sayı giriniz");
+    int a = kb.nextInt();
+    int b = kb.nextInt();
+    int total = a + b;
+
+		return total; 
+	}
+
+}
+
+
+
+
+
+
