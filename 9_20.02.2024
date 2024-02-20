@@ -1,0 +1,5 @@
+Bir metodun geri dönül değeri yoksa geri dönüş değeri bilgisi yerine "void" anahtar sözcüğü yazılır. Geri dönüş 
+değeri olmayan metotlara "void method" da denilmektedir. void bir metot sonlandığında çağrılan noktaya bir değer
+ile dönmez. Bu durumda void metot içerisinde return deyimi bir ifade ile kullanılamaz. İstenirse metodu sonlandırmak
+için tek başına kullanılabilir. Bu anlamda void metotlarda return deyimi zorunlu değildir. Void bir metot geri dönüş
+değeri varmış gibi çağırılamaz. Yani geri dönüş değeri varmış gibi işleme sokulamaz. Aşağıdaki demo örneği inceleyiniz.
