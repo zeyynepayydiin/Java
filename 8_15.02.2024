@@ -112,7 +112,7 @@ class App {
 	}
 }
 /*----------------------------------------------------------------------------------------------------------------------
-	Aşağıdaki klavyeden double türden değer okuma kalıbında değerler ENTER karakteri ile ayrılacak şekilde girilmelidir. 
+	Aşağıdaki klavyeden long türden değer okuma kalıbında değerler ENTER karakteri ile ayrılacak şekilde girilmelidir. 
 	Diğer whitespace karakterlerin kullanımı exception oluşturur
 ----------------------------------------------------------------------------------------------------------------------*/
 package csd;
