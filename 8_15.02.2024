@@ -6,7 +6,30 @@ alınmayacaktır.
 
 Bu kalıplarda ilgili türden giriş yapılmadığı durumlarda exception oluşur.
 
+/*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki klavyeden int türden değer okuma kalıbında değerler aralarında en az bir tane whitespace karakter olacak
+	şekilde girilir
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
 
+class App {
+	public static void main(String[] args) 
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("İki sayı giriniz:");
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+		int total;
+		
+		total = a + b;
+		System.out.println(total);		
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki klavyeden int türden değer okuma kalıbında değerler ENTER karakteri ile ayrılacak şekilde girilmelidir. 
+	Diğer whitespace karakterlerin kullanımı exception oluşturur
+----------------------------------------------------------------------------------------------------------------------*/
 
 package csd;
 
@@ -26,7 +49,26 @@ class App{
 	}
 }
 
+/*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki klavyeden double türden değer okuma kalıbında değerler aralarında en az bir tane whitespace karakter olacak
+	şekilde girilir
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
 
+class App {
+	public static void main(String[] args) 
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("İki sayı giriniz:");
+		double a = kb.nextDouble();
+		double b = kb.nextDouble();
+		double total;
+		
+		total = a + b;
+		System.out.println(total);		
+	}
+}
 -----------------------------------------------------------------------------------------------------------------------
 Aşağıdaki klavyeden double türden değer okuma kalıbında değerler ENTER karakteri ile ayrılacak şekilde girilmelidir.
 Diğer whitespace karakterlerin kullanımı exception oluşturur.
@@ -48,6 +90,48 @@ class App{
 		System.out.println(total);
 		
 	}	
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki klavyeden long türden değer okuma kalıbında değerler aralarında en az bir tane whitespace karakter olacak
+	şekilde girilir
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String[] args) 
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("İki sayı giriniz:");
+		long a = kb.nextLong();
+		long b = kb.nextLong();
+		long total;
+		
+		total = a + b;
+		System.out.println(total);		
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki klavyeden double türden değer okuma kalıbında değerler ENTER karakteri ile ayrılacak şekilde girilmelidir. 
+	Diğer whitespace karakterlerin kullanımı exception oluşturur
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String[] args) 
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Birinci sayıyı giriniz:");
+		long a = Long.parseLong(kb.nextLine()); 
+		
+		System.out.print("İkinci sayıyı giriniz:");
+		long b = Long.parseLong(kb.nextLine());
+		long total;
+		
+		total = a + b;
+		System.out.println(total);		
+	}
 }
 
 İfade(expression): Sabitlerden, operatörlerden ve değişkenlerden oluşan herhangi bir kombinasyona ifade denir. Bir ifade yalnızca
