@@ -39,15 +39,81 @@ Anahtar Notlar: Java'da bir metot bir tane değere geri dönebilir.
 Metodun gövdesinden önce parantez içerisinde bildirilen değişkenlere metot parametre değişkenleri denir. Metot parametre
 değişkenleri virgül ile ayrılır. Değişkenler aynı türden olsa bile tür bilgisi her biri için yazılır. Metot parametre 
 değişkenleri faaliyet alanı olarak metodun başında bildirilen yerel değişkenler gibidir. Yani ilgili metot boyunca 
-görülebilir. Metot çağrısında metoda geçilen ifadelere argüman (argument) denir.
+görülebilir. Metot çağrısında metoda geçilen ifadelere argüman (argument) denir. Bu anlamda metodun parametre değişkenleri
+aslında metodun girdileridir (input). Bir metodun kaç tane parametresi varsa o kadar sayıda argüman ile çağrılmalıdır. 
+Parametre değişkenleri değerlerinin metot çağrısında ilgili parametreye geçilen ifadenin değeri olarak alırlar. Yani metot 
+çağrısında argümana ilişkin ifade önce hesaplanır ve değeri parametre değişkenine aktarılır. Bu anlamda argümanlardan 
+parametrelere aktarım da bir atama işlemidir.
+
+Aşağıdaki örnekte 2 parametreli add metodu 3 argüman ile çağırıldığından error oluşur.
+
+package csd;
 
 
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("İki sayı giriniz: ");
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+		int result;
+		
+		result = Util.add(a,b,10); //error
+		
+		System.out.println(result);
+		
+	}
+	
+}
+
+class Util{
+	public static int add(int a, int b) {
+		
+		return a + b;
+		
+	}
+
+}
 
 
+package csd;
 
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("İki sayı giriniz: ");
+		int x = kb.nextInt();
+		int y = kb.nextInt();
+		int result;
+		
+		result = Util.add(x + 2,y * 2); //x, y argüman
+		
+		System.out.println(result);
+	}	
+}
 
+class Util{
+	public static int add(int a, int b) { // a, b parametre
+		
+		return a + b;
+		
+	}
+}
 
+// 10
+// 3
+// 18
 
+Anahtar Notlar: Java'da 3 yerde atama işlemi yapılır:
+1. Yalın atama işlemi
+2. Metodun geri dönüş değerinin geçici değişkene atanması
+3. Argümandan parametre değişkene aktarım (geçici değişkene değil!)
+
+Özel bazı durumlar dışında atama işlemine ilişkin kurallar tüm atama işlemleri için geçerlidir.
 
 
 
