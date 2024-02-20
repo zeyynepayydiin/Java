@@ -36,8 +36,10 @@ türmüş gibi yazar.
 Anahtar Notlar: Bir metodun geri dönüş değeri o metodun outputudur, çıktısıdır.
 Anahtar Notlar: Java'da bir metot bir tane değere geri dönebilir.
 
-Metodun gövdesinden önce parantez içerisinde bildirilen değişkenlere metot parametre değişkenleri denir.
-
+Metodun gövdesinden önce parantez içerisinde bildirilen değişkenlere metot parametre değişkenleri denir. Metot parametre
+değişkenleri virgül ile ayrılır. Değişkenler aynı türden olsa bile tür bilgisi her biri için yazılır. Metot parametre 
+değişkenleri faaliyet alanı olarak metodun başında bildirilen yerel değişkenler gibidir. Yani ilgili metot boyunca 
+görülebilir. Metot çağrısında metoda geçilen ifadelere argüman (argument) denir.
 
 
 
