@@ -27,6 +27,19 @@ class Util{
 
 }
 
+BURADA EKSİK KOD VAR
+
+Anahtar Notlar: void bir metot çağrısı da bir ifadedir.Ancak bu ifadenin türü yoktur. void bir metot çağrısına ilişkin
+ifadelere "void expressiions" denilmektedir. void metot çağrıldığında tür olarak void yazar ancak void bir tür değildir
+türmüş gibi yazar.
+
+Anahtar Notlar: Bir metodun geri dönüş değeri o metodun outputudur, çıktısıdır.
+Anahtar Notlar: Java'da bir metot bir tane değere geri dönebilir.
+
+
+
+
+
 
 
 
