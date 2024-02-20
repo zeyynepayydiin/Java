@@ -36,6 +36,8 @@ türmüş gibi yazar.
 Anahtar Notlar: Bir metodun geri dönüş değeri o metodun outputudur, çıktısıdır.
 Anahtar Notlar: Java'da bir metot bir tane değere geri dönebilir.
 
+Metodun gövdesinden önce parantez içerisinde bildirilen değişkenlere metot parametre değişkenleri denir.
+
 
 
 
