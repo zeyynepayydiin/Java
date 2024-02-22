@@ -12,3 +12,12 @@ yapmak zorundadır. Bu da çoğu zaman zor olacaktır.
 okunabilirliği/algılanabilirliği azalabilir. Yani metot çağırarak kodun okunabilirliği/algılanabilirliği artırılmış olur.
 
 - Metot yazıldığında başka projelere taşınarak da kullanılabilir (code reusability).
+
+- Metodu çağıram programcı metodun nasıl yazıldığına ilişkin detayları bilmek zorunda değildir. Çünkü metodun çağrıldığı 
+noktada metodun nasıl yazıldığının önemi yoktur. Ne yaptığı önemlidir.
+
+- Bir kod parçasının metot olarak yazılması onun bağımsız olarak test edilip doğrulanması veya varsa hataların düzeltilmesi
+açısından da önemlidir.
+
+Anahtar Notlar: İleride ele alacağımız Nesne Yönelimli Programlama Tekniği'ne (Object Oriented Programming Paradigm)
+ilişkin kavramlar ile kodun parçalara ayrılması metotlar dışında daha yüksek seviyede de yapılabilecektir.
