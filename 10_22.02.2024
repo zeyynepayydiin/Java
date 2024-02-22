@@ -21,3 +21,34 @@ açısından da önemlidir.
 
 Anahtar Notlar: İleride ele alacağımız Nesne Yönelimli Programlama Tekniği'ne (Object Oriented Programming Paradigm)
 ilişkin kavramlar ile kodun parçalara ayrılması metotlar dışında daha yüksek seviyede de yapılabilecektir.
+
+
+System.out.printf metodu ile formatlı yazdırma yapılabilir. printf metodunun birinci parametresine geçen argüman bir yazı
+(string literal vb.) olmalıdır. Bu metot birinci parametresi ile birlikte değişken sayıda argüman alabilecek şekilde
+tasarlanmıştır. Değişken sayıda argüman alan metotların (vararg methods) bildiriminin nasıl yapıldığı bu bölümde ele 
+alınmayacak. printf metodunun birinci parametresine ilişkin yazının içerisinde % karakteri ile birlikte özel bazı karakterler 
+kullanılabilmektedir. Bu özel karakterlere format karakterleri (format specifiers) denir. Bir format karakterinin yazı 
+içerisinde % karakteri ile birlikte kullanılmasına ise yer tutucu (place holder) denir. Bir format karakteri özel bazıları 
+dışında bir türe karşılık gelir ve o yer tutucu yerine printf'e geçilen argümanların değerleri yerleştirilerek yazı 
+formatlanır. Format karakterlerinin bazıları şunlardır: 
+
+
+
+Anahtar Notlar: printf metodu gibi kullanılan ancak printf'den daha fazla karşımıza çıkan bazı metodlar için printf metodunun
+formatlama detaylarının öğrenilmesi önemlidir.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
