@@ -32,7 +32,13 @@ içerisinde % karakteri ile birlikte kullanılmasına ise yer tutucu (place hold
 dışında bir türe karşılık gelir ve o yer tutucu yerine printf'e geçilen argümanların değerleri yerleştirilerek yazı 
 formatlanır. Format karakterlerinin bazıları şunlardır: 
 
-
+- d: Tamsayı türler için kullanılır. Sayının değeri decimal olarak formatlanmasını sağlar.
+- x veya X: Tamsayı türler için kullanılır. Sayının değerinin hexadecimal olarak formatlanmasını sağlar.
+- h veya H: Tamsayı türler için kullanılır. Sayının değerinin hexadecimal olarak formatlanmasını sağlar.
+- o: Tamsayı türler için kullanılır. Sayının değerinin octal olarak formatlanmasını sağlar.
+- f: Gerçek sayı türleri için kullanılır.
+- c: char türler için kullanılır.
+- b: boolean türler için kullanılır.
 
 Anahtar Notlar: printf metodu gibi kullanılan ancak printf'den daha fazla karşımıza çıkan bazı metodlar için printf metodunun
 formatlama detaylarının öğrenilmesi önemlidir.
