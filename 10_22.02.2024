@@ -39,11 +39,53 @@ formatlanır. Format karakterlerinin bazıları şunlardır:
 - f: Gerçek sayı türleri için kullanılır.
 - c: char türler için kullanılır.
 - b: boolean türler için kullanılır.
+- n: İmleci (cursor) bir sonraki satırın başına çekmek için kullanılır.
 
 Anahtar Notlar: printf metodu gibi kullanılan ancak printf'den daha fazla karşımıza çıkan bazı metodlar için printf metodunun
 formatlama detaylarının öğrenilmesi önemlidir.
 
+/*
+ *  d, x, X, h, H ve o format karakterleri
+ */
 
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("İki sayı giriniz: ");
+		int x = kb.nextInt();
+		int y = kb.nextInt();
+		int result;
+				
+		System.out.printf("%d + %d =  %d%n", x, y, x + y);
+		System.out.printf("%x + %x =  %x%n", x, y, x + y);
+		System.out.printf("%X + %X =  %X%n", x, y, x + y);
+		System.out.printf("%h + %h =  %h%n", x, y, x + y);
+		System.out.printf("%H + %H =  %H%n", x, y, x + y);
+		System.out.printf("%o + %o =  %o%n", x, y, x + y);
+		
+	}
+	
+}
+//
+İki sayı giriniz: 
+10
+20
+10 + 20 =  30
+a + 14 =  1e
+A + 14 =  1E
+a + 14 =  1e
+A + 14 =  1E
+12 + 24 =  36
+
+Tamsayıya ilişkin format karakterinde % ile format karakteri arasında yazılan sayı hizalamak (alignment) için kullanılabilir.
+Bu sayının pozitif olması gerekir. % ile format karakteri arasında yalnızca pozitif bir sayı yazıldığında formatlanan sayının
+basamak sayı % ile format karakteri arasındaki sayıdan küçükse soluna verilen sayı kadar space karakteri eklenir. Eğer % ile
+format karakteri arasında verilen sayıdan önce sıfır sayısı yazılırsa space yerine sıfır deeğeri ile formatlama yapılır. 
+Tamsayılara ilişkin format karakterlerinin başka detaylı kullanımları vardır. Aşağıdaki demo örneği inceleyin.
 
 
 
