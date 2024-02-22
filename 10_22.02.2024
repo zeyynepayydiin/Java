@@ -147,6 +147,45 @@ class App{
 		System.out.printf("Oran = %%%d%n", ratio);	
 	}
 }
+/*------------------------------------------------------------------------------------------------------------------------------
+ *  f format karakteri 
+/*------------------------------------------------------------------------------------------------------------------------------
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("İki sayı giriniz: ");
+		double ratio = kb.nextDouble();
+		
+		System.out.printf("Oran = %%%f%n", ratio);
+		
+	}
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------
+ *  f format karakteri için % ile f arasında . ve pozitif bir sayı yazıldığında ilgili formatlanacak gerçek sayının noktadan 
+ *  sonraki kısmının kaç basamak olarak gösterileceği belirlenir. Gerçek sayının geri kalan basamakları bilimsel olarak
+ *  yuvarlanarak formatlanır
+ */------------------------------------------------------------------------------------------------------------------------------
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("İki sayı giriniz: ");
+		double ratio = kb.nextDouble();
+				
+		System.out.printf("Oran = %%%.2f%n", ratio);		
+	}	
+}
+
 
 
 
