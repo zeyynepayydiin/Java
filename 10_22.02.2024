@@ -267,7 +267,28 @@ class App{
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------
-* IEEE 754 formatında bazı özel değerler bulunur. Bu değerler matematiksel olarak bazı kavramları temsil ederler.
+* IEEE 754 formatında bazı özel değerler bulunur. Bu değerler matematiksel olarak bazı kavramları temsil ederler. Örneğin
+* Infinity ve -Infinity sırasıyla matematikteki "artı sonsuz" ve "eksi sonsuz" değerlerine karşılık gelir. NaN değeri de 
+matematikteki belirsizliği (indeterminate) temsil eden değerdir. Aşağıdaki demo örneği çeşitli değerler ile çalıştırıp 
+sonuçları gözlemleyiniz.
 */------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
