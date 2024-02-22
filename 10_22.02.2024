@@ -84,7 +84,7 @@ A + 14 =  1E
 /* ------------------------------------------------------------------------------------------------------------------------------
 Tamsayıya ilişkin format karakterinde % ile format karakteri arasında yazılan sayı hizalamak (alignment) için kullanılabilir.
 Bu sayının pozitif olması gerekir. % ile format karakteri arasında yalnızca pozitif bir sayı yazıldığında formatlanan sayının
-basamak sayı % ile format karakteri arasındaki sayıdan küçükse soluna verilen sayı kadar space karakteri eklenir. Eğer % ile
+basamak sayısı % ile format karakteri arasındaki sayıdan küçükse soluna verilen sayı kadar space karakteri eklenir. Eğer % ile
 format karakteri arasında verilen sayıdan önce sıfır sayısı yazılırsa space yerine sıfır deeğeri ile formatlama yapılır. 
 Tamsayılara ilişkin format karakterlerinin başka detaylı kullanımları vardır. Aşağıdaki demo örneği inceleyin.
 */ ------------------------------------------------------------------------------------------------------------------------------
