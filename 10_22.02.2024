@@ -1,1 +1,14 @@
+Metotlar ne işe yarar? Ya da başka bir deyişle bir problemin çözümünde neden metotlar yazalım? Aşağıda metot yazılmasına
+ilişkin durumlar genel olarak ele alınmıştır
 
+-Bir işi çok fazla yerde yapmak kod tekrarına yol açar. Yazılım geliştirmede temel prensip "zorunlu olmadıkça kod tekrarı
+yapılmamalıdır (do not repeat yourself)" şeklindedir. Bu durumda programcı bir metot yazarak ilgili yerlerde o metodu çağırır.
+
+- Bir problemin çözümü metot çağırma yerine her yerden kodun yazılması biçiminde "implemente" edilmişse, bu durumda 
+programcı problemin çözümünde bir değişiklik yapmak isterse veya bir hata olduğunda düzeltmek için her yerde bu değişiklikleri
+yapmak zorundadır. Bu da çoğu zaman zor olacaktır.
+
+- Bir problemin çözümü metot çağırma yerin her yerde kodun yazılması biçiminde "implemente" edilmişse, bu durumda kodun
+okunabilirliği/algılanabilirliği azalabilir. Yani metot çağırarak kodun okunabilirliği/algılanabilirliği artırılmış olur.
+
+- Metot yazıldığında başka projelere taşınarak da kullanılabilir (code reusability).
