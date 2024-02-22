@@ -115,8 +115,38 @@ class App{
  2/12/2001
 
 
+package csd;
 
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("İki sayı giriniz: ");
+		int a = kb.nextInt();
+		
+		System.out.printf("a = %d%na = %08X%n", a,a);
+		
+	}
+}
 
+/*------------------------------------------------------------------------------------------------------------------------------
+ *  % karakterinin % olarak formatlanabilmesi için yine % karakteri ile kullanılması gerekir. 
+ */------------------------------------------------------------------------------------------------------------------------------
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("İki sayı giriniz: ");
+		int ratio = kb.nextInt();
+		
+		System.out.printf("Oran = %%%d%n", ratio);	
+	}
+}
 
 
 
