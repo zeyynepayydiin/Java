@@ -224,7 +224,50 @@ class App{
 }
 // b = true
 
+/*------------------------------------------------------------------------------------------------------------------------------
+ *  printf metodunda geçilen argümanların türleriyle uyumsuz format karakteri kullanılması durumunda genel olarak exception oluşur.
+ */------------------------------------------------------------------------------------------------------------------------------
+package csd;
 
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		 
+		System.out.println("Bir sayı giriniz: ");
+		int day = kb.nextInt();
+		 
+		 System.out.printf("a = %f%n", day); //exception
+		
+	}
+	
+}
+/*------------------------------------------------------------------------------------------------------------------------------
+* Tam sayılarda bölme işleminde elde edilen sonucun noktadan sonraki kısmı atılır. Yani tamsayılarla bölme işleminde sonuç
+* yine tamsayı çıkar.
+* Tam sayılarda bölme işleminde paydanın değeri sıfır ise exception oluşur. Aşağıdaki demo örneği çeşitli değerlerle çalıştırın.
+*/------------------------------------------------------------------------------------------------------------------------------
 
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("İki sayı giriniz: ");
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+		int c;
+		
+		c = a / b;
+				
+		System.out.printf("%c =  %d%n", c);	
+	}	
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------
+* IEEE 754 formatında bazı özel değerler bulunur. Bu değerler matematiksel olarak bazı kavramları temsil ederler.
+*/------------------------------------------------------------------------------------------------------------------------------
 
 
