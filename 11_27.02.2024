@@ -2,3 +2,46 @@ Neden standart metodları kullanmalıyız?
 eğer bir metot standart kütüphanede varsa mutlaka onu kullanıyoruz
 eğer third party bir kütüphanede varsa onu kullanıyoruz
 o da yoksa kendimiz yazıyoruz
+
+Standart olarak var olan bir metodu programcı yazmalı mıdır?
+Java'da standart olarak (JavaSE'de)bulunan metotların kullanılmasının bazı önemli avantajları şunlardır:
+- Okunabilir/algılanabilir kodlar yazılır.
+- Testleri yapılmıştır ve etkin(effective) olarak yazılmıştır. Hatta zamanla duruma göre daha etkin hale 
+getirilecek şekilde yazılabilmektedir.
+- Taşınabilirdir. Hangi derleyiciye o kodu taşırsam taşayayım o metot çalışır. Standart metotların çağrıldığı
+kodlar herhangi bir üçüncü parti koda ya da kütüphaneye ihtiyaç duymadan derlenebilir.
+- Programcının bir uygulama geliştirirken yalnızca uygulamaua ilişkin domain'e odaklanmasını sağlar.
+- Bazı metotları yazmak için başka detay konuların da bilinmesi gerekir.
+
+Bu durumda bir Java programcısının çözmesi gereken bir problem için, JavaSE'de problemin çözümüne ilişkin 
+metotlar varsa onları kullanması gerekir, yoksa kullandığı bazı iyi kütüphanelerin içerisinde varsa onu kullanması
+gerekir burada da yoksa bu durumda programcı o metodu yazmalıdır. Ancak bu durum programcının kullandığı bir metodu 
+standart olsun ya da olmasın nasıl yazıldığını göz ardı etmesi anlamına gelmemelidir. Programcı programlama yaşamı
+boyunca hepsini olmasa da hazır olarak kullandığı metotların nasıl yazıldığını (implementation) öğrenmelidir.
+
+
+Anahtar Notlar: Bir metodun ne iş yaptığına ilişkin detaylar nasıl öğrenilecektir? Bunun için tipik olarak metot için 
+bir dokümantasyon oluşturur. JavaSE içerisinde bulunan standart metotların (ait olduğu sınıfların da) dokümantasyonu 
+"docs.oracle.com" sitesinde çeşitli sayfalarda yer almaktadır. Ancak yine de ilgili dokümantasyon tüm detayıyla
+öğretemeyebilir. Genel olarak Java dokümantasyonları (javadoc) konu hakkında fikir vermek için yazılır. Duruma göre
+programcı başka kaynaklardan öğrenmek zorunda kalabilir.
+
+java.lang paketi içerisinde bulunan Math sınıfının matematiksel işlemlere yönelik çeşitli metotları vardır. Bu metotların
+bazıları pek çok yerde kullanılır. Bazıları ise matematiksel işlemlerde kullanılır. Burada çok kullanılan bazıları ele 
+alınacaktır. Java programcısı matematiksel işlemler gerektiğinde önce bu sınıfa bakmalı varsa bu sınıfın elemanlarını 
+kullanmalıdır.
+
+Anahtar Notlar: java.lang paketi içerisinde bulunan sınıf isimleri doğrudan kullanılabilir. Konunun ayrıntıları ileride 
+ele alınacaktır.
+
+
+
+
+
+
+
+
+
+
+
+
