@@ -1,1 +1,4 @@
-
+Neden standart metodları kullanmalıyız?
+eğer bir metot standart kütüphanede varsa mutlaka onu kullanıyoruz
+eğer third party bir kütüphanede varsa onu kullanıyoruz
+o da yoksa kendimiz yazıyoruz
