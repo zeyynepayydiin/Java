@@ -34,13 +34,86 @@ kullanmalıdır.
 Anahtar Notlar: java.lang paketi içerisinde bulunan sınıf isimleri doğrudan kullanılabilir. Konunun ayrıntıları ileride 
 ele alınacaktır.
 
+/*----------------------------------------------------------------------------------------------------------------------
+Math sınıfının sqrt metodu parametresi ile aldığı double türden bir değerin kareköküne geri döner. sqrt metoduna negatif
+bir argüman geçildiğinde NaN değerine geri döner.
+*/----------------------------------------------------------------------------------------------------------------------
 
+package csd;
 
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("Bir sayı giriniz: ");
+		double a = kb.nextDouble();
+			
+		System.out.printf("sqrt(%f) = %f%n", a, Math.sqrt(a));	
+	}
+}
 
+/*----------------------------------------------------------------------------------------------------------------------
+Math sınıfının pow metodu kuvvet almak için kullanılır
+*/----------------------------------------------------------------------------------------------------------------------
 
+package csd;
 
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("Tabanı ve üssü giriniz: ");
+		double a = kb.nextDouble();
+		double b = kb.nextDouble();
+				
+		System.out.printf("pow(%f,%f) = %f%n", a,b, Math.pow(a,b));
+	}
+}
 
+/*----------------------------------------------------------------------------------------------------------------------
+parametresiyle aldığı iki noktaya ilişkin koordinat bilgilerine göre iki nokta arasındaki Euclid uzaklığına geri dönen
+distance isimli metodu PointUtil isimli sınıf içerisinde yazınız ve aşağıdaki kod ile test ediniz.
+----------------------------------------------------------------------------------------------------------------------
+*/
 
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		PointUtilDistanceTest.run();
+		
+	}
+	
+	class PointUtilDistanceTest{
+		public static void run()
+		{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.print("İki noktanın koordinatlarını giriniz: ");
+		double x1 = kb.nextDouble();
+		double y1 = kb.nextDouble();
+		double x2 = kb.nextDouble();
+		double y2 = kb.nextDouble();
+		double d = PointUtil.distance(x1, y1, x2, y2);
+		
+		System.out.printf("distance(%f, %f, %f, %f) = %f%n", x1,y1,x2,y2,d);
+		}
+	}
+	
+	class PointUtil {
+		public static double distance(double x1, double y1, double x2, double y2) 
+		{
+			 
+			return Math.sqrt(Math.pow(x1-x2, 2) + Math.pow(y1-y2, 2));
+		}
+		
+	}
+	
+}
 
 
 
