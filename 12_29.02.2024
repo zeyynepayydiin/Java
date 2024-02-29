@@ -1,0 +1,45 @@
+/*----------------------------------------------------------------------------------------------------------------------
+Math sınıfının logaritma fonksiyonuyla ilişkin metotları şunlardır: log, log10,log1p.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		double a = kb.nextDouble();
+		
+		System.out.printf("log(%f) = %f%n",a,Math.log(a));
+		System.out.printf("log10(%f) = %f%n",a,Math.log10(a));
+		System.out.printf("log1p(%f + 1) = %f%n",a,Math.log1p(a));
+	}	
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Math sınıfının PI ve E elemanları
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println(Math.PI);
+		System.out.println(Math.E);
+		
+	}	
+}
+
+
+
+
+
+
+
