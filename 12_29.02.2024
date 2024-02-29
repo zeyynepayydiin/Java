@@ -98,17 +98,79 @@ class App{
 		System.out.printf("max(%d,%d)= %d%n",a,b,Math.max(a,b));
 	}	
 }
+/*----------------------------------------------------------------------------------------------------------------------
+Math sınıfının min ve max metotları ile 3 tane sayının en küçüğünün ve en büyüğünün bulunması.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("Üç sayı giriniz: ");
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+		int c = kb.nextInt();
+		
+		System.out.printf("min(%d, %d, %d)= %d%n",a,b,c, Math.min(Math.min(a,b),c));
+		System.out.printf("max(%d, %d, %d)= %d%n",a,b,c, Math.max(Math.max(a,b),c));
+	}	
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Math sınıfının tam sayı değerine yuvarlayan önemli bazı metotları:
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("Bir sayı giriniz: ");
+		double a = kb.nextDouble();
+		
+		
+		System.out.printf("round(%f) = %d%n",a, Math.round(a));
+		System.out.printf("round(%f) = %f%n",a, Math.rint(a));
+		System.out.printf("ceil(%f) = %f%n",a, Math.ceil(a));
+		System.out.printf("floor(%f) = %f%n",a, Math.floor(a));
+	}	
+}
 
 
+Sabitler (Literals): Program içerisinde doğrudan yazılan bir değere sabit (literals/constant) denir. 
 
+Anahtar Notlar: Anımsanacağı gibi iki tırnak içerisindeki yazılara "string literal" denir.
 
+Sabitlerin de türleri vardır. Sabitlerin türleri derleme aşamasında yani derleyici tarafından tespit edilir.
 
+Anahtar Notlar: Derleyicinin bir ifadenin türünü tespit etmesine genel "type inference/deduction" denilmektedir.
 
+Sabit türleri aşağıdaki kurallara göre belirlenir:
+- Sayı nakta içermiyorsa, sonunda herhangi bir ek almamışsa ve int türü sınırları içerisinde kalıyorsa int türden bir 
+sabittir. Sayı, nokta içermiyorsa fakat int türü sınırları dışındaysa error oluşur. Örnekler: 100, 2000000000 vb.
 
+- Sayı nokta içermiyorsa ve sonuna L (küçük veya büyük harf olarak) son ekini almışsa long türdendir. L son ekini almış 
+bir sabit long türü sınırları dışındaysa error oluşur. Örneğin 10L, 4000000000L vb.
 
+Anahtar Notlar: Küçük harf L son eki 1 (bir) sayısına özellikle bazı yazı türlerinde benzediği okunabilirlik açısından
+kullanılması tavsiye edilmez.
 
+- Java'da byte ve short türden sabit yoktur. 
 
+- Sayı nokta içeriyorsa ve sonuna herhangi bir ek almamışsa double türdendir. Örneğin: 3.4, 6.6 vb.
 
+- Sayı nokta içersin ya da içermesin sonunda D (küçük veya büyük) ekini alıyorsa double türdendir. Örneğin: 4.5D, 5D, 5.6d vb.
+
+- Sayı nokta içersin ya da içermesin sonunda F (küçük veya büyük) ekini alıyorsa float türdendir. Örneğin: 3.4F, 7F, 5.6f vb.
+
+Anahtar Notlar: Nokta içeren ve noktadan sonraki kısmın tamamı sıfır olmayan bir sabit
 
 
 
