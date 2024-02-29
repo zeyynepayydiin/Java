@@ -58,7 +58,46 @@ class App{
 }
 
 
+/*----------------------------------------------------------------------------------------------------------------------
+Math sınıfının abs metotları 
+----------------------------------------------------------------------------------------------------------------------
+*/
 
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("Bir sayı giriniz: ");
+		int a = kb.nextInt();
+		
+		System.out.printf("|%d| = %d%n",a,Math.abs(a));
+		
+	}	
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Math sınıfının min ve max metotları 
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("İki sayı giriniz: ");
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+		
+		System.out.printf("min(%d,%d)= %d%n",a,b,Math.min(a,b));
+		System.out.printf("max(%d,%d)= %d%n",a,b,Math.max(a,b));
+	}	
+}
 
 
 
