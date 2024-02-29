@@ -37,6 +37,44 @@ class App{
 	}	
 }
 
+/*----------------------------------------------------------------------------------------------------------------------
+Math sınıfının trigonometrik işlem yapan metotları radyan ölçü birimi ile çalışırlar
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("Derece bilgisini giriniz: ");
+		double a = kb.nextDouble();
+		
+		System.out.printf("sin(%f) = %f%n",a,Math.sin(Math.toRadians(a)));
+		
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
