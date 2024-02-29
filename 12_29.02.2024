@@ -18,6 +18,23 @@ class App{
 	}	
 }
 
+/*----------------------------------------------------------------------------------------------------------------------
+	 Aşağıdaki demo örneği inceleyiniz
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String[] args) 
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("İki sayı giriniz:");
+		double a = kb.nextDouble();
+		double b = kb.nextDouble();
+		
+		System.out.printf("log(%f, %f) = %f%n", a, b, MathUtil.log(a, b));
+	}
+}
 
 /*----------------------------------------------------------------------------------------------------------------------
 Math sınıfının PI ve E elemanları
@@ -170,7 +187,81 @@ kullanılması tavsiye edilmez.
 
 - Sayı nokta içersin ya da içermesin sonunda F (küçük veya büyük) ekini alıyorsa float türdendir. Örneğin: 3.4F, 7F, 5.6f vb.
 
-Anahtar Notlar: Nokta içeren ve noktadan sonraki kısmın tamamı sıfır olmayan bir sabit
+Anahtar Notlar: Nokta içeren ve noktadan sonraki kısmın tamamı sıfır olmayan bir sabitin (yani double türden sabitin)
+sonuna F (küçük veya büyük) eki getirildiğinde, sayının değeri float türü ile temsil edilemiyorsa en yakın değere
+yuvarlanır (rounding error). 
+
+- Boolean türden iki tane sabit vardır: true, false.
+
+- Tek tırnak içerisinde yazılan karaterlere ilişkin sembollere tırnaklarıyla beraber karakter sabitleri (character literals).
+Karakter sabitleri char türdendir. Tek tırnak içerisinde özel bazı durumlar dışında tek bir karakter yazılır. Aksi durumda 
+error oluşur. Bir karakter sabiti ilgili karakterin karakter tablosundaki sıra numarasına karşılık gelir. Aslında biz
+char türden sabit yazarak o sabite ilişkin karakterin sıra numarasını elde etmiş oluruz. Bu sıra numarasını char
+türden bir değişken içerisinde saklayarak mantıksal olarak o karakteri tutmuş oluruz. Bazı karakterler klavyedeki
+tuş kombinasyonları ile doğrudan yazılamazlar. Bazı karakterler ise doğrudan ekrana basılamazlar (non-printable). 
+Bu tarz karakterler doğrudan tek tırnak içerisinde karakter sabiti olarak yazılamazlar. Bu karakterler ters bölü 
+karateri ile birlikte özel bir karakter kullanılarak tek tırnak içerisinde yani karakter sabiti olarak yazılırlar. 
+Ters bölü ile yazılan karakterlere "escape sequence" karakterler denir. Java'da desteklenen escape sequence
+karakterler şunlardır:
+'\n'	-> Line Feed (LF)
+'\r'	-> Carriage Return (CR)
+'\t'	-> Tabular (TAB)
+'\f'	-> Form feed
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+	Line Feed karakter sabiti
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String[] args) 
+	{
+		char c;
+		
+		c = '\n';
+		
+		System.out.print("Hello, World");
+		System.out.print(c);
+		System.out.println("Goodbye, World");
+	}
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+	Carriage Return karakter sabiti. 
+	Dikkat: Aşağıdaki örneği işletim sisteminizin "komut yorumlayıcı" programı ile çalıştırınız. Kullandığınız IDE'nin
+	console penceresi farklı yorumlayabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String[] args) 
+	{
+		char c;
+		
+		c = '\r';
+		
+		System.out.print("Hello, World");
+		System.out.print(c);
+		System.out.println("Hi");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
