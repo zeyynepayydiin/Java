@@ -1,1 +1,21 @@
+/*----------------------------------------------------------------------------------------------------------------------
+Sayının noktadan sonraki kısmı yani ondalık kısmının tamamı sıfırsa noktadan sonra sıfır yazılmayabilir. Benzer
+şekilde sayının noktadan önceki kısmı yani tam kısmının tamamı sıfırsa noktadan önce sıfır yazılmayabilir. Yani
+1.0 sabiti ile 1. sabiti birebir aynıdır, benzer şekilde 0.1 sabiti ile .1 sabiti birebir aynıdır.
+----------------------------------------------------------------------------------------------------------------------
+*/
 
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		
+		System.out.println(1.); 
+		System.out.println(1.0);
+		System.out.println(0.1);
+		System.out.println(.1);
+	}
+		
+		
+}
