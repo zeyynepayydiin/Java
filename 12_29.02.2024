@@ -207,6 +207,7 @@ karakterler şunlardır:
 '\r'	-> Carriage Return (CR)
 '\t'	-> Tabular (horizontal TAB)
 '\f'	-> Form feed
+'\b'    -> Backspace
 '\''    -> Single Quote
 '\"'    -> Double Quote (optional)
 '\\'    -> Back slash
@@ -264,6 +265,23 @@ C:	est
 ames.txt
 
 /*----------------------------------------------------------------------------------------------------------------------
+String literal içerisinde ters bölü ile birlikte escape sequence olarak desteklenmeyen bir karakter kullanımı
+error oluşturur.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		System.out.println("C:\virtual\names.txt"); //error
+	}	
+}
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
 Aşağıdaki demo örneği inceleyiniz. Örnekte ters bölü karakteri için escape sequence kullanıldığına dikkat ediniz
 ----------------------------------------------------------------------------------------------------------------------
 */
@@ -319,7 +337,8 @@ class App{
 'zonguldak'
 "zonguldak"
 
-
+Anahtar Notlar: Java 12 ile birlikte ismine "text block" denilen bir string sabiti yazma yöntemi de eklenmiştir. Text
+block'lar ileride ele alınacaktır.
 /*----------------------------------------------------------------------------------------------------------------------
 	Carriage Return karakter sabiti. 
 	Dikkat: Aşağıdaki örneği işletim sisteminizin "komut yorumlayıcı" programı ile çalıştırınız. Kullandığınız IDE'nin
