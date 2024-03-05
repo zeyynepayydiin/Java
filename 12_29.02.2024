@@ -299,6 +299,28 @@ class App{
 // C:\\test\names.txt
 
 /*----------------------------------------------------------------------------------------------------------------------
+Tek tırnak karakteri string literal içerisinde doğrudan ya da escape sequence olarak kullanılabilir.İki kullanım tamamen
+aynı anlamdadır. İki tırnak karakteri string literal içerisinde ancak escape sequence olarak kullanılabilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		System.out.println("'zonguldak'");
+		System.out.println("\'zonguldak\'");
+		System.out.println("\"zonguldak\"");
+	}	
+}
+//
+'zonguldak'
+'zonguldak'
+"zonguldak"
+
+
+/*----------------------------------------------------------------------------------------------------------------------
 	Carriage Return karakter sabiti. 
 	Dikkat: Aşağıdaki örneği işletim sisteminizin "komut yorumlayıcı" programı ile çalıştırınız. Kullandığınız IDE'nin
 	console penceresi farklı yorumlayabilir
