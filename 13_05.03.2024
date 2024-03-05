@@ -9,13 +9,55 @@ package csd;
 
 class App{
 	public static void main(String [] args) {
-		
-		
+			
 		System.out.println(1.); 
 		System.out.println(1.0);
 		System.out.println(0.1);
 		System.out.println(.1);
+	}		
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Sabitlerin bilimsel/üstel gösterilişi. Bu tarz yazılan sabitler double türdendir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		System.out.printf("%f\n",6.02E23); 
+	}
+		
+}
+// 602000000000000000000000.000000
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		System.out.printf("%.0f\n",6.02e-23); 
+		
 	}
 		
 		
 }
+// 0
+
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+	System.out.printf("%.0f\n",6.02E23); // .'dan sonra 0 basamak göster demek
+		
+	}
+}
+// 602000000000000000000000
+
+
+
