@@ -205,9 +205,24 @@ Ters bölü ile yazılan karakterlere "escape sequence" karakterler denir. Java'
 karakterler şunlardır:
 '\n'	-> Line Feed (LF)
 '\r'	-> Carriage Return (CR)
-'\t'	-> Tabular (TAB)
+'\t'	-> Tabular (horizontal TAB)
 '\f'	-> Form feed
 '\''    -> Single Quote
+'\"'    -> Double Quote (optional)
+'\\'    -> Back slash
+
+Escape sequence karakterler string literal içerisinde kendi anlamlarındadır. Aşağıdaki örnekte LF karakteri string literal
+içerisinde kullanılmıştır.
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		System.out.println("Hello\nWorld");
+		
+	}	
+}
 
 
 /*----------------------------------------------------------------------------------------------------------------------
@@ -230,6 +245,60 @@ class App {
 
 
 /*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örneği inceleyiniz. Örnekte tab ve LF karakter sabitlerinin yazı içerisinde kullanıldığına dikkat
+ediniz.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		System.out.println("C:\test\names.txt");
+		
+	}	
+}
+//
+C:	est
+ames.txt
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örneği inceleyiniz. Örnekte ters bölü karakteri için escape sequence kullanıldığına dikkat ediniz
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		
+		System.out.println("C:\\test\\names.txt");
+		
+	}	
+}
+// C:\test\names.txt
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örneği inceleyiniz.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		
+		System.out.println("C:\\\\test\\names.txt");
+		
+	}	
+}
+
+// C:\\test\names.txt
+
+/*----------------------------------------------------------------------------------------------------------------------
 	Carriage Return karakter sabiti. 
 	Dikkat: Aşağıdaki örneği işletim sisteminizin "komut yorumlayıcı" programı ile çalıştırınız. Kullandığınız IDE'nin
 	console penceresi farklı yorumlayabilir
@@ -250,7 +319,28 @@ class App {
 }
 
 
+/*----------------------------------------------------------------------------------------------------------------------
+Tek tırnak karakter sabiti ter bölü ile yazılır yani bu karakter sabiti de bir escape sequence karakterdir.
+Ters bölü karakter sabiti de escape sequence karakter olarak yazılır.
+----------------------------------------------------------------------------------------------------------------------
+*/
 
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		char c, c2, c3;
+		c = '\'';
+		c2 = '"';
+		c3 = '\\';
+		System.out.println(c);
+		System.out.println(c2);
+		System.out.print(c3);	
+	}	
+}
 
 
 
