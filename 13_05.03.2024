@@ -151,7 +151,8 @@ gerekir:
 		- Araek (infix)
 		- Sonek (postfix)
 
-	- Operatörün ürettiği değer (product value): İşlem sonucunda üretilen değerdir
+	- Operatörün ürettiği değer (product value): İşlem sonucunda elde edilen değerdir. Bir operatör hariç bütün 
+operatörler bir değer üretir.
 	
 	- Operatörün kısıtı (constraint) var mı?: Operatörün kullanımına ilişkin bir takım zorunluluklardır.
 	
@@ -188,3 +189,34 @@ gerekir:
 Biz de bir operatörü öğrenirken bu özellikleri inceleyeceğiz 
 ----------------------------------------------------------------------------------------------------------------------
 */
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aritmetik 4 işlem operatörleri (+, -, *, /) iki operandlı ve araek durumundadır. Operatörler işlemin sonucuna ilişkin
+değeri üretirler. Bu operatörlerin yan etkisi yoktur. * ve / operatörleri, + ve - operatörlerinden yüksek önceliklidir.
+Aritmetik 4 işlem operatörleri soldan sağa önceliklidir. İlgili operatöre ilişkin geçerli işlemler kısıt olarak 
+düşünülebilir. Örn: iki string toplanabilir ancak çarpılamaz bu, çarpma operatörünün kısıtıdır. 
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("İki sayı giriniz:");
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+		
+		System.out.printf("%d + %d = %d%n", a,b,a+b);
+		System.out.printf("%d - %d = %d%n", a,b,a-b);
+		System.out.printf("%d * %d = %d%n", a,b,a*b);
+		System.out.printf("%d + %d = %d%n", a,b,a/b);
+		
+	}
+	
+}
+
