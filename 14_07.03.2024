@@ -288,3 +288,21 @@ class App{
 		System.out.printf("c = %d%n",c); //7
 	}	
 }
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+
+		int a = 3;
+		int b = 4;
+		int c;
+		
+		c = a++++b; //a++ ++b olur anlamsız oldu error
+		
+		System.out.printf("a = %d%n",a); 
+		System.out.printf("b = %d%n",b); 
+		System.out.printf("c = %d%n",c); 
+	}	
+}
+
