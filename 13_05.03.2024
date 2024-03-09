@@ -301,5 +301,39 @@ class NumberUtil{
 		
 	}	
 }
+//Bir sayı giriniz: 
+-135
+-135 sayısının basamakları toplamı: 9
 
+/*----------------------------------------------------------------------------------------------------------------------
+İşaret eksi (-) aritmetik operatörü tek operandlı ve önek durumundadır. Bu operatör operandına ilişkin ifadenin ters 
+işaretlisini üretir. Operatörün yan etkisi yoktur. Operatör, ikinci seviyede ve dolayısıyla sağdan sola önceliklidir.
+Operatör eksi işareti alınabilen her tür için kullanılabilir. İşaret + operatörü de yine aynı özelliklere sahip ancak
+ifadenin değerini üreten bir operatördür. Bu anlamda + operatörünü kullanmakla kullanmamak arasında fark yoktur.
+Bütünlük açısından dile eklenmiştir. Aşağıdaki demo örneği inceleyiniz.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.println("Bir sayı giriniz: ");
+		int a = kb.nextInt();
+		int x;
+		
+		x = -a;
+		
+		System.out.printf("x = %d%n",x);
+		
+		x= +a;
+		
+		System.out.printf("x = %d%n",x);	
+		
+	}
+	
+}
 
