@@ -267,7 +267,7 @@ class App{
 }
 /*----------------------------------------------------------------------------------------------------------------------
  Java derleyicisi soldan sağa ve yukarıdan aşağıya anlamlı en uzun ifadeyi alacak şekilde atomlarına ayırma (tokenizing)
- işlemini yapar. Bu kurala genel olarak "maximal/maximum munc" kuralı denir.
+ işlemini yapar. Bu kurala genel olarak "maximal/maximum munch" kuralı denir.
 ----------------------------------------------------------------------------------------------------------------------
 */
 
