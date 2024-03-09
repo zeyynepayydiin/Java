@@ -143,3 +143,148 @@ class App{
 	}
 	
 }
+
+/*----------------------------------------------------------------------------------------------------------------------
+Anahtar Notlar: Okunabilirlik/algılanabilirlik açısından özel bazı operatörler dışında iki operandlı (binary) 
+operatörlerin operandları ile aralarında bir tane space karakteri bulundurulur. Örneğin a + b işleminde operandlar
+ile operatör arasında birer boşluk yazılır. Ancak nokta operatörü için özellikle bitişik yazılması önerilir. Tek
+operandlı operatörler için de operatörün operandına bitişik olarak yazılması tavsiye edilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+ ++/-- operatörü tek operandlı hem önek hem de sonek olarak kullanılabilen bir aritmetik operatördür. Operatörün operandının 
+ bir değişken olması zorunludur. Yani sabit ifadesi olamaz. Operatörün ürettiği değer önek ve sonek kullanıma göre 
+ değişiklik gösterir. Operatörün yan etkisi vardır, operandı olan değişkenin değerini bir artırır/azaltır.
+ Operatör önek kullanımda artırılmış/azaltılmış değeri, sonek kullanımda ise artırılmamış/azaltılmamış değeri üretir.
+ Yani işleme giren değer önek ve sonek durumunda farklıdır.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+	
+		int a = 10;
+		
+		++a;
+		
+		System.out.printf("a = %d%n",a);
+		
+	}
+}
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+
+		int a = 10;
+		
+		a++;
+		
+		System.out.printf("a = %d%n",a);
+		
+	}	
+}
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+
+		int a = 10;
+		int b;
+		
+		b = a++;
+		
+		System.out.printf("a = %d%n",a); //11
+		System.out.printf("b = %d%n",b); //10
+		
+	}	
+}
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+
+		int a = 10;
+		int b;
+		
+		b = a-- + a; //10 + 9
+		
+		System.out.printf("a = %d%n",a); //9
+		System.out.printf("b = %d%n",b); //19
+		
+	}	
+}
+package csd;
+
+class App{
+	public static void main(String [] args) {
+
+		int a = 10;
+		int b;
+		
+		b = --a + a; //9 + 9
+		
+		System.out.printf("a = %d%n",a); //9
+		System.out.printf("b = %d%n",b); //18
+		
+	}	
+}
+package csd;
+
+class App{
+	public static void main(String [] args) {
+
+		int a = 10;
+		int b;
+		
+		b = a + a--; // 10 + 10
+		
+		System.out.printf("a = %d%n",a); //9
+		System.out.printf("b = %d%n",b); //20
+		
+	}	
+}
+package csd;
+
+class App{
+	public static void main(String [] args) {
+
+		int a = 10;
+		int b;
+		
+		b = a++ + a--; // 10 + 11
+		
+		System.out.printf("a = %d%n",a); //10
+		System.out.printf("b = %d%n",b); //21
+		
+	}	
+}
+/*----------------------------------------------------------------------------------------------------------------------
+ Java derleyicisi soldan sağa ve yukarıdan aşağıya anlamlı en uzun ifadeyi alacak şekilde atomlarına ayırma (tokenizing)
+ işlemini yapar. Bu kurala genel olarak "maximal/maximum munc" kuralı denir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+
+		int a = 3;
+		int b = 4;
+		int c;
+		
+		
+		c = a+++b; 
+		
+		System.out.printf("a = %d%n",a); //4
+		System.out.printf("b = %d%n",b); //4
+		System.out.printf("c = %d%n",c); //7
+	}	
+}
