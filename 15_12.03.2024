@@ -28,3 +28,117 @@ class App{
 	}	
 }
 
+/*----------------------------------------------------------------------------------------------------------------------
+ Mantıksal operatörler şunlardır: AND (&&), OR (||), NOT (!).
+ Bu operatörler mantıktaki ilgili operatörleri temsil eder. bu operatörlerin operandları boolean türden olmalıdır.
+ Operatörlerin ürettiği değer de boolean türdendir.
+ 
+ 
+ Anımsanacağı gibi && ve || operatörlerinin doğruluk tabloları (truth table) şu şekildedir.
+ 
+ 
+ a    b    &&    ||
+ -------------------
+ T    T    T     T
+ T    F    F     T
+ F    T    F     T
+ F    F    F     F
+ 
+ Bu doğruluk tablosundan kısaca şu sonuçlar çıkarılabilir;
+ 
+ - && işlemi için: Her ikisi birden doğru ise doğru sonuç verir. Bir başka değişle en az biri yanlışsa yanlış sonuç 
+ verir.
+  - || işlemi için: Her ikisi yanlış ise yanlış sonuç verir. Bir başka değişle en az biri doğruysa doğru sonuç 
+ verir.
+
+Bu operatörler doğru sonuca yani matematiksel olarak elde edilen sonuca en kısa yoldan ulaşmaya çalışırlar. Bu sebeple
+bu operatörlerin bulunduğu ifadeler hesaplanmaya en soldan başlar. && ve || operatörlerinde birinci operand 
+hesaplandığında elde edilen sonuç, ikinci operand hesaplansa da değişmeyecekse ikinci operand hesaplanmaz. Buna kısa
+devre davranışı (short circuit behavior) denir. Bu durumda && operatörü için birinci operanda ilişkin ifadenin değeri 
+false ise ikinci operanda ilişkin ifade yapılmaz. || operatörü için birinci operanda ilişkin ifadenin değeri 
+true ise ikinci operanda ilişkin ifade yapılmaz. 
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+Java'da metot çağırma işlemi metot çağırma operatörü (method call operator) ile yapılır. Bu operatör özel amaçlı iki 
+veya tek operandlı ve araek durumunda bir operatördür. Operatör, operatör öncelik tablosunun birinci seviyesindedir.
+Operatör ilgili metodu çağırır ve eğer metodun geri dönüş değeri varsa geri dönüş değerini üretir. Geri dönüş 
+değeri olmayan bir metot çağrısı için bu operatöre ilişkin ifadenin türü void'dur. Bu anlamda void aslında bir tür
+olmamasına rağmen, dilin matematiksel bütünlüğü adına bir tür gibi kullanılabilmektedir. BU anlamda doğrdudan bir 
+değer üretmeyebilen tek operatör metot çağırma operatörüdür. Eğer void bir metot çağrılırsa bu operatör değer üretmez. 
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örneği inceleyiniz.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		boolean result;
+		
+		result = Sample.bar() && Sample.foo();
+
+		System.out.printf("result: %b%n",result); 
+	}	
+}
+
+class Sample {
+	public static boolean foo()
+	{
+		System.out.println("foo");
+		
+		return true ;
+		
+	}
+	public static boolean bar()
+	{
+		System.out.println("bar");
+		
+		return false;
+		
+	}
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örneği inceleyiniz.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		boolean result;
+		
+		result = Sample.bar() || Sample.foo();
+
+		System.out.printf("result: %b%n",result); 
+	}	
+}
+
+class Sample {
+	public static boolean foo()
+	{
+System.out.println("foo");
+		
+		return true ;
+		
+	}
+	public static boolean bar()
+	{
+		System.out.println("bar");
+		
+		return false;
+		
+	}
+
+}
+
+
