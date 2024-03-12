@@ -57,9 +57,94 @@ hesaplandığında elde edilen sonuç, ikinci operand hesaplansa da değişmeyec
 devre davranışı (short circuit behavior) denir. Bu durumda && operatörü için birinci operanda ilişkin ifadenin değeri 
 false ise ikinci operanda ilişkin ifade yapılmaz. || operatörü için birinci operanda ilişkin ifadenin değeri 
 true ise ikinci operanda ilişkin ifade yapılmaz. 
+
+Bu operatörler yine doğru sonuca en kısa yoldan ulaşmak için klasik operatör önceliği kuralına işlemi yaparken 
+uymazlar. Yani bu  operatörlere ilişkin bir ifade öncelik ne olursa olsun en soldan başlanarak hesaplanır. Ancak elde
+edilen sonuç operatör önceliğine uyularak yapılan işlem sırası ile elde edilen sonuç ile aynıdır. Yani bu operatörler
+kısa devre özelliğini de kullanarak doğru sonuca en kısa yoldan ulaşırlar.
+
+
+Matematikte önce and işlemi yapılır.
 ----------------------------------------------------------------------------------------------------------------------
 */
 
+BU ÖRNEKTE İŞLEM ÖNCELİĞİ İLE OPERATÖR ÖNCELİĞİ FARKLI OPERATÖR ÖNCELİĞİ &&'DA ANCAK İŞLEM ÖNCELİĞİ SOLDA
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		boolean result;
+		
+		result = Sample.foo() || Sample.bar() && Sample.tar(); // burda işlem önceliği &&de olmasına rağmen işlem soldan başlar ve kısa devre olur yine doğru sonuca ulaşılır
+								       // zaten sağdaki ne olursa olsun OR'un solu false ise false, true ise true'dur
+
+		System.out.printf("result: %b%n",result); 
+	}	
+}
+
+class Sample {
+	public static boolean foo()
+	{
+System.out.println("foo");
+		
+		return true ;
+		
+	}
+	public static boolean bar()
+	{
+		System.out.println("bar");
+		
+		return false;
+		
+	}
+	public static boolean tar()
+	{
+		System.out.println("tar");
+		
+		return true;
+		
+	}
+
+}
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		boolean result;
+		
+		result = Sample.foo() && Sample.bar() || Sample.tar(); //Burda işlem önceliği ile operatör önceliği zaten aynı soldan başlıyo her türlü her işlemi yapmak zorunda
+
+		System.out.printf("result: %b%n",result); 
+	}	
+}
+
+class Sample {
+	public static boolean foo()
+	{
+System.out.println("foo");
+		
+		return true ;
+		
+	}
+	public static boolean bar()
+	{
+		System.out.println("bar");
+		
+		return false;
+		
+	}
+	public static boolean tar()
+	{
+		System.out.println("tar");
+		
+		return true;
+		
+	}
+
+}
 /*----------------------------------------------------------------------------------------------------------------------
 Java'da metot çağırma işlemi metot çağırma operatörü (method call operator) ile yapılır. Bu operatör özel amaçlı iki 
 veya tek operandlı ve araek durumunda bir operatördür. Operatör, operatör öncelik tablosunun birinci seviyesindedir.
