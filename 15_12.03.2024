@@ -1,1 +1,30 @@
+/*----------------------------------------------------------------------------------------------------------------------
+ Temel karşılaştırma operatörleri 6 tanedir: <, >, <=, >=, ==, !=
+ 
+ Bu operatörler iki operandlı, araek durumundadır. Operatörlerin yan etkisi yoktur. BU operatörlerin ürettiği değer 
+ boolean türdendir. Karşılaştırma işlemi doğru ise true, yanlış ise false değerini üretir. <, >, <=, >= operatörleri
+ klasik operatörlerdir. == operatörü operandlarına ilişkin ifadelerin değerleri eşitse true, değilse false değeri 
+ üretir. != operatörü operandlarına ilişkin ifadelerin değerleri eşit değilse true, eşitse false değerini üretir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.print("İki sayı giriniz: ");
+
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+
+		System.out.printf("%d < %d = %b%n",a, b, a < b); 
+		System.out.printf("%d >= %d = %b%n",a, b, a >= b); 
+		System.out.printf("%d > %d = %b%n",a, b, a > b); 
+		System.out.printf("%d <= %d = %b%n",a, b, a <= b); 
+		System.out.printf("%d == %d = %b%n",a, b, a == b); 
+		System.out.printf("%d != %d = %b%n",a, b, a != b); 
+	}	
+}
 
