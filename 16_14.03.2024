@@ -1,0 +1,124 @@
+/*----------------------------------------------------------------------------------------------------------------------
+Logical NOT (!) operatörü tek operandlı ve önek durumundadır. Operatörün yan etkisi yoktur. Logical NOT işleminin
+doğruluk tablosu şu şekildedir:
+
+a          !a
+-------------
+T          F
+F          T
+Bu operatör operandına ilişkin ifadenin mantıksal değilini (yani ifade true ise false, false ise true) üretir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örneği inceleyiniz.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		boolean flag = false;
+		
+		flag = !flag;
+  
+		System.out.printf("flag: %b%n",flag); 
+	}	
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Atama operatörü (assignment operatör) özel amaçlı, ili operandlı ve araek durumundadır. Operatörün birinci operatörü
+bir değişken olmaılıdır. Operatörün yan etkisi vardır. Operatör sağdan sola önceliklidir (right associative). Operatrün
+ürettiği değer atanan değerdir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örneği inceleyiniz.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+	
+		int a,b,c;
+		
+		a = b = c = 10;
+		
+		System.out.printf("a = %d, b = %d, c = %d ",a,b,c); 
+	}	
+}
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+	
+		int a,b,c;
+		
+		(a = b) = c = 10; //a=b kısmı, sol taraf, değişken olmadığı için error.
+		
+		System.out.printf("a = %d, b = %d, c = %d ",a,b,c); 
+	}	
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Java'da bir grup işlemli atama operatörü (compound/augmented assignment operators) vardır. Bu operatörlerin genel 
+biçimi şu şekildedir:
+
+	<ifade1> <op> = <ifade2>
+işleminin yaklaşık karşılığı 
+	<ifade1> = <ifade1> <op> <ifade2>
+biçimindedir. Burada ifade1'in değişken olması zorunludur. Bu operatör kullanılabildiği durumlarda kesinlikle
+açık işlemine göre tercih edilmelidir. Örneğin programcı
+	x = x + 2;
+	ifadesi yerine
+	x += 2;
+yazmalıdır. Aslında bu operatörler hem okunabilirliği/algılanabilirliği artırır hem de ifadelerin daha basit (yalın)
+olarak yazılabilmesini sağlar.*
+
+Anahtar Notlar: Aslında işlemli atama operatörlerinin genel biçimi tam olarak yukarıda anlatıldığı gibi değildir. 
+İleride tam karşılığı ele alınacaktır.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örneği inceleyiniz.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Noktali virgül Java'da sonlandırıcı (terminator) karakter olarak kullanılır. Java'da başka terminator karakter yoktur.
+Noktalı virgül genel olarak ifadeleri sonlandırmak ve bazı deyimleri de sonlandırmak için kullanılır. 
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+Derleyici akışın hiçbir zaman o noktaya gelemeyeceği kodlar için genel olarak error oluşturur (unreachable code) 
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+	
+  	int a = 10;
+		int b = 20;
+		a + b;  //error
+		
+	}	
+}
+
+class Sample{
+	public static int add(int a, int b) {
+		
+		return a + b;
+		
+		System.out.print("unreachable code");  // error
+	}	
+}
+
+
+
+
