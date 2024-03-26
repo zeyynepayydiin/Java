@@ -205,9 +205,113 @@ class PosNegCountTotalApp{
 	 printPosStatus(posCount, posSum);
 	 printNegStatus(negCount, negSum);
 	
+	}	
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+ Sonsuz Döngü (Infinite Loop): Koşul ifadesinden dolayı sonlanmayan döngü deyimlerine denir. Bu durumda while döngü 
+deyimi ile sonsuz döngü şu kalıp ile oluşturulabilir:
+	while(true)
+	   <deyim>
+
+Bu while döngüsünde, deyim içerisinde döngüden çıkışa yol açacak bir deyime varsa sonsuz döngü sonlanmış olur. Örneğin
+return deyimi sonsuz döngü içerisinde kullanıldığında metodu sonlandırıldığından döngüden de çıkılmış olur. Bu durumda
+hiç sonlanmadan dönen döngü bir sonsuz döngüdür ancak her sonsuz döngü belirli durumlarda sonlanabilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+Kontrolün sonda yapıldığı while döngü deyimi (do - while döngüsü): do-while döngü deyiminin genel biçimi :
+
+	do
+	  <deyim>
+	while(<koşul ifadesi>);
+
+Akış do-while döngüsüne geldiğinde koşul kontrol edilmez. Bu durumda do-while döngüsüne en az bir kez girileceği garanti 
+altındadır. Yani döngünün ilk adımı kesinlikle yapacaktır. İlk adımdan sonra koşul kontrol edilecek ve duruma göre
+döngü devam edecek veya sonlanacaktır. do-while döngü deyimi while döngü deyimi kadar sık kullanılmaz. Algoritmaya göre 
+okunulabilirliği  artırmak amaçlı tercih edilir. Bu döngü deyimi dikkatli kullanılmazsa okunulabilirliği azaltabilir. 
+Çünkü bir Java programcısı do-while döngü deyimi gördüğünde algoritmada ilk adımın kesinlikle yapılması gerektiği 
+biçimde kodu algılar.
+
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte do-while döngü deyimi ile sıfır sayısı için 1 değerine geri dönülmüştür.
+
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		NumberUtilCountDigitsTest.run();
+		
+	}	
+	
+	class NumberUtilCountDigitsTest{
+		
+		public static void run() {
+			
+			java.util.Scanner kb = new java.util.Scanner(System.in);
+			
+			System.out.print("Bir sayı giriniz: ");
+			int val = kb.nextInt();
+			
+			System.out.printf("%d sayısının basamakları toplamı: %d%n ",val, NumberUtil.sumDigits(val));
+			
+		}		
+	}	
+class NumberUtil{
+		
+		public static int sumDigits(int val) {
+			
+			java.util.Scanner kb = new java.util.Scanner(System.in);
+			
+			int count = 0;
+			do{
+				
+				++count;
+				val /= 10;
+			} while(val != 0);
+
+			return count;
+			
+			
+		}		
 	}
-	
-	
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte val değişkeninin scope'u  do-while döngüsünün deyimi olduğundan koşul ifadesinde kullanılmaz.
+
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		do{
+			System.out.print("Bir sayı giriniz: ");
+			int val = Integer.parseInt(kb.nextLine());
+			
+			System.out.printf("%d * %d = %d%n ",val, val, val*val);
+			
+		} while(val != 0); //error
+	}	
+		
+				
 }
 
 
