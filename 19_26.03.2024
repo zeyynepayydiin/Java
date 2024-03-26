@@ -1,0 +1,106 @@
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıf Çalışması: Parametresi ile aldığı int türden bir sayının basamakları toplamına geri dönen sumDigits isimli 
+metodu NumberUtil sınıfı içerisinde yazınız ve asağıdaki kod ile test ediniz.
+
+Açıklama: Sayı negatif ise basamkları toplamı pozitif olarak elde edilecek
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		NumberUtilSumDigitsTest.run();
+		
+	}	
+	
+	class NumberUtilSumDigitsTest{
+		
+		public static void run() {
+			
+			java.util.Scanner kb = new java.util.Scanner(System.in);
+			
+			System.out.print("Bir sayı giriniz: ");
+			int val = kb.nextInt();
+			
+			System.out.printf("%d sayısının basamakları toplamı: %d%n ",val, NumberUtil.sumDigits(val));
+			
+		}		
+	}	
+class NumberUtil{
+		
+		public static int sumDigits(int val) {
+			
+			java.util.Scanner kb = new java.util.Scanner(System.in);
+			
+			int total = 0;
+
+			
+			while (val != 0) {
+				total += val % 10 ;
+				
+				val/=10;
+			}
+	
+			return Math.abs(total);
+			
+			
+		}		
+}
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıf Çalışması: Parametresi ile aldığı int türden bir sayının tersine geri dönen reverse isimli 
+metodu NumberUtil sınıfı içerisinde yazınız ve asağıdaki kod ile test ediniz.
+
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+package csd;
+
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		NumberUtilSumDigitsTest.run();
+		
+	}	
+	
+	class NumberUtilSumDigitsTest{
+		
+		public static void run() {
+			
+			java.util.Scanner kb = new java.util.Scanner(System.in);
+			
+			System.out.print("Bir sayı giriniz: ");
+			int val = kb.nextInt();
+			
+			System.out.printf("%d sayısının basamakları toplamı: %d%n ",val, NumberUtil.sumDigits(val));
+			
+		}		
+	}	
+class NumberUtil{
+		
+		public static int sumDigits(int val) {
+			
+			java.util.Scanner kb = new java.util.Scanner(System.in);
+			
+			int result = 0;
+			while(val != 0){
+				
+				result = result * 10 + val % 10;
+				val /= 10;
+			}
+
+			return result;
+			
+			
+		}		
+	}
+
+}
+
+
