@@ -288,3 +288,90 @@ class NumberUtil{
 	}
 }
 
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıf Çalışması: Paratmresi ile aldığı int türden bir sayının Armstrong sayısı olup olmadığını test eden isArmstrong
+metodunu Numberutil sınıfı içerisinde yazınız ve aşağıdaki kod ile test ediniz.
+
+Açıklama:
+
+	- Metod sayı Armstrong ise true, değil ise false döndürecektir.
+	- Negatif olmayan bir sayının basamak sayısı n ise her bir basamağının n'inci kuvveti toplamı kendisine eşitse
+	o sayu bir Armstrong sayısıdır. Örneğin:
+	153 -> 1 * 1 * 1 + 5 * 5 * 5 + 3 * 3 * 3 = 153 bir Armstrong sayısıdır.
+	
+	- Kuvvet işlemi için bir önceki örnekte yazılan pow metodu kullanılacaktır.
+
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		NumberUtilArmstrongTest.run();
+	}			
+
+class NumberUtilArmstrongTest{
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		for(int n = -1; n <= 999_999; ++n)
+			if(NumberUtil.isArmstrong(n))
+				System.out.println(n);
+		
+	}
+}
+
+class NumberUtil{
+	public static boolean isArmstrong(int a)
+	{
+		
+		return a >= 0 && getDigitsPowSum(a) == a;	
+	}
+	public static int getDigitsPowSum(int a)
+	{
+	
+		int result = 0;
+		int  n = CountDigits(a);
+		
+		while(a != 0) {
+			
+			result += pow(a % 10, n);
+			a /= 10;
+		}
+		return result;
+	}
+		
+		
+	public static int CountDigits(int a)
+	{
+	
+		int count = 0;
+		
+		do {
+			++count;
+			a /= 10;
+		}while(a != 0);
+		
+		return count;	
+	}
+
+
+	public static int pow(int a, int b)
+	{
+		int result = 1;
+	
+		for(int i = 0; i < b; ++i) {
+			result *= a;
+		}
+		return result;
+	}
+	}
+}
+
+
