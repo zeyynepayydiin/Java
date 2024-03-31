@@ -141,3 +141,290 @@ class App{
 	}			
 }
 
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örnekte if deyiminde yanlışlıkla noktalı virgül konmasından dolayı ** ile belirtilen deyim if deyiminden
+sonraki deyim olduğundan error oluşmaz. Burada derleyici açısından if deyiminin doğru kısmında boş değim kullanılmıştır
+o da herhangi bir errora yol açmaz.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz: ");
+		int a = kb.nextInt();
+		
+		if(a % 2 == 0);
+			a /= 2;
+		
+		System.out.printf("a = %d%n", a);
+		System.out.print("Tekrar yapıyor musunuz?");
+		
+	}			
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örnekte else'in ait olduğu bir if deyimi olmadığından error oluşur.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz: ");
+		int a = kb.nextInt();
+		
+		if(a % 2 == 0);
+			a /= 2;
+		else            //error
+			a *= 2;
+		
+		System.out.printf("a = %d%n", a);
+		System.out.print("Tekrar yapıyor musunuz?");
+		
+	}			
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örnekte * ile belirtilen if deyiminin else kısmında bir if deyimi vardır.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz: ");
+		int a = kb.nextInt();
+		
+		if(a > 0) //*
+			System.out.printf("Pozitif sayı girdiniz: %d%n", a);
+		else           
+			if(a == 0)
+				System.out.println("0 girdiniz");
+		else
+			System.out.printf("Negatif sayı girdiniz: %d%n", a);
+				
+		System.out.printf("a = %d%n", a);
+		System.out.print("Tekrar yapıyor musunuz?");
+		
+	}			
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Yukarıdaki demo örnek aşağıdaki gibi daha okunabilir yazılabilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz: ");
+		int a = kb.nextInt();
+		
+		if(a > 0) 
+			System.out.printf("Pozitif sayı girdiniz: %d%n", a);
+		else if(a == 0)
+				System.out.println("0 girdiniz");
+		else
+			System.out.printf("Negatif sayı girdiniz: %d%n", a);
+				
+		System.out.printf("a = %d%n", a);
+		System.out.print("Tekrar yapıyor musunuz?");
+		
+	}			
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Yukarıdaki örnek aşağıdaki gibi yazılsaydı, örnek senaryo gereği doğru çalışacaktı. Ancak koşullar ayrık(discrete)
+olduğundan else biçiminde yazılması hem gereksiz kontrolleri engeller, hem de daha okunulabilir/algılanabilir yazılmış 
+olur. Aşağıdaki kodu okuyan programcı koşulların ayrık olmadığı izlenimine kapılır. Bu durumda aslında ayrık koşullar
+için else if kullanmak ayrık olmayan koşullara ilişkin if deyimlerinin okunulabilirliğini/algılanabilirliğini artırır.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz: ");
+		int a = kb.nextInt();
+		
+		if(a > 0) 
+			System.out.printf("Pozitif sayı girdiniz: %d%n", a);
+		if(a == 0)
+				System.out.println("0 girdiniz");
+		if(a < 0)
+			System.out.printf("Negatif sayı girdiniz: %d%n", a);
+				
+		System.out.printf("a = %d%n", a);
+		System.out.print("Tekrar yapıyor musunuz?");
+		
+	}			
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıaki demo örnekte koşullar ayrık olmadığından ayrı if deyimleri ile yazılması uygundur
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz: ");
+		int a = kb.nextInt();
+		
+		if(a > 6) 
+			System.out.printf("%d > 6%n", a);
+		if(a > 10)
+			System.out.printf("%d > 6%n", a);
+		if(a > 22)
+			System.out.printf("%d > 6%n", a);
+
+		System.out.print("Tekrar yapıyor musunuz?");
+		
+	}			
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Boolean türden ifadelerin değerlerinin koşul ifadesinde karşılaştırılmasının == veya != operatörleri ile yapılması 
+tavsiye edilmez. 
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz: ");
+		int a = kb.nextInt();
+		
+		Util.printValueStatus(a % 2 == 0);
+		
+		System.out.print("Tekrar yapıyor musunuz?");
+		
+	}			
+}
+
+class Util{
+	public static void printValueStatus(boolean status) {
+		
+		if(status)     //if(status == true)
+			System.out.println("Çift");
+		else
+			System.out.println("Tek");
+	}			
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Pratikte geri dönüş değeri boolean olan metotlarla çok fazla karşılaşırız. Bu metotlar tipik olarak bir işlemin sonucuna
+ilişkin doğruluğu veya yanlışlığı test etmek için kullanılır. Örneğin, bir kişinin bilgilerine göre  kişinin evli olup 
+olmadığını test etmek için kulanılan bir metot tipik olarak boolean türden geri dönüş değerine sahip olacak şekilde 
+yazılır. Ya da örneği bir dosyanın belirtilen yol ifadesine ilişkin yerde olup olmadığını test eden bir metot yine 
+boolean türden geri dönüş değere sahip olacak şekilde yazılır. Bu tarz metotlara pratikte "predicate methods" da 
+denilmektedir. Predicate bir metot eğer bir isme ilişkin ise genellikle is (bazen has, can vb) ile başlatılır. Örneğin 
+bir kişinin evli olup olmadığını test eden bir metodun ismi isMarried olarak seçilebilir. Predicate bir metot bir fiile
+ilişkinde bu durumda İngilizce çekim eki kullanılarak belirlenir. Örneğin yol ifadesindeki dosyanın varlığını test eden
+metodun ismi exists olarak seçilebilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki isEven metodunda akış return true deyimine geldiğined zaten sonlanacağından else anahtar sözcüğünün yazılmasıyla
+yazılmaması arasında bir fark yoktur. Böylesi durumlarda else yazılmaması önerilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz: ");
+		int a = kb.nextInt();
+		
+		if(NumberUtil.isEven(a))     
+			System.out.printf("Çift sayı: %d%n", a);
+		else
+			System.out.printf("Tek sayı: %d%n", a);
+		 
+		
+		System.out.print("Tekrar yapıyor musunuz?");
+		
+	}			
+}
+
+class NumberUtil{
+	public static boolean isEven(int a) {
+		
+		if(a % 2 == 0)    
+			return true;
+		
+		return false;
+	}			
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Yukarıdaki örnek aşağıdaki gibi daha okunulabilir/algılanabilir olarak yazılabilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz: ");
+		int a = kb.nextInt();
+		
+		if(NumberUtil.isEven(a))     
+			System.out.printf("Çift sayı: %d%n", a);
+		else
+			System.out.printf("Tek sayı: %d%n", a);
+		 
+		
+		System.out.print("Tekrar yapıyor musunuz?");
+		
+	}			
+}
+
+class NumberUtil{
+	public static boolean isEven(int a) {
+		
+		return a % 2 == 0;
+	}			
+}
