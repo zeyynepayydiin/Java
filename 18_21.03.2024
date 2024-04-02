@@ -66,11 +66,154 @@ class NumberUtil {
 is fonksiyonlarının isNot'lısını da yazmak gereksiz değil okunulabilirlik açısından güzel olabilir.
 
 
+/*----------------------------------------------------------------------------------------------------------------------
+ 	Aşağıdaki demo örnekte else içteki if deyimine ait olur. Buna "dangling else" denir
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
 
+class App {
+	public static void main(String [] args) 
+	{	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz:");
+		int a = kb.nextInt();
+		
+		if (a > 0)
+			if (a % 2 == 0)
+				System.out.println("Çift sayı girdiniz");			
+		else
+			System.out.println("Negatif sayı girdiniz");	//istediğin kadar solda yaz yine de else hemen üstündeki if'in else'idir.
+				
+		System.out.println("Tekrar yapıyor musunuz?");
+	}
+}
 
+/*----------------------------------------------------------------------------------------------------------------------
+ 	Yukarıdaki dangling else durumu bileşik deyim kullanılarak da çözülebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
 
+class App {
+	public static void main(String [] args) 
+	{	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz:");
+		int a = kb.nextInt();
+		
+		if (a > 0)  {
+			if (a % 2 == 0)
+				System.out.println("Çift sayı girdiniz");
+		}
+		else
+			System.out.println("Negatif sayı girdiniz");
+				
+		System.out.println("Tekrar yapıyor musunuz?");
+	}
+}
 
+/*----------------------------------------------------------------------------------------------------------------------
+ 	Aşağıdaki demo örnekte dangling else durumu yoktur
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
 
+class App {
+	public static void main(String [] args) 
+	{	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz:");
+		int a = kb.nextInt();
+		
+		if (a > 0) 
+			if (a % 2 == 0)
+				System.out.println("Çift sayı girdiniz");		
+			else 
+				System.out.println("Tek sayı girdiniz");
+		else
+			System.out.println("Negatif sayı girdiniz");		
+				
+		System.out.println("Tekrar yapıyor musunuz?");
+	}
+}
+
+!! if, else'iyle birlikte tek bir deyimdir. O yüzden böyle küme parantezi koymadan da yazılabiliyor.
+
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıf Çalışması: Kat sayıları klavyeden girilen ikinci dereceden denklemin köklerini bulan ve ekrana basan programı 
+yazınız.
+
+	
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+import java.util.List;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		QuadraticEquationSolverApp.run();
+		
+		
+	}	
+class QuadraticEquationSolverApp{
+	public static void run() {
+
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz: ");
+		double a = kb.nextDouble();
+		double b = kb.nextDouble();
+		double c = kb.nextDouble();
+		
+		EquationSolver.findQuadraticRoots(a, b, c);;
+		
+		}			
+	}
+class EquationSolver{
+	public static double calculateDelta(double a, double b, double c) {
+
+		return b * b - 4 * a * c;
+		
+		
+		}	
+	public static void doForDoubleRoot(double delta,double a, double b) {
+
+		double sqrtDelta = Math.sqrt(delta);
+		
+		double x1 = (-b + sqrtDelta) / (2 * a);
+		double x2 = (-b - sqrtDelta) / (2 * a);
+		
+		System.out.printf("x1 = %f, x2 = %f%n ",x1,x2);
+		
+		}	
+	public static void doForSameRoot(double a, double b) {
+
+		double x = -b / (2 * a);
+		System.out.printf("x1 = x2 = %f%n ",x);
+		
+		}	
+	public static void findQuadraticRoots(double a, double b, double c) {
+
+		double delta = calculateDelta(a,b,c);
+		
+		if(delta > 0)
+			doForDoubleRoot(delta,a,b);
+		else if(delta == 0) 
+			 doForSameRoot(a,b);
+		else 
+			System.out.print("No real root!... ");
+		
+		
+		}		
+	}
+}
+
+	
 
 
 
