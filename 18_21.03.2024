@@ -144,7 +144,8 @@ class App {
 Sınıf Çalışması: Kat sayıları klavyeden girilen ikinci dereceden denklemin köklerini bulan ve ekrana basan programı 
 yazınız.
 
-	
+Not: Örnek şu anda gördüklerimiz kullanılarak, daha genel yazılmıştır. İleride daha iyisi yazılacaktır.
+Not: Formül için ~/doc/images/ikinci-dereceden-denklem.jpg dosyasından yararlanabilirsiniz.
 ----------------------------------------------------------------------------------------------------------------------
 */
 package csd;
@@ -212,11 +213,158 @@ class EquationSolver{
 		}		
 	}
 }
-
 	
+/*----------------------------------------------------------------------------------------------------------------------
+Döngü Deyimleri: Bir işin yinelemeli (iterative) bir biçimde yapılmasını sağlayan kontrol deyimlerinde döngü deyimleri
+(loop statements) denir. if statements'a asla döngü demiyoruz, yineleme yapmıyor. Java'da döngü deyimleri genel olarak 
+3 gruba ayrılır:
+	1. while döngü deyimi
+		- Kontrolün başta yapıldığı while döngü deyimi (while döngüsü)
+		- Kontrolün sonda yapıldığı while döngü deyimi (do-while döngüsü)
+	2. for döngü deyimi
+	3. for-each (enhanced for loop) döngü deyimi
 
+Anahtar Notlar: while döngü deyimi dendiğinde genel olarak "Kontrolün başta yapıldığı while döngü deyimi" anlaşılır.
+Burada da while döngüsü dediğinde bu şekilde anlaşılmalıdır. "Kontrolün sonda yapıldığı while döngü deyimi" için 
+"do-while döngüsü" terimi kullanılır.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Kontrolün başta yapıldığı while döngü deyiminin (while döngüsü) genel biçimi şu şekildedir:
 
+	while (<boolean türden ifade>)
+		<deyim>
+		
+while döngüsü koşul ifadesi doğru sürece yinelenen döngü deyimidir. Akış döngü deyimine geldiğinde de koşul kontrol 
+edilir, eğer yanlış ise döngüye girilmez. Koşul ifadesinin boolean türden olmaması durumunda error oluşur.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demoörneği inceleyiniz.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
 
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.print("Bir sayı giriniz: ");
+		int n = kb.nextInt();
+		int i = 0;
+		
+		while(i < n) {
+			System.out.printf("%d ",i);
+			++i;
+		}
+		System.out.printf("%nDöngü sonrası i = %d%n ",i);
+		System.out.println("Tekrar yapıyor musunuz?");
+		
+		
+	}	
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+while döngü deyimi ile n-kez dönen döngü deyimi de oluşturulabilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.print("Bir sayı giriniz: ");
+		int n = kb.nextInt();
+		int i = n - 1;
+		
+		while(i >= 0) {
+			System.out.printf("%d ",i);
+			--i;
+		}
+		
+		System.out.printf("%nDöngü sonrası i = %d%n",i);
+		System.out.println("Tekrar yapıyor musunuz?");
+		
+	}	
+}
+
+!!	
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki döngü deyimi bazı programcılar tarafından kullanılan "n-kez dönen" döngü kalıbıdır. Bu kalıbı programcı 
+kullanmak istemese de gördüğünde tanımalıdır. Bu döngü deyiminde n değerinin, döngüye girildiğinde, döngüden sonra
+artık eski değerinde olmadığına dikkat ediniz. 
+
+n = 4 olsun
+Ekran çıktısı:
+3 2 1 0
+Döngü sonrası n: -1
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.print("Bir sayı giriniz: ");
+		int n = kb.nextInt();
+		
+		while(n-- > 0) //n'i 4 girdik ilk döngüde n--'nin ürettiği değer 4, n ise 3.
+			System.out.printf("%d ",n);
+				
+		System.out.println("Tekrar yapıyor musunuz?");
+		
+		System.out.printf("%nDöngü sonrası n = %d%n",n);
+		
+		System.out.println("Tekrar yapıyor musunuz?");
+		
+	}	
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıf çalışması: Parametresi ile aldığı int türden bir sayının basamak sayısını döndüren countDigits metodunu 
+NumberUtil sınıfı içerisinde yazınız ve aşağıdaki kod ile test ediniz.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		NumberUtilCountDigitsTest.run();
+		
+	}	
+}
+
+class NumberUtilCountDigitsTest{
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.print("Bir sayı giriniz: ");
+		int val = kb.nextInt();
+		
+		System.out.printf("%d sayısının basamak sayısı: %d%n",val,NumberUtil.CountDigits(val));
+		
+	}
+	
+class NumberUtil{
+	public static int CountDigits(int val)
+	{
+		if (val == 0)
+			return 1;
+		
+		int count = 0;
+		
+		while(val != 0)
+		{
+			++count;
+			val /= 10;
+		}
+		return count;
+		}
+	}
+}	
 
 
 
