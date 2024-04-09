@@ -1,7 +1,7 @@
 Sayı Sistemleri
 Bilgisayar dünyası ikilik sayı sistemini (binary system) kullanıyor.
 Binary digit(bit)
-0,1,2,3,4,5,6,7,8,9 -> decimal
+0,1,2,3,4,5,6,7,8,9 -> decimal, 10'luk sistemde 10 tane rakam vardır, 2'lik sistemde 2 adet rakam vardır.
 0,1 -> binary
 
 1B = 8 bit
@@ -10,6 +10,8 @@ Binary digit(bit)
 1GB = 1024MB
 1TB = 1024GB
 
+bit, binary digit'in kısaltılmasıymış
+
 1 word = 2 Byte
 1 double word = 4 Byte
 1 quadro word = 8 Byte
@@ -17,7 +19,7 @@ Binary digit(bit)
 00001010 -> binary
 10       -> decimal
 A        -> hexadecimal
-12       -> octal
+12       -> octal, 8'lik 
 
 
 0100 1010 -> 0 * 1 + 1*2 + 0 * 4 + 1 * 8 + 0 * 16 + 0 * 32 + 1 * 64 + 0 * 128 = 74
@@ -25,7 +27,7 @@ A        -> hexadecimal
 Tam sayılar (integer numbers):
 Gerçek sayılar (real numbers):
 
-Tam sayılar = İşaretli (signed), işaretsiz (unsigned)
+Tam sayılar iki şekilde sistemde tutulabiliyor = İşaretli (signed), işaretsiz (unsigned)
 
 10  -> 0000 1010
 -10 -> 
@@ -41,14 +43,21 @@ Kolayı: sağdan başlıyorum 1 görene kadar aynen yazıyorum, 1'i de yazıyoru
 The most significant bit (sign bit): sayının en soldaki biti 1 ise sayı negatif, 0 ise sayı pozitif
 
 1000 0010 ->  0111 1110 <-> 2 + 4 + 8 + 16 + 32 + 64 = -126
+1000 -> ikiye tümleyeni: 1000 = -8
 
-unsigned 
-11111111 -> 255
-00000000 -> 0
+unsigned sistemde yazılabilecek 
+en büyük sayı: 11111111 -> 255
+en küçük sayı: 00000000 -> 0
 
-signed
-01111111 -> 127
-10000000 -> -128
+signed sistemde yazılabilecek
+en büyük sayı: 01111111 -> 127
+en küçük sayı: 10000000 -> -128 (2'ye tümleyenide zaten aynı olduğu için)
+
+________ -> 8 basamağımız varsa ve her sayıya 2 rakam yazabiliyosank 2^8 yani 256 sayı yazabiliriz
+
+bu kadar basamak göstermek yerine, hexadecimal sistem kullanılıyor
+1 hex digit 4 bit 
+2 hex digit 1 byte
 
 Binary           Hexadecimal
 0000                  0
@@ -68,12 +77,15 @@ Binary           Hexadecimal
 1110                  E
 1111                  F
 
+hexadecimali ne bilgisayar kullanıyo ne biz bu sistem sadece daha yalı bir gösterim için var.
+elimde 32 bit varsa 8 hex digit kullanıcaz yani  
+
 Her octal digit 3 bir ile ifade edilebilir:
 
-Octal          Binary           
-	0             000
+      Octal          	   Binary           
+	0                   000
 	1	            001
-	2            	010
+	2		    010
 	3	            011
 	4	            100
 	5	            101
@@ -81,12 +93,74 @@ Octal          Binary
 	7	            111
 
 
+Tür: Bir değişkenin içerisindeki değerin ne kadar uzunlukta tutuldığunu yani bellekte ne kadar yer ayrılacağını ve değerin
+hangi formatta tutulacağını belirtir. Java'da temel türler (primitive/built-in/predefined) şunlardır:
+
+Tür			Uzunluğu (byte/bit)
+int				4/32
+long				8/64
+short				2/16
+byte				1/8
+
+double				8/64
+float				4/32
+
+char				2/16
+boolean				-
+
+Açıklamalar:
+- Java'da temel türlerin her biri birer anahtar sözcüktür.
+
+- int, long, short ve double türlerine  "tam sayı türleri (integer/integral types)" denir. int türüne integer demek yanlış evet int bir integerdır
+ama integer int değildir, integer bunların genel adıdır.
+
+- Tamsayı türleri için işaretli sistemde 2'ye tümleme formatını kullanılır. Java'da işaretsiz tamsayı türü yoktur.
+
+- double ve float türlerine "gerçek sayı türleri (real types)" denir. Gerçek sayı türleri için IEEE 754 formatı kullanılır. Bu türlere 
+"floating point types" da denilmektedir. Bu türlerde yapılan işlemlerde IEEE 754 standardının çalışma sistemi gereği 
+yuvarlama hataları (rounding error) oluşabilir. Bu yuvarlama hatalarının problem olabileceği uygulamalarda (örneğin parasal 
+ve finansal) uygulamalarda bu türler kullanılmaz. Bu tip durumlarda hangi türlerin kullanılacağı ileride ele alınacaktır.
+
+-Programlamada kullanılan karakterler bir tabloda tutulur. Bu tabloya karakter tablosu denilmektedir. Programlamada 
+pek çok karakter tablosu kullanılabilmektedir. Daha önceleri ASCII denilen ve 7 bit olarak tutulan ancak daha sonra 8
+bit olarak ele alınan bir karakter tablosu vardır. Daha sonraları dünyada kullanılan pek çok karakterin de tutulabilmesi
+için UNICODE isimli bir karakter tablosu kullanılmaya başlanmıştır. UNICODE tablosunun ilk 128 karakteri ASCII ile aynıdır.
+UNICODE tablosunun da çeşitleri vardır. char türü içerisinde tutulan sayı ilgili tabloda sıra numarası olarak yorumlanır.
+Yani char türü içerisinde tutulan sayı aslında ilgili karakter tablosunda bir karakterin sıra numarasına karşılk gelir.
+Bu anlamda char türü UNICODE tablosunun 2 byte'ı ile uyumludur. Karakter tabloların ilişkin detaylar ileride ele alıncaktır.
+
+- Boolean türü mantıksal olarak doğru ve yanlış kavramlarını temsil eden bir türdür. boolean türünden bir değişken iki tane
+değer alabilir: true, false. Bu tür örneğin flag değişkenlerde kullanılabilir. boolean türünün uzunluğu Java Language
+Specification dokümanında belirtilememiştir. Zaten iki tane değer aldığı için de uzunluğunun kaç olduğunun programcı
+açısından önemi yoktur.
+
+- Her ne kadar 8 tane tür olsa da programcı tamsayı kullanacağı zaman önce int türünü düşünür, int türünün senaryoya uygun 
+olmadığı durumda (örneğin daha fazla değer tutulması gerekirse) diğer türler tercih edilmelidir. Benzer şekilde gerçek
+sayılar için de öncelikle double türü düşünülmeli, duruma göre float türü tercih edilmelidir. Diğer türler (char ve boolean)
+zaten özel amaçlı türlerdir.
 
 
+/*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki demo örneği çalıştırıp yuvarlama hatasını gözlemleyiniz. Kodun detayları şu an için önemsizdir
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
 
-
-
-
+class App {
+	public static void main(String [] args)
+	{	
+		double a = 0.1, b = 0.2;
+		double c;
+		
+		c = a + b;
+		
+		System.out.printf("c = %.20f%n", c);
+		
+		if (c == 0.3)
+			System.out.println("Eşit");
+		else
+			System.out.println("Eşit değil");
+	}
+}
 
 
 
