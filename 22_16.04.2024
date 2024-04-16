@@ -184,6 +184,8 @@ class App{
 	}	
 }
 
+BURADA YAZI EKSİK
+
 package csd;
 
 class App{
@@ -208,5 +210,91 @@ class Sample{
 	}	
 }
 
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örnekte 3 basamaklı Armstrong sayıları iç içe döngü kullanılarak bulunmuştur.
+----------------------------------------------------------------------------------------------------------------------
+*/
 
+HATALI KOD 
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		for(int a = 1; a < 9; ++a)
+			for(int b = 0; b <= 9; ++b)
+				for(int c = 0; a <= 9; ++c)
+					if(100 * a + 10 * b + c == a * a * a + b * b * b + c * c * c)
+						System.out.printf("%d%d%d%n", a, b, c);
+
+	}	
+}
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıf Çalışması: Parametresi ile aldığı int türden pozitif bir n değeri için n-inci Fibonacci sayısını döndüren 
+fibonacciNumber isimli metodu yazınız ve aşağıdaki kod ile test ediniz.
+
+Açıklamalar:
+ - 0 1 1 2 3 5 8 13 21 . . . serisinin sayılarına Fibonacci sayıları denir.
+ - Metot pozitif olmayan n değeri için kontrol yapmayacaktır
+ - Metot recursive yazılmayacaktır
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+	
+		NumberUtilFibonacciNumberTest.run();
+
+	}	
+}
+
+class NumberUtilFibonacciNumberTest{
+	public static void run() {
+	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		while(true) {
+			System.out.print("Bir sayı giriniz: ");
+			int n = Integer.parseInt(kb.nextLine());
+			
+			if(n <= 0)
+				break;
+			
+			
+			System.out.printf("%d. Fibonacci sayısı. %d%n", n, NumberUtil.fibonaccciNumber(n));
+			
+		}
+	}	
+}
+
+class NumberUtil{
+	public static int fibonaccciNumber(int n) {
+	
+		if(n <= 2)
+			return n - 1;
+		
+		int prev1 = 1, prev2 = 0, result = prev1 + prev2;
+				
+		for(int i = 3; i < n; ++i)
+		{
+			prev2 = prev1;
+			prev1 = result;
+			result = prev1 + prev2;
+			
+		}
+		
+		return result;
+
+	}	
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıf Çalışması: Parametresi ile aldığı int türden sayıdan büyük ilk Fibonacci sayısını döndüren nextFibonacciNumber
+isimli metodu NumberUtil sınıfı içerisinde yazınız ve test ediniz.
+----------------------------------------------------------------------------------------------------------------------
+*/
 
