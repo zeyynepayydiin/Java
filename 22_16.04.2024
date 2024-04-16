@@ -161,5 +161,52 @@ class NumberUtil {
 		return true;
 	}
 }
+/*----------------------------------------------------------------------------------------------------------------------
+Bir döngünün değimi başka bir döngü deyimi ise bu durumda iç içe döngü yazılmış olur. İç içe döngüler tipik olarak
+iç içe iki döngü, iç içe 3 döngü biçiminde karşımıza çıkar. İç içe 3'ten fazla döngü çok özeldurumlar dışında karşımıza 
+çıkmaz. Bazı durumlarda programcı döngü içerisinde çağırdığı bir metot da döngüye girdiğinden dolayı olarak iç içe yazmış
+olur.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.print("Bir sayı giriniz: ");
+		int m = kb.nextInt();
+		int n = kb.nextInt();
+		
+		for(int i = 0; i < m; ++i)
+			for(int k = n - 1; k >= 0; --k)
+				System.out.printf("(%d,%d)%n", i, k);
+	}	
+}
+
+package csd;
+
+class App{
+	public static void main(String [] args) {
+		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.print("Bir sayı giriniz: ");
+		int m = kb.nextInt();
+		int n = kb.nextInt();
+		
+		for(int i = 0; i < m; ++i)
+			Sample.doWork(i, n);
+	}	
+}
+
+
+class Sample{
+	public static void doWork(int i, int n) {
+		
+		for(int k = n - 1; k >= 0; --k)
+			System.out.printf("(%d,%d)%n", i, k);
+	}	
+}
+
 
 
