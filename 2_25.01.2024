@@ -37,16 +37,25 @@ dil makine dilidir.
 
 2  Kullanım alanlarına göre sınıflandırma: Dilin hangi alanlarda kullanılabileceğine ilişkin sınıflandırmadır. Bazı diller birden fazla alanda 
 kullanılabilirler. Bazı diller ise tek bir alana yöneliktir. Mesela SQL bir veritabanı dilidir tutup da web tasarımı yapamazsın. Java genel 
-amaçlı bir dildir.
+amaçlı bir dildir.Bu anlamda genel amaçlı diller, bilimsel ve mühendislik dilleri, veritabanı dilleri, yapay zeka dilleri, oyun ve animasyon
+dilleri vb. alanlar için diller söz konusu olabilmektedir.
 
 3. Programlama modeline göre sınıflandırma: Bir programı yazarken kullanılan genel model (paradigm) önemlidir. Bazı dillerde sınıf yoktur, program çeşitli
 alt programların (function) birbirlerini çağırmasıyşa yazılır. Buna "procedural model" denir. Bazı dillerde sınıf vardır, program sınıflar kullanılarak
 yazılır. Başka birçok kavramla birlikte sınıflar da kullanılarak yazılan modele "object oriented model" denir. Bazı dillerde programlar formül yazıyormuş
 gibi yazılır. Bu modele "functional" model, yapılan programlamaya ise "functional programming" denir. Bazı diller birden fazla modeli desteklerler.
 Bu tip dilllere "multi-paradigm laguage" denir. Burada birden fazla modelin desteklenmesi hepsinin aynı derecede desteklenmesi anlamına gelmez. 
+ Birden fazla modeli destekleyen diller, modellerin tüm özelliklerini desteklemeyebilir. 
 
 
+Bu durumda Java, bilimsel ve mühendislik uygulamalarında, web uygulamalarında, yapay zeka uygulamalarında, mobil programlamada vb. kullanılabilen genel
+amaçlı, yüksek seviyeli, nesne yönelimli programlama modeli ile uygulama geliştirilebilen ve özellikle Java 8 ile birlike fonksiyonel programlama modelini 
+de belirli ölçüde destekleyen "multi paradigm" bir dildir.
 
+Anahtar Notlar: Bir dilin bir çok alanda kullanılabilmesi, o dilin tüm alanlarında pratikte kullanılacağı anlamına gelmez.
+Bir alanda daha etkin kullanılabilen bir dil varsa o dil daha fazla tercih edilebilir.
+
+Anahtar Notlar: Yukarıda anlatılan kavramların detayları vardır. Zaman içerisinde anlaşılacaktır.
 
 
 
