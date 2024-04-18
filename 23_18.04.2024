@@ -720,7 +720,7 @@ class App{
 			System.out.println("Zonguldak");
 			break;
 		default:
-			System.out.println("Geçersiz plaka değeri");
+			System.out.println("Geçersiz telefon kodu");
 		}
 		System.out.println("Tekrar yapıyor musunuz? ");
 	}	
