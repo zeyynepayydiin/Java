@@ -1,1 +1,9 @@
-
+/*----------------------------------------------------------------------------------------------------------------------
+Anahtar Notlar: switch deyiminde case bölümlerinin (dolayısıyla default bölümün) çok uzun deyimlerle doldurulmaması 
+tavsiye edilir. Tipik olarak switch deyimine bakıldığında case bölümleri kolaylıkla okunabilir olmalıdır. Bu anlamda
+case bölümlerinin uzun kodlar olması durumuna ilgili bölümler için metotlar yazılıp çalıştırılması tavsiye edilir. Ayrıca
+çok fazla sabit değeri olması durumunda switch deyimi okunulabilirliği/algılınabilirliği olumsuz etkileyebilir. Hatta
+böyle bir durumda if deyimi bile okunulabilirliği/algılınabilirliği olumsuz etkileyebilir. Bu tip durumlarda izlenebilecek 
+yöntemler zamanla anlaşılacaktır.
+----------------------------------------------------------------------------------------------------------------------
+*/
