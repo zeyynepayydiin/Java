@@ -1,0 +1,31 @@
+/*----------------------------------------------------------------------------------------------------------------------
+double türünden float türüne yapılan explicit dönüşümde sayı float türünden temsil edilebilen en yakın sayıya yuvarlanır.
+Bu durumda gerçek sayıların tutuluş formatına ilişkin yuvarlama hatası (rounding error) oluşabileceğini anımsayınız.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+
+		while(true) {
+			System.out.print("Bir sayı giriniz: ");
+			double a = Double.parseDouble(kb.nextLine());
+			float b;
+			
+			b = (float)a;
+			
+			System.out.printf("a = %.20f%n",a);
+			System.out.printf("a = %.20f%n",b);
+			
+			if(Math.abs(a) < 0.00000001)
+				break;
+		}
+		
+		
+		
+	}	
+}
+
