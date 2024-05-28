@@ -1,0 +1,87 @@
+Bir metot çağrısı için derleyici hangi metodun çağrılacağını belirlemelidir. Bu belirleme sürecine "method overload resolution"
+ya da kısad "overload resoulution" denilmektedir. Derleyici method overload resolution işlemini aşağıdaki 
+adımlardan geçerek yapar:
+
+1. Aday metotlar (candidate methods) belirlenir: Sınıf içerisindeki, çağrılan metot ile aynı işlemdeki tüm metotlardır.
+
+2. Uygun metotlar (applicable methods) belirlenir: Aday metotlar içerisinde, çağrılan metodun argüman sayısı ile 
+parametre sayısı aynı olan VEYA argümanların türünden, karşılık geldikleri parametrelerin türüne implicit conversion'ın geçerli
+olduğu metotlardır.
+
+3. En uygun metot (the most applicable methods) belirlenir: En uygun metot öyle bir metottur ki, uygun metotların her bir
+argümanı karşılık geldiği parametrelerin türleri ile yarışa sokulduğunda toplamda diğerlerine göre daha iyi olan, ya da daha
+kötü olmayan (diğer bir değişle kaliteli) dönüşüm sunar. Dönüşümün kalitesi şu kurallar ile belirlenir: 
+T1 argümanın türü, T2 ve T3 yarışa sokulan parametrelerin türü olsun
+a) T1 -> T2 ve T1 -> T3 için, T2 veya T3'ten biri T1 ile aynı ise aynı olan daha kalitelidir. Örneğin:
+int -> int *
+int -> float
+
+b) T1 -> T2 ve T1 -> T3 için, T2'den T3'e implicit dönüşüm geçerli, T3'den T2'ye geçersizde T2 daha kalitelidir. Örneğin:
+int -> long * tutuş şekli olarak int long'a daha yakın
+int -> float 
+
+Herhangi bir adımda ir problem oluşursa error oluşur. Yani örneğin aday metot VEYA aday metot var, uygun metot yoksa 
+VEYA uygun metot var, en uygun metot yoksa error oluşur.
+
+Yukarıdaki kurallara göre, metot çağrısında argümanların türü ile karşılık geldikleri parametrelerin türlerinin birebir
+aynı olduğu bir metot varsa o en kalitelidir. Buna "best match" de denilir.
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki çağrı aslında "best match" durumudur. Ancak, adımlar şunlardır:
+1. Aday metotlar: 1, 2, 3, 4, 5, 6, 7, 8
+2. Uygun metotlar: 5, 6
+3. En uygun metot: 5
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+
+		int a = 10;
+		double b = 4.5;
+		
+		Sample.foo(a,b);
+		
+	}	
+}
+
+class Sample {
+	public static void foo() //1
+	{
+		System.out.println("foo");
+	}
+	public static void foo(int a, int b) //2
+	{
+		System.out.println("foo, int, int");
+	}
+	public static void foo(int a, double b, float c) //3
+	{
+		System.out.println("foo, int, double, float");
+	}
+	public static void foo(int a) //4
+	{
+		System.out.println("foo, int");
+	}
+	public static void foo(int a, double b) //5
+	{
+		System.out.println("foo, int, double");
+	}
+	public static void foo(double a, double b) //6
+	{
+		System.out.println("foo, double, double");
+		
+	}
+	public static void foo(double a) //7
+	{
+		System.out.println("foo, double");
+	}
+	public static void bar(int a, double b) //8
+	{
+		System.out.println("foo, double, double");
+	}
+}
+
