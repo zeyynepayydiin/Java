@@ -85,7 +85,6 @@ class Sample {
 	}
 }
 /*----------------------------------------------------------------------------------------------------------------------
-Aşağıdaki çağrı aslında "best match" durumudur. Ancak, adımlar şunlardır:
 1. Aday metotlar: 1, 2, 3, 4, 5, 6, 7
 2. Uygun metotlar: 2, 5, 6
 3. En uygun metot: 2
@@ -143,7 +142,6 @@ class Sample {
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
-Aşağıdaki çağrı aslında "best match" durumudur. Ancak, adımlar şunlardır:
 1. Aday metotlar: 1, 2, 3, 4, 5, 6, 7
 2. Uygun metotlar: YOK
 
@@ -202,7 +200,6 @@ class Sample {
 
 
 /*----------------------------------------------------------------------------------------------------------------------
-Aşağıdaki çağrı aslında "best match" durumudur. Ancak, adımlar şunlardır:
 1. Aday metotlar: 1, 2, 3, 4, 5, 6, 7
 2. Uygun metotlar:  2, 5, 6
 3. En uygun metot: Yok
@@ -259,6 +256,62 @@ class Sample {
 		System.out.println("foo, double, double");
 	}
 }
+/*----------------------------------------------------------------------------------------------------------------------
+Anahtar Notlar: Method overload resolution kavramının temel türler dışındaki bazı ayrıntıları konular içerisinde
+ele alınacaktır.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Anahtar Notlar: Method overload resolution kavramının temel türler dışındaki bazı ayrıntıları konular içerisinde
+ele alınacaktır.
+
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+
+		System.out.print("İki sayı giriniz: ");
+		int a = kb.nextInt();
+		double b = kb.nextDouble();
+		long c = kb.nextLong();
+		short d = kb.nextShort();
+		
+		double absDouble = MyMath.abs(b);
+		int absInt = MyMath.abs(a);
+		long absLong = MyMath.abs(c);
+		double absShort = MyMath.abs(d); // type casting veya short değer döndüre abs metodu gerekmiyo int olanı kullanır
+		
+		System.out.printf("|%d| = %d%n|%f| = %f%n", a, absInt, b, absDouble, c, absLong);
+		
+		
+	}	
+}
+
+class MyMath {
+	public static int abs(int a)
+	{
+		System.out.println("abs, int");
+		
+		return a < 0 ? -a : a;
+	}
+	public static long abs(long a)
+	{
+		System.out.println("abs, long");
+		
+		return a < 0 ? -a : a;
+	}
+	public static double abs(double a)
+	{
+		System.out.println("abs, double");
+		
+		return a < 0 ? -a : a;
+	}
+}
+
 
 
 
