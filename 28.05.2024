@@ -142,4 +142,123 @@ class Sample {
 	}
 }
 
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki çağrı aslında "best match" durumudur. Ancak, adımlar şunlardır:
+1. Aday metotlar: 1, 2, 3, 4, 5, 6, 7
+2. Uygun metotlar: YOK
+
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+
+		boolean a = true;
+		int b = 4;
+		
+		Sample.foo(a,b); //error
+		
+	}	
+}
+
+class Sample {
+	public static void foo() //1
+	{
+		System.out.println("foo");
+	}
+	public static void foo(int a, int b) //2
+	{
+		System.out.println("foo, int, int");
+	}
+	public static void foo(int a, double b, float c) //3
+	{
+		System.out.println("foo, int, double, float");
+	}
+	public static void foo(int a) //4
+	{
+		System.out.println("foo, int");
+	}
+	public static void foo(int a, double b) //5
+	{
+		System.out.println("foo, int, double");
+	}
+	public static void foo(double a, double b) //6
+	{
+		System.out.println("foo, double, double");
+		
+	}
+	public static void foo(double a) //7
+	{
+		System.out.println("foo, double");
+	}
+	public static void bar(int a, double b) //8
+	{
+		System.out.println("foo, double, double");
+	}
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki çağrı aslında "best match" durumudur. Ancak, adımlar şunlardır:
+1. Aday metotlar: 1, 2, 3, 4, 5, 6, 7
+2. Uygun metotlar:  2, 5, 6
+3. En uygun metot: Yok
+
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+
+		short a = 10;
+		short b = 4;
+		
+		Sample.foo(a,b); //error: ambiguity (ambiguous)
+		
+	}	
+}
+
+class Sample {
+	public static void foo() //1
+	{
+		System.out.println("foo");
+	}
+	public static void foo(int a, long b) //2
+	{
+		System.out.println("foo, int, long");
+	}
+	public static void foo(int a, double b, float c) //3
+	{
+		System.out.println("foo, int, double, float");
+	}
+	public static void foo(int a) //4
+	{
+		System.out.println("foo, int");
+	}
+	public static void foo(long a, int b) //5
+	{
+		System.out.println("foo, long, double");
+	}
+	public static void foo(double a, double b) //6
+	{
+		System.out.println("foo, double, double");
+		
+	}
+	public static void foo(double a) //7
+	{
+		System.out.println("foo, double");
+	}
+	public static void bar(int a, double b) //8
+	{
+		System.out.println("foo, double, double");
+	}
+}
+
+
 
