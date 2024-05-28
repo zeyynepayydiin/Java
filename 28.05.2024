@@ -29,7 +29,7 @@ aynı olduğu bir metot varsa o en kalitelidir. Buna "best match" de denilir.
 
 /*----------------------------------------------------------------------------------------------------------------------
 Aşağıdaki çağrı aslında "best match" durumudur. Ancak, adımlar şunlardır:
-1. Aday metotlar: 1, 2, 3, 4, 5, 6, 7, 8
+1. Aday metotlar: 1, 2, 3, 4, 5, 6, 7
 2. Uygun metotlar: 5, 6
 3. En uygun metot: 5
 ----------------------------------------------------------------------------------------------------------------------
@@ -84,4 +84,62 @@ class Sample {
 		System.out.println("foo, double, double");
 	}
 }
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki çağrı aslında "best match" durumudur. Ancak, adımlar şunlardır:
+1. Aday metotlar: 1, 2, 3, 4, 5, 6, 7
+2. Uygun metotlar: 2, 5, 6
+3. En uygun metot: 2
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+
+		short a = 10;
+		int b = 4;
+		
+		Sample.foo(a,b);
+		
+	}	
+}
+
+class Sample {
+	public static void foo() //1
+	{
+		System.out.println("foo");
+	}
+	public static void foo(int a, int b) //2
+	{
+		System.out.println("foo, int, int");
+	}
+	public static void foo(int a, double b, float c) //3
+	{
+		System.out.println("foo, int, double, float");
+	}
+	public static void foo(int a) //4
+	{
+		System.out.println("foo, int");
+	}
+	public static void foo(int a, double b) //5
+	{
+		System.out.println("foo, int, double");
+	}
+	public static void foo(double a, double b) //6
+	{
+		System.out.println("foo, double, double");
+		
+	}
+	public static void foo(double a) //7
+	{
+		System.out.println("foo, double");
+	}
+	public static void bar(int a, double b) //8
+	{
+		System.out.println("foo, double, double");
+	}
+}
+
 
