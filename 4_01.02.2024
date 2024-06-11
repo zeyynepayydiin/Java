@@ -81,14 +81,23 @@ Programlamada derleyicinin görmezden geldiği kod parçalarına yorum satırlar
 iki çeşit yorum satırı yazılabilir: // ve /* */ ile. Yorum satırlarının da okunabilirliği, algılanabilirliği
 olumsuz etkilememesi gerekir.
 
+/*----------------------------------------------------------------------------------------------------------------------
+	Atomlar arasında istenildiği kadar boşluk bırakılabilir, atomlar bitişik yazılabilir.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+	Programlamada derleyicinin gözrmezden geldiği kod parçalarına yorum satırları (comment lines) denir. Java'da iki
+	çeşit yorum satırı yazılabilir. Yorum satırlarının okunabilirliği/algılanabilirliği olumsuz etkilememesi gerekir
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
 
+class App {
+	public static void main(String [] args) //Burası görmezden gelinecek
+	{
+		/*
+		 	Burası da derleyici tarafından
+			görmezden gelinecektir
+		 */
+		System.out.println("Hello, World");
+	}
+}
 
-
-
-
-
-
-
-
-
-Terimler:
