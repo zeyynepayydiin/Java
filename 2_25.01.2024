@@ -18,10 +18,10 @@ düşünüldüğünde bu kaybın pek de bir önemi yoktur. Bu kaybın önemli ol
 Hangi dili kullanacağımıza karar vermek, geliştireceğimiz uygulamanın gereksinimlerine bağlıdır. 
 
 Hızlı uygulama geliştirme ortamı: (Bu hızlı çalışma demek değil, hızlı ürün elde etme anlamına gelir) Java, hızlı uygulama 
-geliştirme (rapid application development) ortamı sunar.
+geliştirme (rapid application development) ortamı sunar. Bu anlamda hem öğrenmesi kolaydır hem ürün daha çabuk elde edilir.
 
 Kütüphaneler bazı işlemleri programcıdan soyutlayıp hazırlanmış araçlardır.
-Geniş bir sınıf kütüphanesi: Java'da oldukça geniş bir sınıf kütüphanesi. bulunur. Veritabanı işlemleri, web programlama, dosya işlemleri
+Geniş bir sınıf kütüphanesi: Java'da oldukça geniş bir sınıf kütüphanesi bulunur. Veritabanı işlemleri, web programlama, dosya işlemleri
 gibi işlemler için hazır sınıflar bulunmaktadır.
 Mesela dosya işlemleri işletim sistemlerine özgü bir işlemdir, java bu işlemleri kütüphaneler aracılığıyla soyutluyor, her işletime ayrı kod
 yazmıyorum böylece. Buna portability denir. Kodumu sisteme taşıyorum. Javanın önemli bir avantajı.
@@ -29,11 +29,12 @@ yazmıyorum böylece. Buna portability denir. Kodumu sisteme taşıyorum. Javan�
 Güvenli çalışma ortamı: Java'da yazılmış olan bir programın sisteme zarar verme olasılığı çok azdır. Yazılan bir program yüzünden
 yanlışlıkla makinede bir problem olma olasılığı oldukça azdır.
 
-Programlama Dillerinin Sınıflandırılması:
+Programlama Dillerinin Sınıflandırılması: Programlama dilleri çeşitli şekillerde sınıflandırılabilse de genel olarak 3 şekilde sınıflandırma
+söz konusudur:
 
-1. Seviyelerine göre sınıflandırma: Seviye, programlama dilinin insan algısına yakınlığının bir ölçümüdür. Bir dil insan algısına ne kadar 
-yakınsa o kadar yüksek seviyelidir. Aşağı seviyeli (low level) diller makinenin doğal çalışmasına daha yakındır. Olabilecek en aşağı seviyeli
-dil makine dilidir.
+1. Seviyelerine (level) göre sınıflandırma: Seviye, programlama dilinin insan algısına yakınlığının bir ölçümüdür. Bir dil insan algısına ne kadar 
+yakınsa o kadar yüksek seviyelidir, dolayısıyla kolay öğrenilebilirler. Aşağı seviyeli (low level) diller makinenin doğal çalışmasına daha yakındır. 
+Olabilecek en aşağı seviyeli dil makine dilidir.
 
 2  Kullanım alanlarına göre sınıflandırma: Dilin hangi alanlarda kullanılabileceğine ilişkin sınıflandırmadır. Bazı diller birden fazla alanda 
 kullanılabilirler. Bazı diller ise tek bir alana yöneliktir. Mesela SQL bir veritabanı dilidir tutup da web tasarımı yapamazsın. Java genel 
