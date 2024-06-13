@@ -52,3 +52,92 @@ veri elemanlarının yaratıldığı alana ilişkin detaylar söz konusu olsa da
 söylenebilir.
 ----------------------------------------------------------------------------------------------------------------------
 */
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın static bir veri elemanı nesne içerisinde yaratılmaz. Sınıfın static br veri elemanına sınıf dışından sınıf
+ismi ve nokta operatörü ile erişilir. Sınıfın static veri elemanları sııfın bir elemanı (member) ilk kez kullanıldığında
+yaratılır ve program sonuna kadar yaşarlar. Bu durumda sınıfın static bir veri elemanı stack'de yaratılamaz. Static
+veri elemanlarının yaratıldığı alana ilişkin detaylar söz konusu olsa da genelde dolaylı olarak heap'te olduğu 
+söylenebilir.
+
+Bu durumda static bir veri elemanına erişmek için bir nesne yaratılması gerekmez. Static veri elemanlarına da 
+yaratıldıklarında default değerler atanır
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+
+		System.out.printf("Sample.x = %d, Sample.y = %b%n", Sample.x, Sample.y);
+		
+		Sample.x = 10;
+		Sample.y = true;
+		
+		System.out.printf("Sample.x = %d, Sample.y = %b%n", Sample.x, Sample.y);
+
+		++Sample.x;
+		
+		System.out.printf("Sample.x = %d, Sample.y = %b%n", Sample.x, Sample.y);
+
+	}	
+}
+
+class Sample {
+	public static boolean y;
+	public static int x;
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte sayaçlar sınıfları kullanan programcı tarafından tutulmuş ve gerektiğinde artırılmıştır. Bu durumda 
+sayacı tutn programcı artırma işlemini unutabilir. Ayrıca başka türler için de sayaçlar tutulması gerektiğinde sayaç
+değişken bildirimi hem isim hem de kod yükü açısından bir maliyet getirecektir. Buradaki maliyet geliştirme zamanı
+maaliyetidir. Üstelik örnek bir demodur ve daha pek çok da algoritmik detay durumlar söz konusudur.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		DemoGameApp.run();
+		
+	}	
+}
+class DemoGameApp{
+	public static void run(){
+		
+		int alienCount = 0;
+		int soldierCount = 0;
+		
+		for (int i = 0; i < 10; ++i) {
+			Alien a = new Alien();
+			++alienCount;
+		}
+		for (int i = 0; i < 20; ++i) {
+			Soldier a = new Soldier();
+			++soldierCount;
+		}
+		System.out.printf("Number of aliens: %d%n", alienCount);
+		System.out.printf("Number of soldiers: %d%n", soldierCount);
+	}
+	
+}
+class Alien {
+	public int color; // mesela yeşil alien olur kırmızı olur, her alien'ın rengi nesneye özgü o yüzden non-static
+	public int armsCount; // aynı şekilde
+}
+
+class Soldier{
+	public int title;
+	public int gunCount;
+}
+class Civilian{
+	
+}
+class Building{
+	
+}
+class Animal{
+	
+}
