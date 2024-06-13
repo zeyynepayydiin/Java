@@ -1,1 +1,54 @@
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın non-static veri elemanı nesneye özel olduğundan sınıf ile temsil edilen kavrama ilişkin bir karakteristiği ya da
+(haracteristics) başka bir deyişle bir özniteliği (attribute) belirtir. Bu durumda bir sınıf non-static veri elemanları 
+ile bir bileşik türdür (compund type). Örneğin analitik düzlemde bir noktanın iki tane bileşeni vardır: axis, ordinate.
+Bu durumda analitik düzlemde bir "nokta" kavramı ne tek başına axis ne de tek başına ordinate'dir. İkisi birlikte
+bir noktadır. Bu durumda programcı bu noktayı temsil eden bir sınıf bildiriminde non-static veri elemanı olarak 
+(en azından) axis ve ordinate bilgilerini tutar. Dikkat edilirse sınıfın isminin belirlenmesinden, içerisindeki
+elemanların belirlenmesine kadarki kısım sınıfın ait olduğu "domain"e göre ele alınır.
 
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class App{
+	public static void main(String [] args) {
+	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+
+		
+	}	
+}
+
+class Point {
+	public double x;
+	public double y;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Peki bir referansın uzunluğu ne kadardır? Bir referansın uzunluğu sistemin adresleyebileceği kadardır. Yani örneğin 32
+bir sistemde 4 byte, 64 bit bir sistemde 8 byte'dır. Bu anlamda adresler tamsayı formatında olduğundan tutuluş biçimleri
+yine işaretsiz ikiye tümleme formatıdır. Referansların uzunluğu türe göre değişmez. Bu anlamda bir uygulama için ilgili 
+sistemde tüm referansların uzunluğu aynıdır.
+
+Peki bir nesnenin uzunluğu ne kadardır? Bir nesnenin uzunluğu en az, ilişkin olduğu sınıfın non-static veri elemanlarının
+uzunluğu kadardır. Burada en az kavramıyla sisteme ilişkin başka bilgilerin de eklenebileceği anlatılmaktadır. Detaylar
+önemsizdir. Java programcısı açısından uzunluk non-static veri elemanlarının uzunluğu ile belirlenir olarak algılanmalıdır.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Peki non-static bir veri elemanının ömrü (storage duration) ne kadardır? Non-static bir veri elemanı nesne yaratıldığında
+yaratılır. Nesne yok edildiğinde yok edilir. Java'da nesne "garbage collector" tarafından yok edilir. Bu konunun detayları
+ileride ele alınacaktır. Bir nesnenin yok edilmesine ilişkin detaylar ileride ele alınacaktır.
+
+Peki non-static bir veri elemanının faaliyet alanı nedir? Bu konu ileride ele alınacaktır.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın static bir veri elemanı nesne içerisinde yaratılmaz. Sınıfın static br veri elemanına sınıf dışından sınıf
+ismi ve nokta operatörü ile erişilir. Sınıfın static veri elemanları sııfın bir elemanı (member) ilk kez kullanıldığında
+yaratılır ve program sonuna kadar yaşarlar. Bu durumda sınıfın static bir veri elemanı stack'de yaratılamaz. Static
+veri elemanlarının yaratıldığı alana ilişkin detaylar söz konusu olsa da genelde dolaylı olarak heap'te olduğu 
+söylenebilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
