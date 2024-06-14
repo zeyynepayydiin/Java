@@ -1,6 +1,6 @@
 
 /*----------------------------------------------------------------------------------------------------------------------*/
-
+Toplam üç çeşit değişken var: Yerel değişkenler, parametre değişkenleri ve sınıf veri elemanları.
 */----------------------------------------------------------------------------------------------------------------------
 	Anımsanacağı gibi bir değişkenin (ya da nesnenin) bellekte yaratılmasıyla (yani bellekte yer ayrılması), yok edilmesi 
 	(yani bellekten atılması) arasındaki süreye "ömür (storage duration)" denilmektedir. Peki, bir değişken için ayrılan 
@@ -51,4 +51,198 @@ class App{
 			
 		}// d yok edildi (pop d), c yok edildi (pop c)
 	}// b yok edildi (pop b), a yok edildi (pop a)
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Bir parametre değişkeni ait olduğu çağrıldığında yaratılır (push), metot çağrısı bittiğinde yok edilir. (pop) 
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		Sample.foo(10, 20); // a yaratıldı (push a), b yaratıldı (push b)
+		// b yok edildi (pop b), a yok edildi (pop a)
+		
+
+		Sample.foo(10, 20); // a yaratıldı (push a), b yaratıldı (push b)
+		// b yok edildi (pop b), a yok edildi (pop a)
+	}
+}
+
+class Sample {
+	public static void foo(int a, int b) {
+		//...
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıf içerisinde, tüm metotların dışında bildirilen değişkenlere sınıf veri elemanı (class data member/ member variable)
+denir. Sınıf veri elemanları metotlarda olduğu gibi erişim belirleyiciye (public, protected, no modifier, private) 
+sahip olabilirler. Yine metotlarda olduğu gibi ilgili konuya gelene kadar tüm veri elemanlarımızı public olarak
+bildireceğiz. Sınıf veri elemanları da metotlarda olduğu gibi static veya non-static olabilir. Static anahtar sözcüğü 
+ile bildirilmemişse non-static olur.
+
+Anahtar Notlar: Sınıf içerisindeki bildirimlere sınıfın elemanları (members) denir. Bu anlamda veri elemanı ve metot
+sınıfın elemanlarıdır. Sınıfın başka elemanları da vardır. Sınıf veri elemanlarına "data member/member variable/field"
+denilmektedir. Sınıfın elemanı bir alt program ise metot denir. sınıfın diğer elemanları konular içerisinde ele 
+alınacaktır.
+
+Bir sınıf veri elemanının faaliyet alanı ve ömrü ileride ele alınacaktır.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+	
+	}
+}
+
+class Sample {
+	int a;
+	private int x;
+	
+	public static void foo() {
+		//...
+	}
+	
+	protected double b;
+	
+	public static float c;
+}
+
+
+AA java'da global değişken yokmuş
+!! değişkenleri tekrar et
+
+/*----------------------------------------------------------------------------------------------------------------------
+Java'da sınıf dışında değişken bildirimi geçersizdir ya da başka bir deyişle Java'da bir değişkenin bir sınıf içerisinde
+bildirilmiş olması (veri elemanı veya parametre değişkeni veya yerel değişken olarak) gerekir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+int a; // error
+
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıf bildirimi aslında bir tür bildirimidir. Sınıf bildirimi dışında da tür bildirimleri söz konusudur. Bu şekilde 
+yapılan bildirimlere "user defined type (UDT) denilmektedir. Bu durumda sınıf da bir UDT'dir. UDT demek temel türler 
+dışındaki türlerdir yani. 8 tane temel tür var. Sınıf dışındaki UDT'ler konular içerisinde ele alınacaktır.
+
+!!! Türlere de çalış
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+
+class Person {
+
+}
+class Server {
+
+}
+class USBPort {
+
+}
+class TCP {
+
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Madem ki sınıf bildirimi bir tür bildirimidir, bu durumda sınıf türünden değişkenler bildirilebilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		Person p;
+		Server s;
+		USBPort u;
+		TCP t;
+	
+	}
+}
+class Person {
+
+}
+class Server {
+
+}
+class USBPort {
+
+}
+class TCP {
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Java'da türler kategori olarak iki gruba ayrılır: değer türleri (value types), referans türleri (reference types).
+T bir tür ismi olmak üzere, T türden bir değişken içerisinde bir adres tutuluyorsa T bir referans türüdür, tutulmuyorsa
+bir değer türüdür. Ya da bir başka değişle T türden bir değişkenin içerisindeki değer bir adres ise T referans türü,
+adres değil ise değer türüdür. Java'da temel türler (primitive/built-in/predefined types) değer türleridir. Yani temel
+bir türden değişken içerisinde adres tutulmaz. Java'da bir sınıf referans türüdür. Öyleyse sınıf türünden bir değişken 
+içerisinde adres tutulur. Aslında genel olarak temel türler dışında kalan türler (yani UDT'ler) referans türleridir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıf türünden değişkenlere referans değişken (reference variable) ya da kısaca referans (reference) denir. Java
+seviyesinde adres (address) terimi yerne referans (reference) terimi de kullanılmaktadır. Referans dendiğinde ya 
+bir adres kastedilir ya da bir referans değişken kastedilmiş olur. Buna göre örneğin bir cümlede "reference of an object"
+gibi bir içerik söz konusuysa, buradaki referans adres anlamındadır. Ya da örneğin bir cümledde "address of an object 
+is assigned to a reference" gibi bir içerik söz konusuysa, buradaki referans, değişken anlamındadır.
+
+Peki bir referansa atılacak adres nasıl elde edilecektir?
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+- Sınıf türünden bellekte ayrılan bir alana nesne (object) denir. 
+
+- Nesneler heap alanında yaratılırlar. Java'da stack'de nesne yaratılamaz.
+
+- Java'da bir nesnenin kendisi tutulamaz, adresi tutulabilir. Bu adres de aynı türden bir referans (değişken) içerisinde
+tutulabilir.
+
+- Java'da nesne yaratılması new operatörü ile yapılır. new operatörünün kullanımına ilişkin genel biçimi şu şekildedir:
+	new <sınıf ismi> ([argümanlar]);
+	
+Bu operatör özel amaçlı tek operandlı ve önek durumundadır. Operatör, yaratılmış olan nesnenin adresini üretir. (Her 
+operatörün ürettiği bir değer vardır.) Bir nesne ile referans için hangi uzunlukta yerler ayrılacağı ileride ele 
+alınacaktır. Aşağıdaki örnekte p, s, u, ve t birer nesne DEĞİLDİR. İlgili türden nesnelerin adreslerini 
+tutan referans değişkenlerdir. Örnekte *, **, ***, ve **** ile belirtilen deyimlere ilgili türden nesneler yaratılmış
+ve ilgili türden referans değişkenlere adreslere atanmıştır. Bu durumda referans değişkene bir adres atandığında o 
+referans o nesneyi gösteriyor (reference to) duruma gelmiş olur.
+
+- Bir nesne ilgili sınıf türden bir örnektir. Buna İngilizce olarak "instance" terimi kullanılır. Bu anlamda
+nesne yaratma işlemi için de "create" fiili ile birlikte "instantiate" fiili de kullanılır.
+
+- Referans ve nesne kavramları birbirinden farklıdır. Referans bir nesneyi gösterir ya da adresi anlamında kullanılır.
+
+- Her new işlemi yeni bir nesne yaratmak demektir.  
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		Person p; // p referans (değişken) !! p şu an bir nesne değilll
+		Server s; // s referans (değişken) stack'te
+		USBPort u; // u referans (değişken)
+		TCP t; // t referans (değişken)
+		
+		p = new Person(); //p'ye nesnenin adresi atandı *
+		s = new Server(); //heap'te **
+		u = new USBPort();// ***
+		t = new TCP(); // ****
+	
+	}
+}
+class Person {
+
+}
+class Server {
+
+}
+class USBPort {
+
+}
+class TCP {
+
 }
