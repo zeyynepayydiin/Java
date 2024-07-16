@@ -1,0 +1,476 @@
+Non-static veri elemanı nesneye özgü, her nesne için ayrıca yaratılıyor, static veri elemanı türe özgüdür.
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın non-static bir veri elemanına sınıf dışından sınıf ismi ile erişilemez. Erişilebilseydi sınıfın ilgili elemanı 
+hangi nesneye ait olurdu? Bu sebeple erişilemez. non-static veri elemanı nesneye özgü olduğundan nesne tanımlanmadan
+erişilemez.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		Sample.x = 10; //error //ee hangi nesneye ait belli değil çünkü
+	
+	}
+}
+
+class Sample {
+	public int x;
+	public boolean y;
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Aslında sınıfın non-static bir veri elemanına sınıf dışından referans ile erişilebilir. Aslında bu erişimin sınıf ismi
+ile erişmekten farkı yoktur. Dilin matematiksel anlatımı gereği sentaks geçerlidir. Ancak Java programcısının bu şekilde
+erişmesi kesinlikle tavsiye edilmez. Bu durum Java programcısı açısından adeta bir error gibi değerlendirilmeli
+dolayısıyla kullanılmamalıdır. Kullanımı durumunda kodun okunabilirliğini algılanabilirliğini olumsuz etkilediğine 
+dikkat ediniz. Başka bir fark yok yalnızca boşu boşuna referans veriyoruz gerek yok ki.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		Sample s = new Sample();
+		
+		s.x = 10; //Gönlümüzün error'u
+		s.y = true; //Gönlümüzün error'u
+		
+		System.out.printf("Sample.x = %d, Sample.y = %b%n", Sample.x, Sample.y);
+	
+	}
+}
+
+class Sample {
+	public static int x;
+	public static boolean y;
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın non-static bir metoduna sınıf dışından referans ve nokta operatörü ile erişilebilir. Sınıf ismi ile erişilemez.
+Sınıfın non-static metotlarının nesne ile ilişkisi ileride ele alınacaktır.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		Sample s = new Sample();
+		
+		s.foo();
+		
+		Sample.foo(); //error
+	
+	}
+}
+
+class Sample {
+
+	public void foo() {
+		
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Anahtar Notlar: non-static metotlar nesne içerisinde tutulmaz. Aslında metotlar aşağı seviyede genel olarak ismine
+"code section" denilen bir bölümde tutulur. Bu bölümün detayları ve Java düzeyindeki karşılığı burda ele alınmayacaktır.
+Bu durumda metotlar stack veya heap alanında tutulmazlar.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın static bir metoduna sınıf dışından sınıf ismi ve nokta operatörü ile erişilebilir. static veri elemanlarında
+olduğu gibi referans ve nokta operatörü ile de erişilebilir. Yine Java programcısı olarak static metotlara da referans
+ile erişmeyeceğiz. Sınıfın static metotlarının tür ile ilişkisi ileride ele alınacaktır.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		Sample.foo(); 
+		
+		Sample s = new Sample();
+		
+		s.foo(); // gönlümüzün error'u
+	
+	}
+}
+
+class Sample {
+	
+	public static void foo() {
+		
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Anahtar Notlar: Dikkat edilirse yukarıda anlatılanlar, sınıf dışından yani başka bir sınıfın içinden olan erişimler 
+içindir. Sınıf dışı demek Java'da başka bir sınıfın içi demek (Global variable da yok unutma).
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıf içerisinden erişimler:
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın non-static bir veri elemanına ait olduğu sınıfın non-static bir metotu içerisinde doğrudan yani nokta operatörü 
+kullanmadan erişilebilir. Doğrudan erişilen non-static elemanı, non-static metodun çağrılmasında kullanılan referans 
+gösterdiği nesnenin veri elemanıdır.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		
+		
+		Sample s1 = new Sample();
+		Sample s2 = new Sample();
+		
+		s1.foo(10); 
+		s2.foo(20); 
+		
+		System.out.printf("s1.x = %d%n" ,s1.x);
+		System.out.printf("s2.x = %d%n" ,s2.x);
+		
+		s1.bar();
+		s2.bar();
+	
+	}
+}
+
+class Sample {
+	
+	public int x;
+	
+	
+	public void foo(int a) {
+		x = a;
+	}
+	public void bar() {
+		System.out.printf("x = %d%n" ,x);
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın non-static bir metodu ait olduğu sınıfın non-static bir metodu içerisinde doğrudan yani nokta operatörü 
+kullanmadan çağrılabilir. Doğrudan çağrılan non-static metot, çağıran non-static metodun çağrılmasında kullanılan referans 
+ile çağrılmış olur.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+		
+		Sample s1 = new Sample();
+		Sample s2 = new Sample();
+		
+		s1.foo(10); 
+		s2.foo(20); 
+	
+	}
+}
+
+class Sample {
+	
+	public int x;
+	
+	
+	public void foo(int a) {
+		x = a;
+		bar();
+	}
+	public void bar() {
+		System.out.printf("x = %d%n" ,x);
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Yukarıdaki iki maddenin özeti olarak şu söylenebilir: Sınıfın non-static bir metodu içerisinde tüm non-static 
+elemanlarına(member) doğrudan erişilebilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın non-static bir metodu içerisinde, aynı sınıfın static veri elemanlarına doğrudan erişilebilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		
+		
+		Sample s1 = new Sample();
+		Sample s2 = new Sample();
+		
+		s1.foo(10); 
+		
+		s1.bar();
+		s2.bar();
+		System.out.println("-------------------------");
+		
+		s2.foo(20); 
+		
+		s1.bar();
+		s2.bar();
+		
+	
+	}
+}
+
+class Sample {
+	
+	public static int x;
+	
+	
+	public void foo(int a) {
+		x = a;
+		bar();
+	}
+	public void bar() {
+		System.out.printf("x = %d%n" ,x);
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın non-static bir metodu içerisinde, aynı sınıfın static metotları doğrudan çağrılabilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		
+		
+		Sample s1 = new Sample();
+		Sample s2 = new Sample();
+		
+		s1.foo(10); 
+		s2.foo(20); 
+		
+		
+	}
+}
+
+class Sample {
+	public static int x;
+	public void foo(int a) {
+		x = a;
+		bar();
+	}
+	public static void bar() {
+		System.out.printf("x = %d%n" ,x);
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Yukarıdaki iki maddenin özeti olarak şu söylenebilir: Sınıfın non-static bir metodu içerisinde tüm static 
+elemanlarına (member) doğrudan erişilebilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Yukarıdaki dört maddenin özeti olarak şu söylenebilir: Sınıfın non-static bir metodu içerisinde sınıfın tüm elemanlarına
+doğrudan erişilebilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın static bir metodu içerisinde, aynı sınıfın non-static bir veri elemanına doğrudan erişilemez.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		// çünkü foo'yu çağırdığın zaman sınıf ismiyle çağırıcaksın referansla değil böyle olabilseydi x'in hangi
+		//nesneye ait olduğu bilinemezdi
+		
+	}
+}
+
+class Sample {
+	public int x;
+	public static void foo(int a) {
+		x = a; //error
+		
+	}	
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın static bir metodu içerisinde, aynı sınıfın non-static metodu da doğrudan çağırılamaz.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		//aynı kural
+		
+	}
+}
+
+class Sample {
+	public int x;
+	public static void foo(int a) {
+		bar(a); //error
+		
+	}
+	public void bar(int a) {
+		x = a; 
+		
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Yukarıdaki iki maddenin özeti olarak şu söylenebilir: Sınıfın static bir metodu içerisinde aynı sınıfın non-static 
+elemanlarına (member) doğrudan erişilemez.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın static bir metodu içerisinde, aynı sınıfın static bir veri elemanına doğrudan erişilebilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		Sample.foo(10);
+		System.out.printf("Sample.x = %d%n", Sample.x);
+		
+	}
+}
+
+class Sample {
+	public static int x;
+	
+	public static void foo(int a) {
+		
+		x = a;
+		
+	}
+	
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Sınıfın static bir metodu içerisinde, aynı sınıfın static bir metodu doğrudan çağrılabilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		Sample.foo(10);
+		System.out.printf("Sample.x = %d%n", Sample.x);
+		
+	}
+}
+
+class Sample {
+	public static int x;
+	
+	public static void foo(int a) {
+		
+		bar(a);
+		
+	}
+	public static void bar(int a) {
+			
+		x = a;
+			
+	}	
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Yukarıdaki iki maddenin özeti olarak şu söylenebilir: Sınıfın static bir metodu içerisinde aynı sınıfın static 
+elemanlarına (member) doğrudan erişilebilir.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Yukarıdaki dört maddenin özeti olarak şu söylenebilir: Sınıfın static bir metodu içerisinde sınıfın static
+elemanlarına doğrudan erişilebilirken, non-static elemanlarına doğrudan erişilemez.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örnekte foo metodu içerisinde bar metoduna doğrudan erişilmediğine dikkat ediniz.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		Sample.foo(10);
+		
+	}
+}
+
+class Sample {
+	public int x;
+	
+	public static void foo(int a) {
+		
+		Sample s = new Sample();
+		s.bar(a);                 //Bu olur çünkü bu doğrudan erişim değiş
+		
+	}
+	public void bar(int a) {
+			x = a;
+			
+	}	
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Peki tüm bu anlatılanlara göre sınıfı yazan programcı bir metodu static veya yapacağına nasıl karar verecektir?
+Bir metot non static bir elemana erişmeyecekse static yapılmalıdır. Bu durumda yani non-static bir elemana erişmeyen
+bir metodun static yapılması durumu, non-static metotların okunulabilirliğini/algılanabilirliğini artırır. Yani bir 
+sınıfı kullanan programcı non-static bir metot gördüğünde o metodun non-static bir veri elemanına eriştiğini bilir.
+Çünkü erişmeseydi programcı bu metodu static yapardı olarak algılar.
+----------------------------------------------------------------------------------------------------------------------
+*/
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte s1 referansının gösterdiği nesne ve s2 referansının gösterdiği nesne (asla s1 ve s2 nesnesi demiyoruz)
+farklıdır
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		Sample s1 = new Sample();
+		Sample s2 = new Sample();
+		
+		s1.x = 10;
+		s1.y = true;
+		s2.x = 30;
+		
+		System.out.printf("s1.x = %d, s1.y = %b%n", s1.x,s1.y);
+		System.out.printf("s2.x = %d, s2.y = %b%n", s2.x,s2.y);
+	}
+}
+
+class Sample {
+	public int x;
+	public boolean y;	
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Aynı türden referansların birbirine atanması durumunda artık referanslar aynı nesneyi gösteriyor duruma gelmiş olurlar.
+Bu durumda hangi referans ile nesneye erişildiğinin bir önemi yoktur.
+----------------------------------------------------------------------------------------------------------------------
+*/
+package csd;
+class App{
+	public static void main(String [] args) {
+	
+		Sample s1 = new Sample();
+		Sample s2 = new Sample();
+		
+		s1.x = 10;
+		s1.y = true;
+		s2.x = 30;
+		
+		System.out.printf("s1.x = %d, s1.y = %b%n", s1.x,s1.y);
+		System.out.printf("s2.x = %d, s2.y = %b%n", s2.x,s2.y);
+		
+		s2 = s1;
+		
+		System.out.printf("s1.x = %d, s1.y = %b%n", s1.x,s1.y);
+		System.out.printf("s2.x = %d, s2.y = %b%n", s2.x,s2.y);
+		
+		++s2.x;
+		System.out.printf("s1.x = %d, s1.y = %b%n", s1.x,s1.y); //s1.x de değiştiii, okla ikisi de aynı nesneyi gösteriyor gibi düşün
+		System.out.printf("s2.x = %d, s2.y = %b%n", s2.x,s2.y);
+	}
+}
+
+class Sample {
+	public int x;
+	public boolean y;	
+}
+
