@@ -474,3 +474,72 @@ class Sample {
 	public boolean y;	
 }
 
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Bir metodun parametre değişkeni bir referans olabilir. Bu durumda metodun çağrılabilmesi için metoda aynı türden
+	bir referansın (adresin) argüman olarak geçilmesi gerekir. Bu durumda metodun parametresi olan referans ile argüman
+	olarak geçilen referans aynı nesneyi gösterir duruma gelir. Anımsanacağı gibi argümanlardan parametre değişkenlerine
+	aktarım da bir atama işlemidir. Bu durumda metot çağrısı boyunca ilgili nesneye erişilebilir. Hatta metot nesnenin
+	içeriğini de değiştirebilir.
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		Date d = new Date();
+		
+		d.day = 11;
+		d.month = 7;
+		d.year = 1983;
+		
+		DateUtil.display(d);
+		DateUtil.change(d,6, 9, 2021);
+		DateUtil.display(d);
+	}
+}
+class DateUtil{
+	public static void change (Date date, int day, int month, int year)
+	{
+		date.day = day; // date referansıyla gösterilen nesneye git 
+		date.month = month;
+		date.year = year;
+	}
+	
+	public static void display(Date date) {
+		
+		System.out.printf("%02d/%02d/%04d%n", date.day,date.month,date.year);
+	}
+	
+}
+
+class Date {
+	public int day;
+	public int month;
+	public int year; // mesela bir doğum tarihi tutacaksak bu nesneye özgüdür herkesin doğum tarihi farklıdır o yüzden non-static yaparız
+	
+	
+}
+
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Aşağıdaki örnekten argüman olarak geçilen x yerel değişkenin değeri metot içerisinde değiştirilemez değil mi?
+	Üstteki örnekte ama adresin gösterdiği nesneyi değiştiriyoruz.
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		int x = 10;
+		
+		Sample.foo(x);
+		
+		System.out.printf("x = %d%n", x); // burdaki x hala üstteki local x o yüzden 10
+	}
+}
+class Sample{
+	public static void foo (int x )
+	{
+		++x;
+		System.out.printf("foo:x = %d%n", x); //  burada 11 
+	}
+}
