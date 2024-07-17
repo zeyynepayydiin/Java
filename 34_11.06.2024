@@ -1,1 +1,78 @@
+switch deyimine de çalış
 
+Yerel değişkenler stack'te yaratılıyor.
+
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Sınıfın on-static bir veri elemanına referans ve nokta operatörü ile erişilir. Nokta operatrü iki operandlı ve araek 
+	durumundadır. Bu operatörün birinci operandı bir referans, ikinci elemanı bir non- staticveri elemanı ise bu durumda
+	o veri elemanına ilişkin değişkeni üretir. 
+	Sınıfın non-static veri elemanları her nesne yaratıldığında nesnenin içerisinde yaratılırlar. Yani sınıfın non-static
+	veri elemanları nesneye özgüdür ya da başka bir deyişle her nesne için ayrıca yaratılırlar. Bu durumda referans ile
+	bir veri elemanına erişmek aslında referansın gösterdiği nesnenin içerisinde elemana erişmek anlamına gelir.
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		Sample s1,s2;
+		
+		s1 = new Sample();  //s referansı nesneyi gösteriyor nesnenin adı yok
+		s2 = new Sample(); 
+		
+		s1.x = 10; // s'nin türü Sample, s.x int
+		s1.y = true;
+		
+		s2.x = 20; 
+		s2.y = false;
+		
+		System.out.printf("s1.x = %d, s1.y = %b%n", s1.x,s1.y);
+		System.out.printf("s2.x = %d, s2.y = %b%n", s2.x,s2.y);
+	}
+}
+class Sample{
+	public int x;
+	public boolean y;
+}
+/*----------------------------------------------------------------------------------------------------------------------	 
+Bir nesne yaratıldığında nesneye ait non-static veri elemanlarına default değerler (default/ zero value) atanır. Default
+değer mantıksal sıfır (türe özgü sıfır) değeridir. Örneğin int türü için default değer sıfırdır, double türü için
+default değer yine sıfırdır, boolean türü için false değeridir.
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		Sample s1;
+		
+		s1 = new Sample();  
+		
+		System.out.printf("s1.x = %d, s1.y = %b%n", s1.x,s1.y);
+
+	}
+}
+class Sample{
+	public int x;
+	public boolean y;
+}
+/*----------------------------------------------------------------------------------------------------------------------	
+	Aşağıdaki örnekte değer verilmemiş bir yerel değişkenin kullanılmasından dolayı error oluşur.
+----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{	
+		Sample s;			
+		
+		System.out.printf("s.x = %d, s.y = %b%n", s.x, s.y); //error
+	} 
+}
+
+class Sample {
+	public int x;
+	public boolean y;
+	
+	//...
+}
