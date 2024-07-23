@@ -479,7 +479,8 @@ class Sample {
 	bir referansın (adresin) argüman olarak geçilmesi gerekir. Bu durumda metodun parametresi olan referans ile argüman
 	olarak geçilen referans aynı nesneyi gösterir duruma gelir. Anımsanacağı gibi argümanlardan parametre değişkenlerine
 	aktarım da bir atama işlemidir. Bu durumda metot çağrısı boyunca ilgili nesneye erişilebilir. Hatta metot nesnenin
-	içeriğini de değiştirebilir.
+	içeriğini de değiştirebilir. Örnekte DateUtil sınıfının change metodunun nesnenin içeriğini değiştirdiğine dikkat
+	ediniz.
 ----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
