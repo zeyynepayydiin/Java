@@ -486,13 +486,13 @@ package csd;
 class App {
 	public static void main(String [] args) 
 	{		
-		Date d = new Date();
+		Date d = new Date(); // d yerel referans değişkeni Date parametre referans değişkeni. Bu değişkenler stack'te oluşuyor
 		
-		d.day = 11;
+		d.day = 11; //d referansının gösterdiği adrese gidip heapteki nesneneye 11 atıyoruz. 
 		d.month = 7;
 		d.year = 1983;
 		
-		DateUtil.display(d);
+		DateUtil.display(d); //date parametre değişkeni stack'te yaratılacak bu çağrıyla.
 		DateUtil.change(d,6, 9, 2021);
 		DateUtil.display(d);
 	}
