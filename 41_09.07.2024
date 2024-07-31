@@ -1,0 +1,130 @@
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Anımsanacağı gibi rassal sayı üretimi bir takım Matematiksel işlemlerle bilgisayar dünyasında gerçekleştirilir. Şüphesiz
+	bu işlemler kullnılan algoritmalara göre değişiklik gösterebilir. Ancak neredeyse hepsinde "tohum değeri (seed value)"
+	denilen bir değer kullanılır. Bu değer her sayı üretiminde ilgili algoritmaya göre güncellenir. Bu durumda bir işlem
+	aynı tıhum değeri ile tekrar yapıldığında aynı sonuçlar elde edilir. Yani örneğin bir programda 10 tane [0,99] aralığında
+	sayo üretiliyorsa bu program hep aynı tohum değeri ile çalıştırılırsa hep aynı sayılar aynı dizilimde üretilir. Random
+	sınıfının default ctor'u her yaratılan nesne için tohum değerini farklı verecek şekilde yazılmıştır. Bu işlem tipik
+	olarak zaman kavramı kullanılarak yapılabilir. Örneğin  tohum değeri belirli bir tarihten itibaren geçen milisaniye 
+	olarak alınırsa veya donanıma ilişkin üretilen tick sayısına bağlı olarak alınırsa her değer farklı olma eğilimindedir.
+	Random sınıfının tohum değerini başlangıçta programcıdan alabildiği bir ctor'u ve setSeed isimli bir metodu da vardır.
+	Örneğin bir resim içerisinde resimde gözle değişiklikle anlaşılamayacak şekilde bir yazı gizlemek için yazının bitleri 
+	rassaş olarak belrlenen pixel'lere yazılabilir. Bu durumda resimden yazı elde edilirken aynı pixel'lerin elde edilebilmesi
+	için aynı tohum değeriyle üretim yapılması gerekir. Şüphesiz bu işlemin nasıl yapılacağına ilişkin pek çok detay söz
+	konusudur. Burada önemli olan yani odaklanmamız gereken, örnekte tohum değerinin aynı olacak şekilde kullanılmasıdır.
+-----------------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Aşağıdaki demo örneğin her çalıştırılmasında üretilen ilk 10 sayının dizilimi diğer çalıştırmalardan farklıdır. İkinci
+	10 sayının dizilimi ise tohum değerine bağlı olduğundan daha önceki bir çalıştırılmada girilen tohum değeri ile aynı 
+	değer tekrar girildiğinde dizilim aynı olur.
+-----------------------------------------------------------------------------------------------------------------------*/
+
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{	
+		
+	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		java.util.Random r = new java.util.Random();
+		
+		System.out.print("Tohum değerini giriniz: ");
+		long seed = kb.nextLong();
+		
+		for(int i = 0; i < 10; ++i)
+			System.out.printf("%d ", r.nextInt(100));
+		
+		System.out.println();
+		
+		r.setSeed(seed);
+		
+		
+		for(int i = 0; i < 10; ++i)
+			System.out.printf("%d ", r.nextInt(100));
+		
+		System.out.println();
+		
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------	 
+  Anahtar Notlar: Burada java.util.Random sınıfının bazı metotları ele alınmıştır. Diğer metotlar başka konuları da 
+  gerektirdiğinden ileride belirli ölçüde ele alınacaktır.
+-----------------------------------------------------------------------------------------------------------------------*/
+*----------------------------------------------------------------------------------------------------------------------	 
+  Yazılarla işlemler ve String sınıfı:
+  Yazılarla işlemler programlamada çok fazla yapılmaktadır. İrili ufaklı tüm programlar yazıları bir şekilde kullanır.
+  Programlamada karakterlerden oluşan bir topluluğa ya da genel olarak yazılara "string" terimi karşılık getirilmektedir.
+  Java'da yazı işlemlerine ilişkin en temel sınıf java.lang paketinde bulunan String sınıfıdır. Java SE'de yazılarla işlem 
+  yapan başka sınıflar da vardır ancak bunlar genel  olarak String sınıfına yardımcı sınıflardır.
+
+  Anahtar Notlar: java.lang paketi içerisinde bulunan UDT'ler herhangi bir bildirim yapmadan doğrudan kullanılabilirler.
+  Örneğin, String, System gibi sınıflar java.lang paketi içerisinde olduğundan isimleri doğrudan kullanılabilir. Ancak
+  örneğin Random sınıfı java.util paketi içerisinde olduğundan doğrudan kullanılması için ileride detaylı olarak ele 
+  alacağımız bir takım işlemlerin yapılması gerekir ya da paker ismiyle kombine edilerek kullanılabilir.
+
+  Anahtar Notlar: Bir nesnenin içeriği (yani kabaca non-static veri elemanları) nesne yaratıldıktan sonra sınıfı kullanan
+  programcı tarafından değiştirilemiyorsa bu tarz nesnelerin yaratılabildiği sınıflaraa "immutable class" denir. Pek çok
+  immutable sınıfın non-static veri elemanları içsel olarak da değiştirilemez. Immutable bir sınıfın nasıl yazılacağı 
+  ileride ele alınacaktır
+-----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Derleyici bir string literal gördüğünde ve bu string literal'ı ilk defa görüyorsa kabaca şu şekilde bir kod üretir.
+	"String türden bir nesne yarat ve string literal içerisindeki karakterleri bu string nesnesi ile tutulabilecek şekle
+	getir ve ilgili string nesnesinin referansını (adresini) ver." Bu durumda bir string literal ile bir string nesnesinin
+	referansı elde edilebilir. print ve println metotlarının String parametreli overload'ları vardır. Bu metotlar aldıkları
+  String referansına ilişkin nesne ile tutulan yazıyı bastırır. Printf metodu ile bir yazı s format karakteri ile 
+  yazdırılabilir. Klavyeden bir yazı elde etmek için Scanner sınıfının String geri dönüş değerine sahip metotları 
+  kullanılabilir. Örneğin nextLine metodu klavyeden enter girilene kadar alınan yazılara ilişkin bir String nesnesi yaratır
+  ve onun referansına geri döner. Bu yazı içerisinde enter karakteri yoktur.
+-----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Aşağıdaki demo örneği inceleyiniz.
+-----------------------------------------------------------------------------------------------------------------------*/
+
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{	
+		String s;
+		
+		s = "ankara";
+		
+		System.out.println(s);
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Aşağıdaki demo örneği inceleyiniz.
+-----------------------------------------------------------------------------------------------------------------------*/
+
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{	
+		String s;
+		
+		s = "ankara";
+		
+		System.out.printf("Yazı: %s%n", s);
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Aşağıdaki demo örneği inceleyiniz.
+-----------------------------------------------------------------------------------------------------------------------*/
+
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+  
+		System.out.print("Bir yazı giriniz: ");
+		String s = kb.nextLine();
+		System.out.printf("Yazı: %s%n",s);
+	}
+}
+
