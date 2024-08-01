@@ -1,1 +1,99 @@
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Bir Strig nesnesine ilişkin yazının karakterlerinin her birine sıfırdan başlayarak bir indeks numarası verilmiş gibi
+	yani bir dizi gibi düşünebiliriz. Bu durumda bir yazının herhangi bir indeksli karakterine charAt isimli metot ile
+	metot ile erişilebilir. Bu metot aldığı indeks numarasına ilişkin karaktere geri döner. Metoda pozitif ya da negatif
+	bakımdan sınırlar dışında bir indeks numarası verildiğinde exception oluşur. Yazının uzunluğu yani kaç tane karakterden
+	oluştuğu bilgisi length metodu ile elde edilebilir.
+-----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------	 
+  Aşağıdaki demo örneği inceleyiniz.
+-----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir yazı giriniz: ");
+		String s = kb.nextLine();
+		int len = s.length();
+		
+		System.out.printf("Yazının uzunluğu: %d%n", len);
+		
+		for(int i = 0; i < len; ++i)
+			System.out.printf("%c ", s.charAt(i));
+		
+		System.out.println();
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Aşağıdaki demo örneği inceleyiniz.
+-----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir yazı giriniz: ");
+		String s = kb.nextLine();
+		int len = s.length();
+		
+		System.out.printf("Yazının uzunluğu: %d%n", len);
+		
+		char c = s.charAt(5); //uzunluğu 6dan az bi yazı verirsen exception
+		
+		System.out.printf("c = %c%n", c);
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------	 
+	String sınıfı immutable bir sınıftır. Yani bir String nesnesine ilişkin yazı değiştirilemez. Bu durumda yazı üzerinde
+	değişiklik yapan metotlar yazıyı tutan yeni bir String referansına geri dönerler. Örneğin, toLowerCase
+	metotları yazının tüm karakterlerini küçük harfe çeviren metottur. Metot ilgili yazıyı değiştiremeyeceğinden tamamı
+	küçük harflerden oluşan bir yazıya ilişkin yeni bir String referansına geri döner. Benzer şekilde toUpperCase metotları
+	yazının tüm karakterlerini büyük harfe çevirir. Şüphesiz küçük/büyük karşılığı olmayan karakterlerin aynıları alınır.
+	Bu metotların bu bölümde yalnızca parametresiz overload'ları ele alınacaktır. 
+-----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Aşağıdaki demo örneği inceleyiniz.
+-----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir yazı giriniz: ");
+		String s = kb.nextLine();
+		String lower = s.toLowerCase();
+		
+		System.out.printf("s = %s%nlower = %s%n",s , lower);
+		
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Aşağıdaki demo örneği inceleyiniz.
+-----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir yazı giriniz: ");
+		String s = kb.nextLine();
+		String upper = s.toUpperCase();
+		
+		System.out.printf("s = %s%nlower = %s%n",s , upper);
+		
+	}
+}
+
+
+
 
