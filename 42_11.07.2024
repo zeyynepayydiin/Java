@@ -94,6 +94,141 @@ class App {
 	}
 }
 
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Bazen aynı referans ile kod içerisinde devam edilmesi gerektiğinde değiştirilmiş yazıya ilişkin nesnenin adresi 
+	referansa atanır. Aşağıdaki demo örneği inceleyiniz.
+-----------------------------------------------------------------------------------------------------------------------*/
+package csd;
 
+class App {
+	public static void main(String [] args) 
+	{	
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Bir yazı giriniz: ");
+		String s = kb.nextLine();
+		s = s.toUpperCase();
+		
+		System.out.printf("s = %s%n",s);
+		
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Anahtar Notlar: Aynı türden iki referans == veya != operatörü ile işleme sokulabilir. Bu durumda aslında iki 
+	referansın da aynı nesneyi gösterip göstermediğine ilişkin değer üretilir. Yani == operatörü iki referans da aynı 
+	nesneyi gösteriyorsa true değerini göstermiyorsa false değerini, != operatörü de tam tersi işte. Farklı türden 
+	referanslar hiç bir şekilde işleme sokulmaz. Dikkat edilirse aynı türden referansların eşitlik karşılaştırması
+	adreslerin karşılaştırılmasıdır. Nesnelerin içeriğinin yani non-static veri elemanlarının aynı olup olmadığı kontrolü 
+	bu şekilde yapılamaz.
+-----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Aşağıdaki demo örnekte farklı nesneler yaratılmıştır değil mi?
+-----------------------------------------------------------------------------------------------------------------------*/
+package csd;
 
+class App {
+	public static void main(String [] args) 
+	{			
+		Sample s1 = new Sample(10);
+		Sample s2 = new Sample(10);
+		
+		System.out.println(s1 == s2 ? "Aynı nesne" : "Farklı nesneler");
+		System.out.println(s1 != s2 ? "Farklı nesneler" : "Aynı nesne");
+	}
+}
 
+class Sample {
+	public int x;
+	
+	public Sample(int a)
+	{
+		x = a;
+	}
+	
+	//...
+}
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Aşağıdaki demo örnekte referanslar aynı nesneyi gösteriyor değil mi?
+-----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{			
+		Sample s1 = new Sample(10);
+		Sample s2 = s1;
+		
+		System.out.println(s1 == s2 ? "Aynı nesne" : "Farklı nesneler");
+		System.out.println(s1 != s2 ? "Farklı nesneler" : "Aynı nesne");
+	}
+}
+
+class Sample {
+	public int x;
+	
+	public Sample(int a)
+	{
+		x = a;
+	}
+	
+	//...
+}
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Aşağıdaki örnekte iki yazının özdeşlik yani tüm karakterlerinin karşılıklı olarak aynı olması karşılaştırması 
+	yapılmamıştır değil mi?
+-----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{			
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Birinci yazıyı giriniz:");
+		String s1 = kb.nextLine();
+		
+		System.out.print("İkinci yazıyı giriniz:");
+		String s2 = kb.nextLine();
+		
+		System.out.println(s1 == s2 ? "Aynı yazı" : "Farklı yazılar");
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Yazıların  özdeşlik karşılaştırmsı equals isimli metot ile yapılabilir. Bu metot case-sensitive olarak çalışır.
+	Case-insensitive karşılaştırma yapmak için equalsIgnoreCase metodu kullanılabilir.
+-----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{			
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("Birinci yazıyı giriniz:");
+		String s1 = kb.nextLine();
+		
+		System.out.print("İkinci yazıyı giriniz:");
+		String s2 = kb.nextLine();
+		
+		System.out.println(s1.equals(s2) ? "Aynı yazı" : "Farklı yazılar");
+		System.out.println(s1.equalsIgnoreCase(s2) ? "Aynı yazı" : "Farklı yazılar");
+
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Derleyici özdeş string literal'lar için aynı adresin verileceği kodu üretir. Yani özdeş string'lere ilişkin bir tane
+	nesne yaratılmış olur. Zaten sınıf immutable olduğundan iki referansın aynı nesneyi göstermesi durumunda nesnenin
+	içeriği değiştirelemezdir, bu da herhangi bir probleme yol açmaz. Bu durumda bellek efektif olarak kullanılmış olur.
+	Aşağıdaki örnekte yine referans karşılaştırması yapılmıştır
+-----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{			
+		String s1 = "ankara";
+		String s2 = "ankara";
+		
+		System.out.println(s1 == s2 ? "Aynı nesne" : "Farklı nesneler");		
+	}
+}
