@@ -1,1 +1,435 @@
 
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Sınıf Çalışması: Parametresi ile aldığı iki yazıdan birinci içerisinde ikincisinden kaç olduğuna geri dönen ve
+	case insensitive olarak çalışan countStringIgnoreCase isimli metodu yazınız ve aşağıdaki kod ile test ediniz	
+-----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		StringUtilCountStringIgnoreCaseTest.run();
+	}
+}
+
+class StringUtilCountStringIgnoreCaseTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Birinci yazıyı giriniz:");
+			String s1 = kb.nextLine();
+			
+			if ("elma".equals(s1))
+				break;
+			
+			System.out.print("İkinci yazıyı giriniz:");
+			String s2 = kb.nextLine();
+			
+			System.out.printf("Count:%d%n", StringUtil.countStringIgnoreCase(s1, s2));
+		}
+	}
+}
+
+class StringUtil {
+	public static int countStringIgnoreCase(String s1, String s2)
+	{
+		return countString(s1.toLowerCase(), s2.toLowerCase());
+	}
+	
+	public static int countString(String s1, String s2)
+	{		
+		int count = 0;
+		
+		for (int i = 0; (i = s1.indexOf(s2, i)) != -1; ++i, ++count)
+			;		
+
+		return count;
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------	 
+	String sınıfının lastIndexOf metotları sondan itibaren ilk bulunan yazı veya karaktere ilişkin indeks numarasına
+	geri dönerler. Bu metotlar da bulamadıkları durumda -1 değerine geri dönerler	
+-----------------------------------------------------------------------------------------------------------------------*/
+
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		String text = "Bugün hava çok güzel, çok çok güzel";
+		String s = "çok";
+		
+		System.out.println(text.lastIndexOf(s));
+		System.out.println(text.lastIndexOf(s, 12));		
+		System.out.println(text.lastIndexOf(s, 27));
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Sınıf Çalışması: Aşağıdaki açıklamalara göre parametresi ile aldığı bir yol ifadesine (path) ilişkin dosyanın yalnızca 
+	ismine geri dönen getFileName isimli metodu yazınız.
+	Açıklamalar: 
+	- Metot yol ifadesi geçerliliği yapmayacaktır.
+	- Metot yol ifadesine / veya \ karakterlerini kabul edecektir.
+	- Yol ifadesi / ya da \ içermiyorsa doğrudan yol ifadesini döndürecektir.
+	- Örneğin yol ifadesi C:/test/mest.dat için elde edilen dosya ismi mest.dat olarak elde edilecektir. Ya da örneğin
+	test gibi bir ifadesi için dosya ismi test olarak elde edilecektir.
+	- Metodu FileUtil isimli bir sınıf içerisinde yazınız.
+	- Bu işlemi JavaSE'de yapan türler ve metotlar kullanılmayacaktır.
+	- Metodu klavyeden alınan yol ifadeleri ile test edebilirsiniz.
+	
+	Not: İleride daha iyisi yazılacaktır
+-----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------	 
+	AŞAĞIDAKİ BENİM ÇÖZÜMÜM!!!!!!
+-----------------------------------------------------------------------------------------------------------------------*/
+
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		StringFileUtilTest.run();
+	}
+}
+
+class StringFileUtilTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		
+			System.out.print("Path giriniz:");
+			String s1 = kb.nextLine();
+			
+			System.out.printf("%s%n", FileUtil.getFileName(s1));
+		
+	}
+}
+
+class FileUtil {
+	public static String getFileName(String path)
+	{
+		
+		int index1 = path.lastIndexOf('/');
+		int index2 = path.lastIndexOf('\\');
+		int index = 0;
+		
+		index = index1 > index2 ?  index1: index2;
+		
+		System.out.println(index);
+		
+		if(index == 0)
+			return path;
+		else 
+			return path.substring(index + 1,path.length());
+	}
+	
+}
+
+/*----------------------------------------------------------------------------------------------------------------------	 
+	HOCANIN ÇÖZÜMÜ
+	
+	14367 HOCAYA SOR: C:\test/test.dat olduğu zaman test/test.dat veriyo sonuçta  Metot yol ifadesi geçerliliği yapmayacaktır. dendi
+-----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		FileUtilgetFileNameTest.run();
+	}
+}
+
+class FileUtilgetFileNameTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Input path:");
+			String path = kb.nextLine();
+			
+			System.out.printf("File name:%s%n",FileUtil.getFileName(path));
+			
+			if ("quit".equals(path))
+				break;
+		}
+	}
+}
+
+class FileUtil {
+	public static String getFileName(String path)
+	{
+		int idx;
+		
+		idx = path.lastIndexOf('\\');		
+	
+		return idx != -1 ? path.substring(idx + 1) : path.substring(path.lastIndexOf('/') + 1);		
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    IntegerDecimalOccurence 
+	String pattern matching in decimal representations of ints.
+	
+	Task description
+	Two integers A and B are given. We are interested in positions at which decimal representation of A occurs as a substring 
+	in the decimal representation of B (counting from 0) For example:
+	
+		- 53 occurs in 1953786 at position 2.
+		- 78 occurs in 1953786786 at positions 4 and 7
+		- 57 does not occur in 153786.
+	
+	Decimal representations are assumed to be big-endian and without leading zeros (the only exception being the number 0, whose 
+	decimal representation is "0")
+	
+	Write function
+		
+		class Solution { public int solution(int A, int B); }
+	
+	that, given two integers A and B, returns the leftmost position at which A occurs in B the function should return -1 
+	if A does not occur in B. 
+	For example, given A = 53 and B = 195378653, the function should return 2, as explained above.
+	Assume that:
+		
+		- A and B are integers within the range [0..999,999,999].
+		
+	In your solution, focus on correctness. The performance of your solution will not be the focus of the assessment.
+---------------------------------------------------------------------------------------------------------------------*/
+
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		SolutionTest.run();
+	}
+}
+
+class SolutionTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Input first number:");
+			int a = Integer.parseInt(kb.nextLine());
+			
+			System.out.print("Input second number:");
+			int b = Integer.parseInt(kb.nextLine());
+			
+			Solution s = new Solution();
+			
+			System.out.printf("Position:%d%n", s.solution(a, b));
+			
+			if (a == 0 && b == 0)
+				break;
+		}
+	}
+}
+
+
+class Solution { 
+	public int solution(int A, int B)
+	{
+		return (B + "").indexOf(A + ""); //burada + operandlarının biri String türündense diğerinin de yazı karşılığına çevrilip işleme sokulur mesela 1 ve 0 ise "10" yazısı elde edilir.
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki örneği inceleyiniz. ÇOKZEL
+işlem önceliği solda ilkinde + operatörünün solundakini Stringe çevirip birleştirir sonra 11i stringe çevirir ve birleştirir
+ikinci işlemde toplama yapılır sonra stringe çevrilip birleştirilir.
+---------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		System.out.println("Java" + 10 + 11); //Java1011 
+		System.out.println(10 + 11 + "Java"); //21Java
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	Anahtar Notlar: Java'da aşağıdaki koşullardan birini sağlayan bir karakter whitespace karakterdir. Tersine whitespace
+	bir karakter aşağıdaki koşullardan birini sağlar (if and only if):
+  	
+  	- Karakter "Unicode space" karakter ve "Non-breaking space" olmayan karakterlerdendir. 
+  	Unicode space karakterler şunlardır:  Space Separator, Line Separator, Paragraph Separator. Bu karakterler
+  	UNICODE'da çeşitli kategorilerdir. Detaylar burada ele alınmayacaktır. Bu karakter Character sınıfının
+  	SPACE_SEPERATOR, LINE_SEPARATOR, PARAGRAPH_SEPARATOR isimli static veri elemanları ile elde edilebilir. 
+  	non-breaking space karakterler şunlardır: '\u00A0', '\u2007', '\u202F'
+  	
+  	- '\t' horizontal tabulation
+  	
+  	- '\n' line feed (LF)
+  	
+  	- '\u000B' vertical tabulation
+  	
+  	- '\f' form tabulation
+  	
+  	- '\r' carriage return (CR)
+  	
+  	- '\u001C' file separator
+  	
+  	- '\u001D' group separator
+  	
+  	- '\u001E' record separator
+  	
+  	- '\u001F' unit separator
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Bir kararkter ile çeşitli işlemler yapan çeşitli metotların bulunduğu Character sınıfı aynı zamanda String sınıfına 
+	da yardımcı olarak kulanılabilmektedir. Sınıfın isXXX metotları parametresi ile aldığı karaktere ilişkin kontrol yaparlar
+	Örneğin bu metotlardan önemli bazıları şunlardır:
+	
+	- isWhiteSpace: Karakterin whitespace karakter olup olmadığını test eder.
+	- isLetter: Karakterin alfabetik (alfabedeki harflerden biri) olup olmadığını test eder.
+	- isDigit: Karakterin bir sayısal karakter olup olmadığını test eder.
+	
+	Sınıfın toXXX metotları parametresi ile aldığı karakteri dönüştürmekte kullanılır. Bu metotlardan bazıları şunlardır:
+	
+	- toUpperCase: Karakterin büyük harf karşılığını döndürür. Yoksa aynı karaktere geri döner.
+	- toLowerCase: Karakterin küçük harf karşılığını döndürür. Yoksa aynı karaktere geri döner.
+
+	Bu sınıfa ait bir metodun hem char hem int parametreli overload'ları bulunur. Bu durumda tüm karakterler yani
+	sıra numarası 65535'den büyük olan karakterler için de işlem yapan metotlar bulunmaktadır. 
+-----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki demo örneği inceleyiniz
+---------------------------------------------------------------------------------------------------------------------*/
+
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		StringCharactersReportApp.run();		
+	}
+}
+
+class StringCharactersReportApp {
+	public static void printReport(String s)
+	{
+		int len = s.length();
+		int whitespaceCount = 0;
+		int letterCount = 0;
+		int digitCount = 0;		
+		
+		for (int i = 0; i < len; ++i) {
+			char ch = s.charAt(i);
+			
+			if (Character.isWhitespace(ch))
+				++whitespaceCount;			
+			else if (Character.isLetter(ch))
+				++letterCount;
+			else if (Character.isDigit(ch))
+				++digitCount;		
+					
+		}
+		
+		System.out.printf("Whitespace count:%d%n", whitespaceCount);
+		System.out.printf("Letter count:%d%n", letterCount);
+		System.out.printf("Digit count:%d%n", digitCount);
+		System.out.printf("Others:%d%n", len - whitespaceCount - letterCount - digitCount);	
+	}
+	
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Input string:");
+			String s = kb.nextLine();
+			
+			printReport(s);
+			
+			if ("quit".equals(s))
+				break;
+		}
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	Sınıf Çalışması: parametresi ile aldığı bir yazının ilk karakteri büyük diğer karakterleri küçük harf olan 
+	biçimine geri dönen capitalize isimli metodu StringUtil sınıfı içerisinde yazınız ve test ediniz. Örneğin yazı 
+		bugün hava ÇOK güzel
+	ise elde edilecek yazı	
+		Bugün hava çok güzel
+	olacaktır.
+---------------------------------------------------------------------------------------------------------------------*/
+
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		StringUtilCapitalizeTest.run();		
+	}
+}
+
+class StringUtilCapitalizeTest {	
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Input string:");
+			String s = kb.nextLine();
+			
+			System.out.printf("(%s)%n", StringUtil.capitalize(s));
+			
+			if ("quit".equals(s))
+				break;
+		}
+	}
+}
+
+class StringUtil {
+	public static String capitalize(String s)
+	{
+		return s.isEmpty() ? s : Character.toUpperCase(s.charAt(0)) + s.substring(1).toLowerCase();
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	String sınıfının trim metodu yazının başındaki (leading) ve sonundaki (trailing) boşluk karakterlerini atar. Bu metot
+ 	[\u0000, \u0020] aralığındaki boşluk karakterleri için çalışır. Diğer whitespace karakterleri atmaz. Java 11 ile birlikte 
+ 	tüm whitespace karakterler için çalışan yani yazının başındaki ve sonundaki whitespace karakterleri atan strip isimli
+ 	bir metot eklenmiştir. Ayrıca Java 11 ile birlikte yazının sadece başındaki whitespace karakterleri atan stripLeading
+ 	ve sadece sonundaki boşluk karakterlerini atan stripLeading isimli metotlar da eklenmiştir. Java 11 öncesince yazının
+ 	yalnızca başındaki veya yalnızca sonundaki boşluk karakterlerini atan metotlar bulunmamaktadır. Java 11 öncesinde
+ 	çalışıldığı durumda  bu tarz metotlar programcı tarafından yazılmalıdır.
+ 	 
+ 	Anahtar Notlar: Pratikte trim metodu çoğu zaman işimizi görse de bazı özel whitespace karakterler için çalışamamaktadır.
+ 	Bu sebeple Java 11+ ile çalışıldığında trim metodu yerine her zaman strip metodu tercih edilmelidir. Java 11 öncesinde
+ 	çalışılıyorsa strip gibi bir metot gerekirse programcı tarafından eklenebilir
+---------------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki demo örneği inceleyiniz
+---------------------------------------------------------------------------------------------------------------------*/
+
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		
+		while (true) {
+			System.out.print("Input string:");
+			String s = kb.nextLine();
+			
+			System.out.printf("(%s)%n", s);
+			System.out.printf("(%s)%n", s.trim());
+			System.out.printf("(%s)%n", s.strip());
+			System.out.printf("(%s)%n", s.stripLeading());
+			System.out.printf("(%s)%n", s.stripTrailing());
+			
+			if ("exit".equals(s))
+				break;
+		}
+	}
+}
