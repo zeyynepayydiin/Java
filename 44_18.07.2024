@@ -433,3 +433,16 @@ class App {
 		}
 	}
 }
+/*----------------------------------------------------------------------------------------------------------------------
+	Sınıfı Çalışması: Aşağıda belirtilen metotları StrigUtil sınıfı içerisinde açıklamalara yazınız ve test ediniz.
+	Açıklamalar:
+	- Metotların prototipleri şunlardır:
+		public static String trim(String s);
+		public static String trimLeading(String s);
+		public static String trimTrailing(String s);
+		
+	- Metotlar sırasıyla yazının başındaki ve sonundaki, yalnızca başındaki ve yalnızca sonundaki whitespace karakterleri
+	atacaklardır.
+	
+	- Metotlar Java 11 öncesi için yazılacaktır. Yani stripXXX metotları kullanılmayacaktır
+---------------------------------------------------------------------------------------------------------------------*/
