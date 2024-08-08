@@ -293,7 +293,7 @@ class ConcatWithHyphenApp{
 			
 			
 		}
-		str = str.isEmpty() ? str: str.substring(0,str.length()-1);
+		str = str.isEmpty() ? str : str.substring(0,str.length()-1);
 		System.out.print(str);
 	}
 }
