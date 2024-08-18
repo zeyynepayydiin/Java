@@ -457,7 +457,7 @@ class StringUtil{
 	}
 	public static boolean isPangramEN(String s) 
 	{
-		return isPangram(s.toLowerCase(), "abcdefghijklmnoprstuwxvyz");
+		return isPangram(s.toLowerCase(), "abcdefghijklmnopqrstuvwxyz");
 	}	
 }
 
@@ -601,6 +601,75 @@ class StringUtil{
 	}	
 }
 
+
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Yukarıdaki örnek aşağıdaki gibi de yazılabilir
+-----------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		StringUtilIsPangramTest.run();
+	}
+}
+class StringUtilIsPangramTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		StringUtilPangramTRTest.run();
+		StringUtilPangramENTest.run();
+		
+	}
+}
+class StringUtilPangramTRTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Input string:");
+			String s = kb.nextLine();
+			
+			
+			if ("exit".equals(s))
+				break;
+			
+			System.out.println(StringUtil.isPangramEN(s) ? "Pangram" : "Pangram değil");
+		}
+	}
+}
+class StringUtilPangramENTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		
+		while (true) {
+			System.out.print("Input string:");
+			String s = kb.nextLine();
+			
+			
+			if ("exit".equals(s))
+				break;
+			
+			System.out.println(StringUtil.isPangramEN(s) ? "Pangram" : "Not pangram");
+		}
+	}
+}
+class StringUtil{
+
+	public static boolean isPangramEN(String s) 
+	{
+		s = s.toLowerCase();
+		for(int i = 0; i < 26; ++i)
+			if(s.indexOf(('a' + i)) == -1)
+				return false;
+		
+		return true;
+			
+	}	
+}
 
 
 
