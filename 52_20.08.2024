@@ -54,6 +54,8 @@ class App {
 	[0, length) aralığıdır. Bu operatör öncelik tablosunda birinci seviyededir. Operatörün ürettiği değer 
 	indeksteki elemana ilişkin değişkendir. İndeks numarası pozitif ya da negatif bakımdan sınırlar dışında bir değer
 	olarak verilirse exception oluşur. 
+
+	Dizi yaratıldığında elemanlarının her birine default değerler atanır.
 ------------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------
 	Aşağıdaki demoyu inceleyiniz
@@ -87,6 +89,32 @@ class App {
 	}
 }
 /*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki demo örneği inceleyiniz
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Scanner;
+
+class App {
+	public static void main(String [] args)
+	{
+		Scanner kb = new Scanner(System.in);
+
+		System.out.print("Bir sayı giriniz:");
+		int count = kb.nextInt();
+
+		int [] a;
+
+		a = new int[count];
+		int len = a.length;
+
+		for (int i = 0; i < len; ++i)
+			a[i] = i;
+
+		System.out.println(a[5]);
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
 	Aşağıdaki demoyu inceleyiniz
 ------------------------------------------------------------------------------------------------------------------------*/
 
@@ -113,7 +141,7 @@ class App {
 			a[i] = r.nextInt(100);  
 		
 		for(int i = 0; i < len; ++i)
-			System.out.printf("%d ", a[i]);
+			System.out.printf("%02d ", a[i]);
 		
 		System.out.println();
 		
@@ -146,7 +174,7 @@ class App {
 		System.out.println();
 		
 		for(int i = 0; i < count; ++i)
-			System.out.printf("%d ", b[i]);
+			System.out.printf("%b ", b[i]);
 		
 		System.out.println();
 		
@@ -156,7 +184,9 @@ class App {
 	Bir diziye ilk değer verilebilir {initialization}. Bu işlem için {} kullanılır. {} içerisindeki değerler virgül ile
 	ayrılır. Dizinin eleman sayısı verilen değer kadar olur. Yani ilk değer verildiğinde ilgili dizi nesnesi yaratılır
 	ve elemanlar ilk değer olarak verilir. İlk değer verme sentaksında yine new operatörü kullanılır. [] içerisi boş
-	bırakılır. [] içerisine değer verilmesi durumunda error olşur. Diziye ilk değer verilirken 
+	bırakılır. [] içerisine değer verilmesi durumunda error olşur. Diziye ilk değer verilirken aynı zamanda dizinin
+	adresine ilişkin referans değişkene de ilk değer veriliyorsa new operatörü kullanılmasına gerek yoktur. İstenirse
+	kullanılabilir.
 ------------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------
 	Aşağıdaki örnekte diziye ilk değer verilmiştir ancak referansa ilk değer verilmemiştir.
@@ -168,8 +198,10 @@ import java.util.Scanner;
 
 class App {
 	public static void main(String [] args) 
-	{		
-		int [] a = new int [] {1, 2, 3, 4, 5, 6};
+	{	
+		int [] a;
+
+		a = new int [] {1, 2, 3, 4, 5, 6};
 	
 		for(int i = 0; i < a.length; ++i)
 			System.out.printf("%d ", a[i]);
@@ -200,3 +232,18 @@ class App {
 	}
 }
 
+/*----------------------------------------------------------------------------------------------------------------------
+	Bir metodun parametre değişkeni bir dizi referansı olabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import static org.csystem.util.array.ArrayUtil.print;
+
+class App {
+	public static void main(String [] args)
+	{
+		int [] a = {1, 2, 3, 4, 5, 6};
+
+		print(a);
+	}
+}
