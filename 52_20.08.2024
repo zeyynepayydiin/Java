@@ -1,0 +1,156 @@
+/*----------------------------------------------------------------------------------------------------------------------
+	Diziler (Arrays) 
+	Elemanları ayn türden olan ve elemanları bellekte peş peşe tutulacak şekilde yaratılan veri yapısıdır. Diziler
+	programlamada en temel veri yapılarıdır. Hatta bazı veri yapıları dizi kullanılarak implemente edilebilir.
+	
+	Java'da diziler heap'te yaratılırlar. Yani sınıfsal temsil edilmişlerdir. Java'da stack'te dizi yaratılamaz. T bir
+	tür ismi olma üzere her bir elemanı T türünden olan (bu durumda T türden dizi de denebilir) bir dizi referansı 
+	bildiriminin iki biçimi vardır:
+		1. T [] a;
+		2. T a[];
+		
+	Burada a bir referans değişkendir. Henüz daha dizi yaratılmamıştır. İkinci biçime "C stili (C style) bildirim de
+	denilmektedir. Java programcısına önerilmemektedir. Pek çok static kod analizi aracı da ikinci biçime default olarak
+	uyarı vermektedir. Biz de kodlarımızda birinci biçimi tercih edeceğiz.
+		
+	Örneğin:
+		int [] a;
+		int a[];
+------------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		int [] a; // int türden dizi referansı bildirimi
+		int b[];// int türden dizi referansı bildirimi
+}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	Dizi referansı bildirimlerinin farkı
+------------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		int [] a, b, c; // a, b ve c int [] türden
+		int x[], y, z ;// x int[], y ve z int türden
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	Dizi yaratmak için yine new operatörü kullanılır. Dizi yaratmak için new operatörü kullanımının genel biçimi şu
+	şekildedir:
+		new <tür> [<int türüne doğrudan dönüşebilen türden değer>]
+	Burada [] içerisinde verilen değere dizinin uzunluğu (length) denir. Uzunluk dizinin eleman sayısıdır. Java'da 
+	dizi uzunluğunun sabit ifadesi olması gerekmez. Dizi yaratıldıktan sonra uzunluğu değiştirilemez. Dizi uzunluğunun
+	negatif olması durumunda exception oluşur. Dizi uzunluğuna length isimli veri elemanı ile erişilebilir. lentgh
+	veri elemanının değeri değiştirilemez.
+	
+	Dizinin elemanlarına erişmek için [] operatörü (subscribtion operator) kullanılır. Bu operatör özel amaçlı iki 
+	operandlı ve araek durumundadır. Operatörün birinci operandı bir referans ikinci operandı ise int türüne doğrudan
+	dönüşebilen bir değer olmalıdır. İkinci operandına indeks değeri de denilmektedir. Dizinin ilk elemanına sıfır numaralı
+	indeks değeri kullanılarak erişilir. Yani bu anlamda dizinin elemanlarına erişmek için kullanılan indeks değerleri
+	[0, length) aralığıdır. Bu operatör öncelik tablosunda birinci seviyededir. Operatörün ürettiği değer 
+	indeksteki elemana ilişkin değişkendir. İndeks numarası pozitif ya da negatif bakımdan sınırlar dışında bir değer
+	olarak verilirse exception oluşur. 
+------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki demoyu inceleyiniz
+------------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+import java.util.Scanner;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		Scanner kb = new Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz: ");
+		int count = kb.nextInt();
+		
+		int [] a;
+		
+		a = new int[count];
+		
+		int len = a. length;
+		
+		for(int i = 0; i < len; ++i)
+			a[i] = i;    //a'nın türü a[] ama a[]'in türü int
+		
+		for(int i = 0; i < len; ++i)
+			System.out.printf("%d ", a[i]);
+		
+		System.out.println();
+		
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki demoyu inceleyiniz
+------------------------------------------------------------------------------------------------------------------------*/
+
+package csd;
+
+import java.util.Random;
+import java.util.Scanner;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		Scanner kb = new Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz: ");
+		int count = kb.nextInt();
+		
+		int [] a;
+		Random r = new Random();
+		a = new int[count];
+		
+		int len = a. length;
+		
+		for(int i = 0; i < len; ++i)
+			a[i] = r.nextInt(100);  
+		
+		for(int i = 0; i < len; ++i)
+			System.out.printf("%d ", a[i]);
+		
+		System.out.println();
+		
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	Dizi yaratıldığında elemanlarının her birine default değerler atanır.
+------------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+import java.util.Random;
+import java.util.Scanner;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		Scanner kb = new Scanner(System.in);
+		
+		System.out.print("Bir sayı giriniz: ");
+		int count = kb.nextInt();
+		
+		int [] a;
+		boolean [] b;
+;		
+		a = new int[count];
+		b = new boolean[count];
+		
+		
+		
+		for(int i = 0; i < count; ++i)
+			System.out.printf("%d ", a[i]);
+		System.out.println();
+		
+		for(int i = 0; i < count; ++i)
+			System.out.printf("%d ", b[i]);
+		
+		System.out.println();
+		
+	}
+}
