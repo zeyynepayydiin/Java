@@ -288,7 +288,7 @@ class StringUtil {
 			
 			if(!Character.isLetter(cLeft)) {
 				++left;
-				continue;
+				continue; //Burada continue while döngüsünün o adımını atlıyıp başa dönüyorr.
 			}
 			char cRight = s.charAt(right);
 			
