@@ -1,0 +1,316 @@
+/*----------------------------------------------------------------------------------------------------------------------
+	Sınıf Çalışması: Aşağıdaki metotları açıklamalara göre StringUtil sınıfı içerisinde yazınız ve test ediniz.
+		public static String padLeading(String s, int n, char ch);
+		public static String padLeading(String s, int n);
+		public static String padTrailing(String s, int n, char ch);
+		public static String padTrailing(String s, int count, char ch);
+		
+	Açıklamalar:
+		- padLeading metodunun üç parametreli overload'u parametresi ile aldığı yazıyı ikinci parametresi ile aldığı
+		uzunluk kadar baştan ch karakteri ile besleyecektir. İkinci parametresi ile aldığı uzunluk bilgisi, ilgili
+		yazının uzunluğundan küçük veya eşit ise aynı yazıya geri dönecektir.
+		Örneğin:
+			padLeading("ankara", 8, 'x');
+		çağrısı ile
+			xxankara
+		yazısı elde edilecektir.
+		Örneğin:
+			padLeading("ankara", 5, 'x');
+		çağrısı ile
+			xankara
+		yazısı elde edilecektir.
+		- padLeading metodunun iki parametreli overload'u yazıyı space karakteri ile besleyecektir.
+		- padTrailing metodları padLeading'in yaptıklarını sondan besleyecek şekilde yapacaktır. 
+		- Metotlar Java 11 öncesi için yazılacaktır. 
+---------------------------------------------------------------------------------------------------------------------*/
+
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		StringUtilchangeCaseTest.run();
+	}
+}
+
+class StringUtilchangeCaseTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+      while (true) {
+			System.out.print("Input text:");
+			String s = kb.nextLine();
+			
+			System.out.print("Input count:");
+			int count = Integer.parseInt(kb.nextLine());
+			
+			if ("exit".equals(s))
+				break;
+			
+			System.out.printf("(%s)%n", StringUtil.padLeading(s,count,'x'));
+			System.out.printf("(%s)%n", StringUtil.padLeading(s,count));
+			System.out.printf("(%s)%n", StringUtil.padTrailing(s,count,'x'));
+			System.out.printf("(%s)%n", StringUtil.padTrailing(s,count));
+		}
+	}
+}
+
+class StringUtil {
+	public static String padLeading(String s, int n, char ch)
+	{	
+		return s.length() < n ? repeat(n - s.length(), ch) + s : s;
+	}
+	public static String padLeading(String s, int n)
+	{
+		return padLeading(s, n, ' ');
+	}
+	public static String padTrailing(String s, int n, char ch)
+	{
+		return s.length() < n ? s + repeat(n - s.length(), ch): s;
+	}
+	public static String padTrailing(String s, int n)
+	{
+		return padTrailing(s, n, ' ');
+	}
+	public static String repeat(int n, char ch)
+	{
+		StringBuilder sb = new StringBuilder();
+		
+		for(int i = 0; i < n; ++i)
+			sb.append(ch);
+		
+		return sb.toString();
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+Klavyeden karakter alınmıyomuş. Tekrarla.
+---------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+	String sınıfının static valueOf metotları temel bir türe ilişkin değerin yazı karşılığını elde etmek için kullanılır.
+	Aşağıdaki örneği inceleyiniz.
+	
+	Anahtar Notlar: Aldığı parametreleri kullanarak bir nesnenin referansına geri döne bir metoda "factory method" denir.
+	Factory bir metot ilgili sınıfa aitse static olarak bildirilir. Bu anlamda valueof metodu bir factory metottur.
+	
+	Anahtar Notlar: JavaSE'de bazı sınıfların çeşitli factory metotları bulunur. Java 8'e kadar bu tarz metotların
+	isimlendirilmesinde genel olarak valueOf kullanılırken, Java 8 sonrasında "of" ismi kullanılmaktadır. Bu anlamda 
+	bazı sınıfların valueOf veya of gibi factory metotları bulunur. Şüphesiz farklı isimlerde factory metotları olan 
+	sınıflar da vardır.
+	
+	Aşağıdaki örneği inceleyiniz.
+---------------------------------------------------------------------------------------------------------------------*/
+
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		StringUtilchangeCaseTest.run();
+	}
+}
+
+class StringUtilchangeCaseTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+      while (true) {
+			System.out.print("Input text:");
+			String s = kb.nextLine();
+			
+			System.out.print("Input count:");
+			int count = Integer.parseInt(kb.nextLine());
+			
+			if ("exit".equals(s))
+				break;
+			
+			System.out.printf("(%s)%n", StringUtil.padLeading(s,count,'x'));
+			System.out.printf("(%s)%n", StringUtil.padLeading(s,count));
+			System.out.printf("(%s)%n", StringUtil.padTrailing(s,count,'x'));
+			System.out.printf("(%s)%n", StringUtil.padTrailing(s,count));
+		}
+	}
+}
+
+class StringUtil {
+	public static String padLeading(String s, int n, char ch)
+	{	
+		return s.length() < n ? String.valueOf(ch).repeat(n - s.length()) + s : s;
+	}
+	public static String padLeading(String s, int n)
+	{
+		return padLeading(s, n, ' ');
+	}
+	public static String padTrailing(String s, int n, char ch)
+	{
+		return s.length() < n ? s +  String.valueOf(ch).repeat(n - s.length()): s;
+	}
+	public static String padTrailing(String s, int n)
+	{
+		return padTrailing(s, n, ' ');
+	}
+	public static String repeat(int n, char ch)
+	{
+		StringBuilder sb = new StringBuilder();
+		
+		for(int i = 0; i < n; ++i)
+			sb.append(ch);
+		
+		return sb.toString();
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	String sınıfının contains metodu bir yazı içerisinde parametresi ile aldığı yazının var olup olmadığını test eder.
+	Metodun geri dönüş değeri boolean türdendir.
+
+  Anahtar Notlar: contains metodunun parametresi Charsequence türündendir. Charsequnce gereken yerlerde String referansı
+verilebilir. Detaylar ileride ele alınacaktır.
+------------------------------------------------------------------------------------------------------------------------*/
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		StringUtilIsPangramTest.run();
+	}
+}
+
+class StringUtilIsPangramTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		StringUtilIsPangramTRTest.run(kb);
+		StringUtilIsPangramENTest.run(kb);
+	}
+}
+
+class StringUtilIsPangramTRTest {
+	public static void run(java.util.Scanner kb)
+	{
+		while (true) {
+			System.out.print("Bir yazı giriniz:");
+			String s = kb.nextLine();
+			
+			if ("elma".equals(s))
+				break;
+			
+			System.out.println(StringUtil.isPangramTR(s) ? "Pangram" : "Pangram değil");			
+		}
+	}
+}
+
+
+class StringUtilIsPangramENTest {
+	public static void run(java.util.Scanner kb)
+	{		
+		while (true) {
+			System.out.print("Input string:");
+			String s = kb.nextLine();
+			
+			if ("exit".equals(s))
+				break;
+			
+			System.out.println(StringUtil.isPangramEN(s) ? "Pangram" : "Not a pangram");			
+		}
+	}
+}
+
+class StringUtil {
+	public static boolean isPangram(String s, String alphabet)
+	{
+		for (int i = 0; i < alphabet.length(); ++i)
+			if (!s.contains(String.valueOf(alphabet.charAt(i)))) //valueOf metodu, parametre olarak char aldı String yaptı 
+				return false;
+		
+		return true;
+	}
+	
+	public static boolean isPangramTR(String s)
+	{
+		return isPangram(s.toLowerCase(), "abcçdefgğhıijklmnoöprsştuüvyz");
+	}
+	
+	public static boolean isPangramEN(String s)
+	{
+		return isPangram(s.toLowerCase(), "abcdefghijklmnopqrstuvwxyz");
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+	Sınıf Çalışması: Parametresi ile aldığı bir yazının palindrom olup olmadığını test eden isPalindrome isimli 
+	metodu StringUtil sınıfı içerisinde yazınız ve test ediniz.
+	Açıklamalar: 
+		- Alfabetik olmayan karakterleri çıkartıldığında tersi kendisine eşit olan yazılara polindrom denir.
+		Örneğin
+			- Ey edip Adana'da pide ye
+			- Anastas mum satsana
+			- Ali Papila
+		- Palindromlar case-insensitive'dir.
+------------------------------------------------------------------------------------------------------------------------*/
+
+
+package csd;
+
+class App {
+	public static void main(String [] args) 
+	{		
+		StringUtilIsPolindromeTest.run();
+	}
+}
+
+class StringUtilIsPolindromeTest {
+	public static void run()
+	{		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Input string:");
+			String s = kb.nextLine();
+			
+			if ("exit".equals(s))
+				break;
+			
+			System.out.println(StringUtil.isPalindrome(s) ? "Polindrome" : "Not a polindrome");			
+		}
+	}
+}
+
+class StringUtil {
+	public static boolean isPalindrome(String s)
+	{
+		int left = 0;
+		int right = s.length() - 1;
+		
+		while(left < right) {
+			char cLeft = s.charAt(left);
+			
+			if(!Character.isLetter(cLeft)) {
+				++left;
+				continue;
+			}
+			char cRight = s.charAt(right);
+			
+			if(!Character.isLetter(cRight)) {
+				--right;
+				continue;
+			}
+			
+		
+		if(Character.toLowerCase(cLeft) != Character.toLowerCase(cRight))
+			return false;
+		
+			++left;
+			--right;
+		}
+		return true;
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	Anahtar Notlar: java.util.Scanner sınıfının çalışma sistemi gereği bazı sistemlerde aynı nesne ile nextLine ve 
+	temel türlere lişkin nextXXX metotları peşpeşe kullanılmamalıdır. Bu Scanner açısından bir problem değildir,
+	Scanner'ın içsel çalışması ile ilgili sistemin içsel yapısı gereği oluşan bir sonuçtur. Detayının önemi yoktur.
+	Programcı bu tip durumlarda hep nextLine metoduyla değerleri alması ve  türler için ilgili parseXXX metotlarını
+	çağırmalıdır.
+------------------------------------------------------------------------------------------------------------------------*/
