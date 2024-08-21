@@ -44,5 +44,449 @@
 	
 	- Bir java dosyasında dosya ile aynı isimde olan bir UDT olmak zorunda değildir. Ancak bu durum pratikte çok kullanılmaz
 	
-	-  Paket bildirimi tüm bildirimlerden önce olmalıdır. Dolayısıyla bir java dosyasında bir tane paket bildirimi yapılabilir.
+	- Paket bildirimi tüm bildirimlerden önce olmalıdır. Dolayısıyla bir java dosyasında bir tane paket bildirimi yapılabilir.
+
+	- Birden fazla . java dosyasında aynı isimde paket bildirimi yapılabilir. Bu durumda bu dosyalardaki tüm UDT'ler
+	aynı pakette bildirilmiş olur.
+
+	- Bir paket içerisinde aynı isimde birden fazla UDT bildirimi geçersizdir.
+
+	- Farklı paketler içerisinde aynı isimde UDT bildirimleri geçerlidir. Bu UDT'ler isimleri aynı olsa da aslında farklı
+	türlerdir.
+
+	- Bir paketin alt paketleri olabilir. Alt paket bildiriminin genel biçimi şu şekildedir:
+		package <paket ismi> [.<alt paket ismi>,.<alt paket ismi>...];
+	Alt paket içierisindeki UDT'lerin byte code'ları paket hiyerarşisinde uygun alt dizinde bulunmalıdır. Yine IDE 
+	programlar bunu otomatik olarak yapar.
+
+	- Paketler iç içe bile olsa farklı paketlerdir. Yani örneğin arman paketi içerisinde SerialPort isimli bir sınıf 
+	varsa, arman.util paketi içerisinde de SerialPort isimli bir sınıf olabilir. Çünkü paketler farklıdır ve isim 
+	çakışması oluşmaz.
+
+	- Paketler isim çakışmasını engellemek için düşünülmüştür. Paketler ile farklı firmalar kendi paket isimleriyle UDT
+	yazdıklarında UDT'lerin isimleri aynı olsa bile diğerleriyle birlikte aynı projede kullanılabilirler.
+
+	- Paket isimleri genelde firmaya özgü, tekil (unique) bir bilgi olan domain isminden türetilir. Örneğin CSD'nin
+	paketleri domain ismi "csystem.org" olduğundan "org.csystem" paketi altında yazılır. Bu bir convention'dır
+	ve firmalar özellikle bu kurala genel UDT'ler için mutlaka uyarlar.(convention biz bu konuda anlaştık böyle 
+	yapıcaz demektir zorunlu değil ama international bir anlaşmadır.) Pratikte domain ismi altında doğrudan bir 
+	UDT bildirilmez. En az bir tane paket altında bildirilir. Yani aslında bu convention'da domain ismi taban paket
+	(base package) olarak kullanılır. Programcının bir UDT'yi koyacağı paketi okunabilir/algılanabilir ve isim çakışma
+	olasılığını en az olacak şekilde belirler. Bu anlamda alt paketlerin fazla olması bir sorun oluşturmaz. Paket 
+	isimlendirmede programcı anlamlı olacak şekilde cömert olmalıdır(run time'a etkisi falan yok).
+
+	- Paket isimleri bir convention olarak tamamı küçük harf olacak şekilde bildirilir. Birden fazla kelimeden oluşuyorsa 
+	paket isimleri bitişik olarak yazılır. Örneğin:
+		org.csystem.util.net
+		org.csystem.util.mapoperations
+
+	- JavaSE içerisindeki tüm paketler ve UDT'ler java isimli bir paket altında bildirilmiştir. Bu anlamda programcının
+	java paketi altında bir bildirim yapması tavsiye edilmez. Zaten yukarıdaki domain ismi convention'ına uyulduğunda 
+	böyle bir durum da oluşmaz.
+
+	- java.lang paketi içerisindeki tüm UDT'ler her yerden görülebilirdir. Yani bu paket içerisindeki UDT isimleri
+	doğrudan kullanılabilir. Ayrıca belirtilmesi gerekmez. Bu UDT'ler için ileride göreceğimiz "import bildirimi 
+	(import declaration)" yapılmasına da gerek yoktur. Örneğin System, String, Integer, Double gibi sınıfları java.lang
+	paketi altında bildirilmiştir.
+
+	- Hiçbir paket altında bildirilmeyen UDT'ler isimsiz paket (unnamed package) içerisinde bildirilmiş olur. Pratikte 
+	bir uygulama içerisinde isimsiz paket altında bir UDT bildirimi yapılmaz. Bunun nedeni ileride ele alınacaktır.
+
+/**
+ * Point class that represents a point in geometry
+ * Last Update: 6th August 2024
+ * @author Java-Jan-2024 Group
+ */
+package org.csystem.math.geometry;
+
+public class Point {
+	public double x;
+	public double y;
+
+	public Point()
+	{
+	}
+
+	public Point(double a)
+	{
+		x = a;
+	}
+
+	public Point(double a, double b)
+	{
+		x = a;
+		y = b;
+	}
+
+	public double distance()
+	{
+		return distance(0, 0);
+	}
+
+	public double distance(Point other)
+	{
+		return distance(other.x, other.y);
+	}
+
+	public double distance(double a, double b)
+	{
+		return Math.sqrt(Math.pow(x - a, 2) + Math.pow(y - b, 2));
+	}
+
+	public void offset(double dxy)
+	{
+		offset(dxy, dxy);
+	}
+
+	public void offset(double dx, double dy)
+	{
+		x += dx;
+		y += dy;
+	}
+
+	public String toString()
+	{
+		return "(%f, %f)".formatted(x, y);
+	}
+}
+
+/**
+ * Point class that represents a point in geometry
+ * Last Update: 6th August 2024
+ * @author Java-Jan-2024 Group
+ */
+package org.csystem.math.geometry;
+
+public class Point {
+	public double x;
+	public double y;
+
+	public Point()
+	{
+	}
+
+	public Point(double a)
+	{
+		x = a;
+	}
+
+	public Point(double a, double b)
+	{
+		x = a;
+		y = b;
+	}
+
+	public double distance()
+	{
+		return distance(0, 0);
+	}
+
+	public double distance(Point other)
+	{
+		return distance(other.x, other.y);
+	}
+
+	public double distance(double a, double b)
+	{
+		return Math.sqrt(Math.pow(x - a, 2) + Math.pow(y - b, 2));
+	}
+
+	public void offset(double dxy)
+	{
+		offset(dxy, dxy);
+	}
+
+	public void offset(double dx, double dy)
+	{
+		x += dx;
+		y += dy;
+	}
+
+	public String toString()
+	{
+		return "(%f, %f)".formatted(x, y);
+	}
+}
+
+/**
+ * Utility class for numeric operations
+ * Last Update: 8th August 2024
+ * @author Java-Jan-2024 Group
+ */
+package org.csystem.util.numeric;
+
+public class NumberUtil {
+	public static int countDigits(int a)
+	{
+		return a != 0 ? (int) Math.log10(Math.abs(a)) + 1 : 1;
+	}
+
+	public static long factorial(int n)
+	{
+		long result = 1;
+
+		for (long i = 2; i <= n; ++i)
+			result *= i;
+
+		return result;
+	}
+
+	public static int fibonacciNumber(int n)
+	{
+		if (n <= 2)
+			return n - 1;
+
+		int prev1 = 1, prev2 = 0, result = prev1 + prev2;
+
+		for (int i = 3; i < n; ++i) {
+			prev2 = prev1;
+			prev1 = result;
+			result = prev1 + prev2;
+		}
+
+		return result;
+	}
+
+	public static int getDigitsPowSum(int a)
+	{
+		int result = 0;
+		int n = countDigits(a);
+
+		while (a != 0) {
+			result += (int)Math.pow(a % 10, n);
+			a /= 10;
+		}
+
+		return result;
+	}
+
+	public static boolean isArmstrong(int a)
+	{
+		return a >= 0 && getDigitsPowSum(a) == a;
+	}
+
+	public static boolean isEven(int a)
+	{
+		return a % 2 == 0;
+	}
+
+	public static boolean isOdd(int a)
+	{
+		return !isEven(a);
+	}
+
+	public static boolean isPrime(long a)
+	{
+		if (a <= 1)
+			return false;
+
+		if (a % 2 == 0)
+			return a == 2;
+
+		if (a % 3 == 0)
+			return a == 3;
+
+		if (a % 5 == 0)
+			return a == 5;
+
+		if (a % 7 == 0)
+			return a == 7;
+
+		for (long i = 11; i * i <= a; i += 2)
+			if (a % i == 0)
+				return false;
+
+		return true;
+	}
+
+	public static long nextClosestPrime(long a)
+	{
+		if (a < 2)
+			return 2;
+
+		while (!isPrime(++a))
+			;
+
+		return a;
+	}
+
+	public static int nextFibonacciNumber(int val)
+	{
+		if (val < 0)
+			return 0;
+
+		int prev1 = 1, prev2 = 0, next = prev1 + prev2;
+
+		while (next <= val) {
+			prev2 = prev1;
+			prev1 = next;
+			next = prev1 + prev2;
+		}
+
+		return next;
+	}
+
+	public static long nthPrime(int n)
+	{
+		long result = 2;
+		int count = 0;
+
+		for (long i = 2; count < n; ++i)
+			if (isPrime(i)) {
+				++count;
+				result = i;
+			}
+		return result;
+	}
+
+	public static int reverse(int val)
+	{
+		int result = 0;
+
+		while (val != 0) {
+			result = result * 10 + val % 10;
+			val /= 10;
+		}
+
+		return result;
+	}
+
+	public static int sumDigits(int val)
+	{
+		int total = 0;
+
+		while (val != 0) {
+			total += val % 10;
+			val /= 10;
+		}
+
+		return Math.abs(total);
+	}
+}
+
+/**
+ * Utility class for string operations
+ * Last Update: 8th August 2024
+ * @author Java-Jan-2024 Group
+ */
+package org.csystem.util.string;
+
+public class StringUtil {
+	public static String capitalize(String s)
+	{
+		return s.isEmpty() ? s : Character.toUpperCase(s.charAt(0)) + s.substring(1).toLowerCase();
+	}
+
+	public static String changeCase(String s)
+	{
+		StringBuilder sb = new StringBuilder(s);
+
+		for (int i = 0; i < s.length(); ++i) {
+			char c = s.charAt(i);
+
+			sb.setCharAt(i, Character.isLowerCase(c) ? Character.toUpperCase(c) : Character.toLowerCase(c));
+		}
+
+		return sb.toString();
+	}
+
+
+	public static int countString(String s1, String s2)
+	{
+		int count = 0;
+
+		for (int i = 0; (i = s1.indexOf(s2, i)) != -1; ++i, ++count)
+			;
+
+		return count;
+	}
+
+
+	public static boolean isPalindrome(String s)
+	{
+		int left = 0;
+		int right = s.length() - 1;
+
+		while (left < right) {
+			char cLeft = s.charAt(left);
+
+			if (!Character.isLetter(cLeft)) {
+				++left;
+				continue;
+			}
+
+			char cRight = s.charAt(right);
+
+			if (!Character.isLetter(cRight)) {
+				--right;
+				continue;
+			}
+
+			if (Character.toLowerCase(cLeft) != Character.toLowerCase(cRight))
+				return false;
+
+			++left;
+			--right;
+		}
+
+		return true;
+	}
+
+	public static boolean isPangram(String s, String alphabet)
+	{
+		for (int i = 0; i < alphabet.length(); ++i)
+			if (s.indexOf(alphabet.charAt(i)) == -1)
+				return false;
+
+		return true;
+	}
+
+	public static boolean isPangramEN(String s)
+	{
+		s = s.toLowerCase();
+
+		for (char c = 'a'; c <= 'z'; ++c)
+			if (s.indexOf(c) == -1)
+				return false;
+
+		return true;
+	}
+
+	public static boolean isPangramTR(String s)
+	{
+		return isPangram(s.toLowerCase(), "abcçdefgğhıijklmnoöprsştuüvyz");
+	}
+
+	public static String padLeading(String s, int n, char ch)
+	{
+		int len = s.length();
+
+		return len < n ? String.valueOf(ch).repeat(n - len) + s : s;
+	}
+
+	public static String padLeading(String s, int n)
+	{
+		return padLeading(s, n, ' ');
+	}
+
+	public static String padTrailing(String s, int n, char ch)
+	{
+		int len = s.length();
+
+		return len < n ? s + String.valueOf(ch).repeat(n - len) : s;
+	}
+
+	public static String padTrailing(String s, int n)
+	{
+		return padTrailing(s, n, ' ');
+	}
+
+	public static String reverse(String s)
+	{
+		return new StringBuilder(s).reverse().toString();
+	}
+}
+
+
+
 -----------------------------------------------------------------------------------------------------------------------*/
