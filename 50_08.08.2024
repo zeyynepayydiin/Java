@@ -1,0 +1,235 @@
+/*----------------------------------------------------------------------------------------------------------------------
+	Derleyici kod içerisinde kullanılan bir isim gördüğünde bu ismin bildirimini arar. Bu kavrama "isim arama (name lookup)
+	denir. Derleyici bir ismi bildirim noktasında aramaz. Derleyici ismi bulduğunda (yani bildirimini bulduğunda) o ismin
+	geçerli olarak kullanılıp kullanılmadığına bakar. Eğer geçersiz olarak kullanılmışsa error oluşur. Yani aslında derleyici
+	önce isim araması yapar, bulduktan sonra geçerlilik kontrolü yapar. Zaten ismi bulamazsa yine error oluşur. Bu
+	durumda bir ismin bulunamaması ile bulunup geçersiz kullanılması durumunda oluşan error'lar aynı değildir.
+
+	Aşağıdaki örnekte ** ile belirtilen error a isminin bulunması ancak geçersiz kullanılması durumunda oluşmuştur. *** ile belirtilen
+	error ise x isminin bukunamaması dolayısıyla oluşmuştur.
+----------------------------------------------------------------------------------------------------------------------*/
+
+package org.csystem.app;
+class App {
+    public static void main(String [] args)
+    {
+        boolean a = true;
+
+        ++a; //error
+        ++x; //error
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+	Kod içerisinde bir isim iki şekilde kullanılailir: nitelikli (qualified), niteliksiz (unqualified).
+
+	Kullanılan bir isim nokta operatörünün sağında kalıyorsa kalmıyoarsa niteliksiz kullanılmış olur.
+
+	Nitelikli kullanılan bir isim nitelikli isim arama kurallarına göre, niteliksiz kullanılan bir isim ise niteliksiz
+	isim arama kurallarına göre aranır.
+
+	Anahtar Notlar: Buradaki "qualified" ve "unqualified" terimleri algısal olarak olumlu ya da olumsuz bir durum
+	belirtmemektedir. Tamamen kullanım biçimlerine ilişkin kavramlardır.
+
+	Anahtar Notlar: Nitelikli ve niteliksiz isim arama kuralları genel ve özel olmak üzere iki gruba ayrılabilir. Biz
+	öncelikle genel kuralları, sonrasında özel kuralları ele alacağız.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+class App {
+    public static void main(String [] args) 
+    {
+        Sample s; // Sample niteliksiz kullanılmıştır, s aranmaz
+        
+        s = new Sample(); // s ve Sample niteliksiz kullanılmıştır
+        s.foo(10); // s niteliksiz, foo nitelikli kullanılmıştır.
+    }
+}
+class Sample { // Sample aranmaz
+    public int x; // x aranmaz
+
+    public void foo(int a) // foo aranmaz
+    {
+        x = a; //x ve a niteliksiz kullanılmıştır
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Niteliksiz isim arama genel kuralları (else if biçiminde değerlendiriniz):
+    1. İsim metot içerisinde kullanılmışsa kullanılan noktadan yukarıya doğru metot içerisinde aranır. Bu aramaya metot
+    parametre değişkenleri de dahildir.
+----------------------------------------------------------------------------------------------------------------------*
+package org.csystem.app;
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+class Sample {
+    public void foo(int a)
+    {
+       int x;
+
+       x = a;
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Niteliksiz isim arama genel kuralları (else if biçiminde değerlendiriniz):
+    2. Kullanılan isim sınıf içerisinde tüm metotların dışında kalan her yerde aranır. Bulunamazsa taban sınıflara da
+    bulununcaya veya bulunamayıncaya kadar bakılır. Taban sınıf (super class) türetme (inheritance) konusunda
+    ele alınacaktır.
+----------------------------------------------------------------------------------------------------------------------*/
+
+package org.csystem.app;
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample();
+
+        s.foo(19);
+
+        System.out.printf("s.x = %d%n", s.x); //burada cevap 19
+    }
+}
+class Sample {
+
+    public void foo(int a)
+    {
+       x = a;
+    }
+    public int x;
+
+    public void bar(int x)
+    {
+
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Yukarıdaki iki maddenin sonucu olarak, bir metodun parametre değişkeni veya bir yerel değişkeni içerisinde ait olduğu
+    sınıfın veri elemanı ile aynı isimde olabilir. Aşağıdaki örnekte ** belirtilen atama işleminde x yerel değişken olan
+    x'tir değil mi?
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample();
+
+        s.foo(19);
+
+        System.out.printf("s.x = %d%n", s.x); //burada cevap 0 default value
+    }
+}
+class Sample {
+    public int x; // bu x, veri elemanı
+    
+    public void foo(int a)
+    {
+        int x; // ** bu x, yerel değişken
+        x = a;
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Niteliksiz isim arama genel kuralları (else if biçiminde değerlendiriniz):
+    3. İsim, kullanılan metodun ait olduğu sınıfın ait olduğu paket içerisinde aranır. Burada alt ve üst paketlere bakılmaz.
+    (.app paketinde aradı ama .csystem paketine çıkmaz.)
+----------------------------------------------------------------------------------------------------------------------*/
+
+package org.csystem.app; // Sample bu paketin içinde
+class App {
+    public static void main(String [] args)
+    {
+        Sample s;
+    }
+}
+class Sample {
+
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Niteliksiz isim arama genel kuralları (else if biçiminde değerlendiriniz):
+    4. "import on demand declaration" olarak belirtilen paketlerin hepsinde arama yapar. İleride ele alınacaktır.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Nitelikli isim arama genel kuralları (else if biçiminde değerlendiriniz):
+    1. Aranan ismin solunda bir UDT ismi varsa, isim o sınıf içerisinde aranır. Burada bulunamazsa taban sınıflara
+    bulununcaya kadar veya bukunamayıncaya kadar bakılır.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app; 
+class App {
+    public static void main(String [] args)
+    {
+        Sample.foo(20);
+        System.out.printf("Sample.x = %d%n", Sample.x);
+    }
+}
+class Sample {
+    public static int x;
+
+    public static void foo(int a)
+    {
+        x = a;
+    }
+
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Nitelikli isim arama genel kuralları (else if biçiminde değerlendiriniz):
+    2. Aranan ismin solunda bir referans (değişken) ismi varsa, isim referans değişkenin türüne ilişkin UDT içerisinde aranır.
+    Burada bulunamazsa taban sınıflara bulununcaya kadar veya bulunamayıncaya kadar bakılır.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app; 
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample();
+
+        s.foo(20);
+        System.out.printf("Sample.x = %d%n", Sample.x);
+    }
+}
+class Sample {
+    public static int x;
+
+    public void foo(int a)
+    {
+        x = a;
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Nitelikli isim arama genel kuralları (else if biçiminde değerlendiriniz):
+    3. Aranan ismin solunda bir paket ismi varsa, isim o paket içerisinde aranır. Burada da alt ve üst paketlere bakılmaz.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app; 
+class App {
+    public static void main(String [] args)
+    {
+        org.csystem.math.geometry.Point p;
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+   Paket isimleri niteliksiz isim aramaya dahil değildir. Aslında bu kural daha teknik olarak şu şekilde açıklanabilir.
+   Paket içerisinde arama yapılırken paket isimleri aramaya dahil edilmez.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app; 
+class App {
+    public static void main(String [] args)
+    {
+        sample.Sample s;
+    }
+}
+package org.csystem.app.sample; 
+public class Sample {
+    
+}
+/*----------------------------------------------------------------------------------------------------------------------
+   Yukarıda anlatılan isim arama kurallarına göre isimsiz (unnamed) bir paket içerisinde bildirilen bir UDT'ye
+   başka bir paketten erişilemez. Bu durumda isimsiz paket altında bildirilen bir UDT anak isimsiz paket altında bildirilen
+   başka bir UDT içerisinden erişilebilir. Bu durumda isimsiz bir paket altında UDT bildirimi pratikte tavsiye edilmez
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+public class App {
+    public static void main(String [] args)
+    {
+        Sample s;
+    }
+}
+public class Sample {
+
+}
