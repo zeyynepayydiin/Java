@@ -1,0 +1,20 @@
+/*----------------------------------------------------------------------------------------------------------------------
+    Dizilerin sıraya dizilmesi (Sorting)
+
+    Dizilerin sıraya dizilmesine yönelik pek çok algoritma bulunmaktadır. Sıralama işleminin küçükten büyüğe ya da başka
+    bir deyişle artan sırada (ascending) yapılmasına doğal sıralama (natural sort order) denir. Dizilerin azalan sırada
+    sıralanmasına descending order denilmektedir. Biz burada kabarcık sıralama (bubble sort) ve seçerek sıralama
+    (selection sort) algoritmalarını ele alacağız. Bu algoritmaların anlatırken doğal sıralayan biçimi, anlatımda
+    kullanılacaktır ancak hem ascending hem descending biçimleri ayrıca implemente edilecektir.
+
+    Anahtar Notlar: Algoritmaların karşılaştırılmasına yönelik iki ölçüt kullanılır: hız (speed), kaynak kullanımı
+    (resource usage). Burada ele alacağımız bubble sort ve selection sort algoritmaları karşılaştırılmayacaktır.
+    Algoritma analizi isimli konuda bu iki algoritmanın karşılaştırılması ayrıca ele alınacaktır.
+
+    Kabarcık sıralama algoritmasında dizinin yan yana iki elemanı karşılaştırılır. Duruma göre yer değştirilir. Her
+    yinelemede en büyük eleman daraltılmış dizinin sonuna gider böylece her yinelemede bir geriye kadar gidilmiş olur.
+
+    Örneğin:
+    22 8 66 -7 34 -6 17 21 68 45 -10 3 16
+    8 22 -7 34 -6 17 21 66 45 -10 3 16 68
+----------------------------------------------------------------------------------------------------------------------*/
