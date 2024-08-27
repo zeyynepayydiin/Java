@@ -22,7 +22,7 @@ class App {
 /*----------------------------------------------------------------------------------------------------------------------
 	Kod içerisinde bir isim iki şekilde kullanılailir: nitelikli (qualified), niteliksiz (unqualified).
 
-	Kullanılan bir isim nokta operatörünün sağında kalıyorsa kalmıyoarsa niteliksiz kullanılmış olur.
+	Kullanılan bir isim nokta operatörünün sağında kalıyorsa nitelikli, kalmıyoarsa niteliksiz kullanılmış olur.
 
 	Nitelikli kullanılan bir isim nitelikli isim arama kurallarına göre, niteliksiz kullanılan bir isim ise niteliksiz
 	isim arama kurallarına göre aranır.
