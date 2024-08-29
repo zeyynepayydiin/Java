@@ -9,7 +9,7 @@
   - Birden fazla import bildirimi geçerlidir ve bildirim sırasının önemi yoktur. 
   - import bildirimleri niteliksiz isimler için (yani niteliksiz isim arama için) geçerlidir. Nitelikli isimler için 
   import bildiriminin önemi yoktur.
-  - Bir import bildirimi bildirildiği derleme birimnde geçerlidir.
+  - Bir import bildirimi bildirildiği derleme biriminde geçerlidir.
 
    Anahtar Notlar: import bildirimi bir kütüphaneyi projeye dahil etmek DEĞİLDİR. Bir kütüphaneyi projeye dahil etmek
    için başka yöntemler kullanılmaktadır. Bir kütüphaneyi projeye dahil etme işlemi Java ile Uygulama Geliştime 1 ve
@@ -176,7 +176,8 @@ public class Sample {
     yaklaşımdır ve programcıdan programcıya değişiklik gösterebilir.
 ----------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------
-    Aşağıdaki demo örnekte Sample, org.csystem.app paketi içerisinde olandır.
+    Aşağıdaki demo örnekte Sample, org.csystem.app paketi içerisinde olandır. (Çünkü önce ait olduğu pakete bakıcak sonra
+import paketlere)
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
