@@ -231,6 +231,25 @@ class App {
 		
 	}
 }
+/*----------------------------------------------------------------------------------------------------------------------
+    Diziye ilk değer verme sentaksında son elemandan sonra virgül yazılabilir. Buna "trailing comma" denir. Bunu yazmakla
+    yazmamak aradında bir fark yoktur. Bunun programcının yaklaşımına göre iki tane kullanımı söz konusu olabilir:
+        1. Programcı henüz ilk değerleri kod içerisinde tamamlamamıştır ve bunu belirtmek için sondaki virgülü kullanabilir.
+        2. Verilen ilk değerlerin geliştirme aşamasında yerlerinin çok sık değişebileceği durumda, değiştirme işlemi
+        daha kolay yapılabilir.
+----------------------------------------------------------------------------------------------------------------------*/
+
+package org.csystem.app;
+
+import static org.csystem.util.array.ArrayUtil.print;
+
+class App {
+    public static void main(String [] args)
+    {
+        int [] a = {1, 2, 3, 4, 5,6, };
+        print(a);
+    }
+}
 
 /*----------------------------------------------------------------------------------------------------------------------
 	Bir metodun parametre değişkeni bir dizi referansı olabilir
