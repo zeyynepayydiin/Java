@@ -20,7 +20,7 @@ class App {
     }
 }
 /*----------------------------------------------------------------------------------------------------------------------
-	Kod içerisinde bir isim iki şekilde kullanılailir: nitelikli (qualified), niteliksiz (unqualified).
+	Kod içerisinde bir isim iki şekilde kullanılabilir: nitelikli (qualified), niteliksiz (unqualified).
 
 	Kullanılan bir isim nokta operatörünün sağında kalıyorsa nitelikli, kalmıyoarsa niteliksiz kullanılmış olur.
 
@@ -220,7 +220,7 @@ public class Sample {
 }
 /*----------------------------------------------------------------------------------------------------------------------
    Yukarıda anlatılan isim arama kurallarına göre isimsiz (unnamed) bir paket içerisinde bildirilen bir UDT'ye
-   başka bir paketten erişilemez. Bu durumda isimsiz paket altında bildirilen bir UDT anak isimsiz paket altında bildirilen
+   başka bir paketten erişilemez. Bu durumda isimsiz paket altında bildirilen bir UDT ancak isimsiz paket altında bildirilen
    başka bir UDT içerisinden erişilebilir. Bu durumda isimsiz bir paket altında UDT bildirimi pratikte tavsiye edilmez
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
