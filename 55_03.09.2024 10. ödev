@@ -143,3 +143,15 @@ public class NumberUtilGetDigitsTest {
         run();
     }
 }
+/*----------------------------------------------------------------------------------------------------------------------
+    Sınıf Çalışması: Aşağıda prototipi verilen metodu açıklamalara göre yazınız:
+    public static in [] getHistogramData(int [] a, int n);
+
+    Açıklamalar:
+        - Metodun birinci parametresi içerisinde [0,n] aralığında değerlerden oluşan bir dizi olacaktır.
+        - Parametre ile alınan dizinin değerleri için geçerlilik kontrolü yapılmayacaktır.
+        - Metot parametresi ile aldığı dizinin içerisinde [0,n] aralığındaki sayıların sıklık sayısını yani hangi sayıdan
+        kaç tane olduğu bilgisine ilişkin diziye geri dönecektir.
+        - Geri dönüş değeri olan dizinin indeks numarası [0,n] aralığındaki ilgili sayıya karşılık gelecektir. Yani
+        örneğin 25 numaralı indeksteki eleman, 25 sayısının kaç tane olduğu bilgisini tutacaktır.
+----------------------------------------------------------------------------------------------------------------------*/
