@@ -150,8 +150,114 @@ public class NumberUtilGetDigitsTest {
     Açıklamalar:
         - Metodun birinci parametresi içerisinde [0,n] aralığında değerlerden oluşan bir dizi olacaktır.
         - Parametre ile alınan dizinin değerleri için geçerlilik kontrolü yapılmayacaktır.
+        - Metot, parametresi ile aldığı dizinin içerisinde [0,n] aralığındaki sayıların sıklık sayısını yani hangi sayıdan
+        kaç tane olduğu bilgisine ilişkin diziye geri dönecektir.
+        - Geri dönüş değeri olan dizinin indeks numarası [0,n] aralığındaki ilgili sayıya karşılık gelecektir. Yani
+        örneğin 25 numaralı indeksteki eleman, 25 sayısının kaç tane olduğu bilgisini tutacaktır.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util.array.test;
+
+import java.util.Random;
+import java.util.Scanner;
+import static org.csystem.util.array.ArrayUtil.*;
+
+public class ArrayGetHistogramDataTest {
+    public static void run()
+    {
+        Scanner kb = new Scanner(System.in);
+        Random random = new Random();
+
+        while (true) {
+            System.out.print("Bir sayı giriniz: ");
+            int count = Integer.parseInt(kb.nextLine());
+
+            if (count <= 0)
+                break;
+
+            System.out.print("Bound giriniz: ");
+            int bound = Integer.parseInt(kb.nextLine());
+
+            int [] a = generateRandomArray(random, count, 0,bound);
+
+            print(a,2);
+            print(getHistogramData(a,bound),2);
+
+        }
+    }
+
+    public static void main(String[] args) {
+        run();
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+GOOGLE SORULARINI ÇÖZ!!!
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+Char türden diziler String sınıfına benzetilebilir. char türden diziler immutable değildir. Bu anlamda char 
+türden diziler String sınıfına yardımcı olarak da kullanılabilir. Örneğin String sınıfının immutable olmasından dolayı
+oluşabilecek maliyetli bir durumda cahr türden dizikullanılabilir. Şüphesiz böyle bir durumda StringBuilder sınıfı da 
+String sınıfına yardımcı olarak tercih edilebilir. Zaten StringBuilder sınıfı da genellikle içsel olarak char türden
+dizi kullanmaktadır. String sınıfının toCharArray metodu ile yazıya ilişkin karakterlerden oluşan char türden dizi elde
+edilebilir. Şüphesiz toCharArray metodu ile her çağrıda yeni bir dizi yaratır. Şüphesiz toCharArray metodu ile her çağrıda
+yeni bir dizi yaratılır. String sınfının char [] parametreli ctor'ları ile char türden dizi içrisindeki karakterleri 
+tutan String nesnesi elde edilebilir. String sınıfının char [] parametresi alan 3 parametreli ctor'u dizinin herhangi 
+bir indeksinden başlayarak 3. parametresi ile aldığı sayı kadar karakterden oluşan bir String nesnesi yaratılmasını  
+sağlar. String sınıfının char [] parametreli valueOfFactory metotları da yine char türden bir diziden String nesnesi
+elde etmek için kullanılabilir. Aşağıdaki demo örneği inceleyiniz.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Sınıf Çalışması: Aşağıda prototipi verilen metodu açıklamalara göre yazınız:
+    public static int [] getHistogramData(int [] a, int n);
+
+    Açıklamalar:
+        - Metodun birinci parametresi içerisinde [0,n] aralığında değerlerden oluşan bir dizi olacaktır.
+        - Parametre ile alınan dizinin değerleri için geçerlilik kontrolü yapılmayacaktır.
         - Metot parametresi ile aldığı dizinin içerisinde [0,n] aralığındaki sayıların sıklık sayısını yani hangi sayıdan
         kaç tane olduğu bilgisine ilişkin diziye geri dönecektir.
         - Geri dönüş değeri olan dizinin indeks numarası [0,n] aralığındaki ilgili sayıya karşılık gelecektir. Yani
         örneğin 25 numaralı indeksteki eleman, 25 sayısının kaç tane olduğu bilgisini tutacaktır.
 ----------------------------------------------------------------------------------------------------------------------*/
+
+package org.csystem.app;
+
+import java.util.Scanner;
+
+import static org.csystem.util.array.ArrayUtil.print;
+
+class App {
+    public static void main(String [] args)
+    {
+        Scanner kb = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Input a text: ");
+            String s = kb.nextLine();
+
+            if ("quit".equals(s))
+                break;
+
+            char [] chars = s.toCharArray();
+
+            for (int i = 0; i < chars.length / 2; ++i) {
+                char temp = chars[i];
+
+                chars[i] = chars[chars.length - 1 - i];
+                chars[chars.length - 1 - i] = temp;
+
+            }
+
+            System.out.printf("Reverse of text: %s%n",new String(chars));
+            System.out.printf("Reverse of text: %s%n",String.valueOf(chars));
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
