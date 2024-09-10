@@ -1,1 +1,12 @@
+/*----------------------------------------------------------------------------------------------------------------------
+    Referans dizilerine ilk değer verilmesi aslında referans dizisinin elemanları oln referanslara adreslerin adreslerin
+    verilmesi demektir. Aşağıdaki demo örneği inceleyiniz.
 
+   // Bir adrese 2 şey atanabilir: aynı türden ya da o türe implicit dönüşebilen türden bir adres ve null değer.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Pratikte String türden referans dizileri çok sık kullanılmaktadır. String türden bir diziye ilk değer olarak String
+    sabitleri de (string literals) verilebilir.
+----------------------------------------------------------------------------------------------------------------------*/
+
+dateutilleri ekle
