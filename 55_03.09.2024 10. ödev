@@ -252,6 +252,11 @@ class App {
         }
     }
 }
+/*----------------------------------------------------------------------------------------------------------------------
+    Sınıf Çalışması: StringUtil sınıfı içerisinde daha önceden yazılmış olan changeCase metodunu char türden dizi
+    kullanarak char türden dizi kullanarak Util isimli bir sınıf içerisinde yazınız.  Util sınıfını, test kodlarını ve
+    entry point'i içeren sınıfı tek bir derleme biriminde yazabilirsiniz
+----------------------------------------------------------------------------------------------------------------------*/
 
 
 
