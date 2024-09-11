@@ -257,11 +257,120 @@ class App {
     kullanarak char türden dizi kullanarak Util isimli bir sınıf içerisinde yazınız.  Util sınıfını, test kodlarını ve
     entry point'i içeren sınıfı tek bir derleme biriminde yazabilirsiniz
 ----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
 
+import org.csystem.util.string.StringUtil;
+import java.util.Scanner;
+import static org.csystem.util.array.ArrayUtil.print;
 
+class App {
+    public static void main(String[] args) {
 
+        ChangeCaseTest.run();
+    }
+}
+class ChangeCaseTest{
+    public static void run()
+    {
+        java.util.Scanner kb = new java.util.Scanner(System.in);
 
+        while (true) {
+            System.out.print("Input string:");
+            String s = kb.nextLine();
 
+            System.out.printf("%s%n", StringUtil.changeCase(s));
+
+            if ("exit".equals(s))
+                break;
+        }
+    }
+}
+class Util {
+    public static String changeCase(String s)
+    {
+        char [] c = s.toCharArray();
+
+        for (int i = 0; i < s.length(); ++i)
+            c[i] = Character.isUpperCase(c[i]) ? Character.toLowerCase(c[i]) : Character.toUpperCase(c[i]);
+
+        return String.valueOf(c); // burada valueOf ile char'ı stringe çeviriyoruz
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Referans Dizileri: Her bir elemanı bir referans olan dizilere denir. Bu durumda dizinin her bir elemanı ilgili türden
+    bir adres tutar. Bu durumda bir referans dizisinin yaratılması, elemanı olan her bir referansın gösterdiği nesnelerin
+    de yaratılması anlamına gelmez. Yani bir referans dizisi yaratıldıktan sonra diziye ilişkin referanlsara da uygun
+    adreslerin verilmesi gerekir. Bir referans dizisi ilk değer vermeden yaratıldığında her bir referansa null değeri
+    atanır.
+
+    Anahtar Notlar: Programlamada kullanılmayan adrese 'null adres (null address) denilmektedir. Java'da null adres null
+    isimli bir sabit ile temsil edilir. null bir referansın default değeri olarak atanır. null adres detayları ileride
+    ele alınacaktır.
+
+    Aşağıdaki örnekte referans dizisi yaratılmış, ancak dizinin elemanı olan referanslar herhangi bir nesneyi
+    göstermediğinden exception oluşur.
+----------------------------------------------------------------------------------------------------------------------*/
+
+package org.csystem.app;
+
+class App {
+    public static void main(String[] args) {
+
+        Sample [] samples;
+
+        samples = new Sample[10]; //samples'ın türü Sample türünden bir dizi samples[i]'nin türü Sample
+
+        System.out.println("Dizi elemanları yaazdırılıyor: ");
+
+        for (int i = 0; i < 10; ++i)
+            samples[i].x = i; //samples[i] referansının gösterdiği nesnenin veri elemanına erişmeye çalışıyoruz.
+
+        for (int i = 0; i < 10; ++i)
+            System.out.printf("%d ", samples[i].x);
+
+        System.out.println();
+    }
+}
+
+class Sample {
+    public int x;
+    public Sample(int a) {
+        x = a;
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Yukarıdaki örnek aşağıdaki gibi her bir referansa yeni yaratılmış bir nesnenin adresi verilerek yapılabilir. Şüphesiz
+    duruma göre (yani domain'e göre) referanslara verilecek adresler daha önceden yaratılmış nesnelerin adresleri de 
+    olabilir. Çözüm durumu anlatmak için yapılmıştır.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String[] args) {
+
+        Sample [] samples;
+
+        samples = new Sample[10]; //samples'ın türü Sample türünden bir dizi samples[i]'nin türü Sample
+
+        System.out.println("Dizi elemanları yaazdırılıyor: ");
+
+        for (int i = 0; i < 10; ++i)
+            samples[i] = new Sample(i); //ctor'u kullandık
+
+        for (int i = 0; i < 10; ++i)
+            System.out.printf("%d ", samples[i].x);
+
+        System.out.println();
+    }
+}
+
+class Sample {
+    public int x;
+    public Sample(int a) {
+        x = a;
+    }
+}
 
 
 
