@@ -160,7 +160,7 @@ class App{
 		int a = kb.nextInt();
 		
 		if(a % 2 == 0);
-			a /= 2;
+			a /= 2; //**
 		
 		System.out.printf("a = %d%n", a);
 		System.out.print("Tekrar yapıyor musunuz?");
