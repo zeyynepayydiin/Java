@@ -301,4 +301,18 @@ class App{
 		c = a++++b; //a++ ++b olur anlamsız oldu error
 	}	
 }
+package org.csystem.app;
 
+class App {
+	public static void main(String [] args) 
+	{	
+		int a;
+			
+		a = - - - 2; // burada 3 tane - olduğu için -2 olur nötrler iki - birbirini 
+		
+		System.out.printf("a = %d%n",a); 
+		
+		
+	}
+	
+}
