@@ -1,0 +1,98 @@
+/*----------------------------------------------------------------------------------------------------------------------
+    String sınıfının 'split' isimli metodu ile bir yazı ayraç (delimiter/separator) ya da ayraçlara göre parçalanabilir.
+    Bu metot parametreai ile ayraç veya ayraçlara ilişkin bir yazı alır. Bu metot ayraç veya ayraçlara ilişkin yazıyı
+    bir düzenli ifade (regular expression) pattern'i olarak alır.
+
+    Anahtar Notlar: Bir yazı içerisinde belirli kalıplara uygun yazıları aramak için düzenli ifade motorları (regular
+    expression engines, regex engines) kullanılır. Örneğin bir yazı içerisinde sayıların bulunması isteniyorssa ya da
+    örneğin bir yazı, içerisinde gg/aa/yy formatındaki tarih bilgileri bulunması isteniyorsa ya da örneğin a ile başlayan
+    ve z ile biten ve içerisinde rakamların olmadığı yazılar bulunmak isteniyorsa düzenli ifadeler kullanılır. Düzenli
+    ifadeler Java ile uygulama geliştirme kurslarında ele alınacaktır.
+
+    Burada split metodunun kullanımında en çok karşılaşılan regex patternleri ele alınacaktır. Pattern'lere ilişkin
+    detayların bilinmesine şu an gerek yoktur. Birer kalıp olarak hatırlanması önerilir.
+    split metodunda ayraçların [ ile ] arasında yazılması önerilir. Bazı karakterlerin regex olarak özel anlamları vardır
+    ve tek başına split metoduna verildiklerinde doğrudan ayraç olarak ele alınmaz. Bu sebeple [ ile ] arasında yazılması
+    uygundur. Eğer [ veya ] ayraç olarak kullanılacaksa ters bölü ile yazılmalıdır. Yine belirtmekte fayda var ki bu kalıbın
+    da istisna durumları yani detayları söz konusudur. Ancak pratikte çoğu zaman işimizi görmektedir. [ ile ] arasındaki
+    karakterlerin en az bir tanesinin bulunması durumunda ayraç olarak ele alınır. Örneğin split("[, .]") çağrısı virgül,
+    space ve nokta karakterlerini ayraç kabul et anlamındadır. Ancak burada iki ayraç yan yana geldiğinde aralarındaki
+    boş string de diziye eklenir. Boş string eklenmesi istenmiyorsa yani ayraçların istenildiği kadar yan yana olması durumunda
+    da ayraç olması istenmiyorsa ]'den sonra + konmalıdır: split("[, .]+")
+
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki demo örnekte boş string'lerin de eklendiğini gözlemleyiniz.
+----------------------------------------------------------------------------------------------------------------------*/
+
+package org.csystem.app;
+
+class App {
+    public static void main(String[] args) {
+
+        String s = "Bugün hava çok güzel, çok çok güzel";
+        String [] str = s.split("[, .]");
+
+        for (int i = 0; i < str.length; ++i)
+            System.out.printf("(%s)%n", str[i]);
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki demo örnekte boş string'lerin diziye eklenmediğini gözlemleyiniz.
+----------------------------------------------------------------------------------------------------------------------*/
+
+package org.csystem.app;
+
+class App {
+    public static void main(String[] args) {
+
+        String s = "Bugün hava çok güzel, çok çok güzel";
+        String [] str = s.split("[, .]+");
+
+        for (int i = 0; i < str.length; ++i)
+            System.out.printf("(%s)%n", str[i]);
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki demo örnekte [ ve ] de ayraç olarak verilmiştir.
+----------------------------------------------------------------------------------------------------------------------*/
+
+package org.csystem.app;
+
+class App {
+    public static void main(String[] args) {
+
+        String s = "Bugün hava [çok] güzel, [çok] çok güzel";
+        String [] str = s.split("[, .\\]\\[]+");
+
+        for (int i = 0; i < str.length; ++i)
+            System.out.printf("(%s)%n", str[i]);
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+   Sınıf Çalışması: Klavyeden aşağıdaki formatta girilen yazıyı açıklamalara göre ayrıştırınız.
+   öğrenci no:ad soyad:doğum tarihi:ders adı:arasınav notu:final notu
+   Açıklamalar:
+   - Yazının format kontrolü yapılmayacaktır.
+   - Formata ilişkin bir örnek aşağıdaki gibidir.
+   1234:Oğuz Karan:10/09/1976:Matematik:67:100
+   - Öğrenci numarasının sayoya çevrilmesine gerek yoktur.
+   - Doğum tarihi gg/aa/yyyy formatında olacaktır.
+   - Arasınav ve final notları int türden ele alınacaktır.
+   - Yazının parse edilmesinden sonra %40* arasında notu + %60* final notu formülüne göre en az 50 alanın geçebildiği bir
+   sistemde aşağıdaki gibi bir çıktı üretilecektir:
+        Öğrenci numarası: 1234
+        Ad Soyad: Oğuz Karan
+        Doğum Tarihi: 10 Eylül 1976
+        Ders Adı: Matematik
+        Arasınav Notu: 67
+        Final Notu: 100
+        Geçme Notu: 86.8
+        Durum: Geçti
+    - Geçme Notu noktadan sonra tek basamak olarak bilimsel yuvarlanacaktır.
+    - Doğum tarihi için JavaSE'de veya başka bir kütüphanede bulunan sınıflar ya da metotlar kullanılmayacaktır. Bunun
+    için DateUtil sınıfının ilgili metotlarını kullanabilirsiniz.
+    
+    Not: ileride daha iyisi yazılacaktır.
+----------------------------------------------------------------------------------------------------------------------*/
+
