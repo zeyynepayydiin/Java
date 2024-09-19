@@ -1,0 +1,118 @@
+Bir değişkenin içerisi boş olmaz değer olur ya da null olur.
+/*----------------------------------------------------------------------------------------------------------------------
+    Dizi dizilerine ilk değer içiçe küme parantezleri ile verilebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;  
+import org.csystem.util.array.ArrayUtil;  
+  
+class App {  
+    public static void main(String [] args)  
+    {  
+       int [][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};  
+       int [][] b = {{1, 2, 3}, {4, 5, 6, 3}, {7, 8, 9}};  
+  
+       ArrayUtil.print(a);  
+       System.out.println("--------------------------------");  
+       ArrayUtil.print(b);  
+    }  
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Sınıf Çalışması: Parametresi ile aldığı bir dizi dizisinin matris olup olmadığını test eden isMatrix isimli metodu ve 
+    parametresi ile aldığı bir dizi dizisinin bir kare matris olup olmadığını test eden isSquareMatrix metodunu MatrixUtil
+    isimli sınıfın içerisinde yazınız ve test ediniz.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util.math.matrix.test;
+
+import org.csystem.util.array.ArrayUtil;
+import org.csystem.util.math.matrix.MatrixUtil;
+
+public class MatrixUtilIsMatrixTest {
+    public static void run()
+    {
+        int [][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int [][] b = {{1, 2, 3}, {4, 5, 6, 3}, {7, 8, 9}};
+
+        ArrayUtil.print(a,1);
+        System.out.println("--------------------");
+        ArrayUtil.print(b,1);
+
+        System.out.println(MatrixUtil.isMatrix(a) ? "Matris" : "Matrix değil");
+        System.out.println(MatrixUtil.isMatrix(b) ? "Matris" : "Matrix değil");
+
+    }
+
+    public static void main(String[] args) {
+        run();
+    }
+}
+package org.csystem.util.math.matrix.test;
+
+import org.csystem.util.array.ArrayUtil;
+import org.csystem.util.math.matrix.MatrixUtil;
+
+public class MatrixUtilIsSquareMatrixTest {
+    public static void run()
+    {
+        int [][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int [][] b = {{1, 2, 3}, {4, 5, 6, 3}, {7, 8, 9}};
+        int [][] c = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {1, 2, 3}};
+
+        ArrayUtil.print(a, 1);
+        System.out.println("--------------------------------");
+        ArrayUtil.print(b, 1);
+        System.out.println("--------------------------------");
+        ArrayUtil.print(c, 1);
+
+        System.out.println(MatrixUtil.isSquareMatrix(a) ? "Kare matris" : "Kare matris değil");
+        System.out.println(MatrixUtil.isSquareMatrix(b) ? "Kare matris" : "Kare matris değil");
+        System.out.println(MatrixUtil.isSquareMatrix(c) ? "Kare matris" : "Kare matris değil");
+    }
+
+    public static void main(String[] args)
+    {
+        run();
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Sınıf Çalışması: Parametresi ile aldığı bir kare matrisin esas köşegeni (diagonal) üzerindeki elemanları toplamına
+    geri dönen sumDiagonal isimli metodu MatrixUtil içerisinde yazınız ve test ediniz.
+    Açıklamalar:
+    - Metot parametresi ile aldığı referansa ilişkin dizi dizisinin kare matris olup olmadığını kontrol
+    etmeyecektir.
+    - Bir kare matrisin esas köşegeni üzerindeki elemanlar matrisin n x n'lik ise sırasıyla a[0][0], a[1][1],..., a[n - 1][n]
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util.math.matrix.test;
+
+import org.csystem.util.math.matrix.MatrixUtil;
+import java.util.Random;
+import java.util.Scanner;
+
+import static org.csystem.util.array.ArrayUtil.print;
+
+public class MatrixUtilSumDiagonalTest {
+    public static void run()
+    {
+        Random random = new Random();
+        Scanner kb = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Bir sayı giriniz: ");
+            int n = Integer.parseInt(kb.nextLine());
+
+            if (n <= 0)
+                break;
+
+            int [][] a = MatrixUtil.generateRandomSquareMatrix(random, n,0, 10);
+
+            print(a, 2);
+
+            System.out.printf("Esas köşegen toplamı: %d%n", MatrixUtil.sumDiagonal(a));
+        }
+    }
+    public static void main(String[] args) {
+
+        run();
+    }
+}
