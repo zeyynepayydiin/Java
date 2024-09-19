@@ -116,3 +116,29 @@ public class MatrixUtilSumDiagonalTest {
         run();
     }
 }
+/*----------------------------------------------------------------------------------------------------------------------
+    Bir dizi dizisinin en büyük elemanı bulunurken dizinin ilk elemanını almak yerine, ilgili türün en küçük değeri alınır.
+    İşlem klasik olarak devam eder. Benzer durum en küçük eleman bulunurken de ilgili türün en büyük değerini alarak
+    yapılabilir. Bu bir yaklaşımdır. Pek çok farklı yaklaşım söz konusu olabilir. Aşağıdaki maks ve min metotlarını
+    inceleyiniz. Metotlar durumu anlatmak için en ilkel şekilde yazılmıştır.
+----------------------------------------------------------------------------------------------------------------------*/
+public static int max(int [][] a)
+    {
+        int result = Integer.MAX_VALUE;
+
+        for (int i = 0; i < a.length; ++i)
+            for (int j = 0; j < a[i].length; ++j)
+                if (a[i][j] > result)
+                    result = a[i][j];
+        return result;
+    }
+    public static int min(int [][] a)
+    {
+        int result = Integer.MIN_VALUE;
+
+        for (int i = 0; i < a.length; ++i)
+            for (int j = 0; j < a[i].length; ++j)
+                if (a[i][j] < result)
+                    result = a[i][j];
+        return result;
+    }
