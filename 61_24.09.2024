@@ -216,26 +216,3 @@ class App {
     }
 
 
-/*----------------------------------------------------------------------------------------------------------------------
-   Sınıf Çalışması: Parametresi ile aldığı int türden iki matrisin çarpımından oluşan matrisi döndüren multiply isimli
-   metodu MatrixUtil içerisinde yazınız ve aşağıdaki kod ile test ediniz.
-   Açıklamalar:
-   - Metot matris olup olmama kontrolü yapmayacaktır.
-   - Metot matrislerin çarpılıp çarpılmayacağını kontrol etmeyecektir.
-   - İki matrisin çarpılabilmesi için birinci matrisin sütun sayısının ikinci matrisin satır sayısına eşit olması gerekir.
-   Yani m x n ve n x k matrisleri çarpılabilir. Sonuçta elde edilen matrisin m x k boyutlarındadır.
-   - Matris çarpımına ilişkin formülü şu link'ten elde edebilirsiniz:
-   https://en.wikipedia.org/wiki/Matrix_multiplication
-----------------------------------------------------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------------------------------------------------
-   Sınıf Çalışması: Bir okulda ortak olarak Fizik sınavı yapılıyor olsun. Sınav n tane şube için yapılsın. n sayısını
-   klavyeden isteyiniz. Her bir şubedeki öğrenci sayısı da klavyeden isteyiniz. Bu sınavdan alınan notları rassal olarak
-   belirleyiniz. Bu işlemlerden sonra ilgili notlara göre her bir şubenin ayrı ayrı Fizik dersi ortalaması ve okulun Fizik
-   dersi ortalamasını hesaplayan simülasyonu yazınız.
-   Açıklamalar:
-   - Bir öğrencinin notu [0, 10] aralığında bir tamsayı olabilir.
-   - Programı mümkün olduğunca nesne yönelimli olarak ve genel olarak tasarlayınız.
-   - Her bir şubenin not dağılımına ilişkin histogram'ları ve okulun Fizik notlarına ilişkin histogramı düşey olarak (düşey
-   olarak) çiziniz.
-   
-----------------------------------------------------------------------------------------------------------------------*/
