@@ -1,1 +1,14 @@
+/*----------------------------------------------------------------------------------------------------------------------
+   Sınıf Çalışması: Bir okulda ortak olarak Fizik sınavı yapılıyor olsun. Sınav n tane şube için yapılsın. n sayısını
+   klavyeden isteyiniz. Her bir şubedeki öğrenci sayısı da klavyeden isteyiniz. Bu sınavdan alınan notları rassal olarak
+   belirleyiniz. Bu işlemlerden sonra ilgili notlara göre her bir şubenin ayrı ayrı Fizik dersi ortalaması ve okulun Fizik
+   dersi ortalamasını hesaplayan simülasyonu yazınız.
+   Açıklamalar:
+   - Bir öğrencinin notu [0, 10] aralığında bir tamsayı olabilir.
+   - Programı mümkün olduğunca nesne yönelimli olarak ve genel olarak tasarlayınız.
+   - Her bir şubenin not dağılımına ilişkin histogram'ları ve okulun Fizik notlarına ilişkin histogramı düşey olarak (düşey
+   olarak) çiziniz.
+
+    Not: İleride daha iyisi yazılacaktır.
+----------------------------------------------------------------------------------------------------------------------*/
 
