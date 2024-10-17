@@ -1,0 +1,77 @@
+/*----------------------------------------------------------------------------------------------------------------------
+    Tüm elemanları static olarak bildirilmiş bir sınıf türünden nesne yaratılmasının bir anlamı yoktur. Çünkü bir nesne
+    ilgili sınıfın non-static veri elemanları ve onları kullanan metotlar ile anlamlıdır. Tüm elemanları static olarak
+    bildirilmiş bir sınıfın ctor'u bir convention olarak private yapılır. Bu conventiona JavaSE içerisindeki sınıflarda
+    da uyulmuştur. Örneğin Math ve Arrays sınıflarının tüm elemanları static olarak bildirildiğinden ctor'ları private
+    yapılmıştır. Tüm elemanları static olarak bildirilen bu tarz sınıflara genel olarak "utility class" da denilmektedir.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+import org.csystem.util.array.ArrayUtil;
+import org.csystem.util.string.StringUtil;
+import java.util.Arrays;
+
+class App {
+    public static void main(String[] args)
+    {
+       Math m = new Math(); //error
+       Arrays a = new Arrays(); //error
+       ArrayUtil au = new ArrayUtil(); //error
+        StringUtil s; new StringUtil(); //error
+    } 
+
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Nesne yönelimli tasarım ilkeleri:
+
+    NYPT için birtakım ilkeler söz konusudur. Bu ilkelere literatürde "Object Oriented Design Principles" de denilmektedir.
+    Aslında bu ilkeler yalnızca NYPT'ye özgü değildir. NYPT için de uygulanabilir. Bu ilkeler kısaca "SOLID" olarak bilinir.
+    Bu ilkeler şunlardır:
+        - Single Responsibility Principle (SRP)
+        - Open Closed Principle (OCP)
+        - Liskov substitution Principle (LSP)
+        - Interface Segregation Principle (ISP)
+        - Dependency Invertion Principle (DIP)
+    Bu ilkeler birbirinden ayrı olarak düşünülmemelidir. 
+
+    Bu ilkelere ilişkin detaylar bu kurs ve uygulama kursları ile birlikte konular içerisinde anlaşılacaktır.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Tasarım kalıpları:
+    Özellikle NYPT ilerledikçe bazı programcılar bir takım problemlere genel çözümler üretme çabasına girmişlerdir. Bu
+    anlamda "Gang of Four (GoF)" olarak anılan 4 bilim insanı bir grup genel problemi çözümleriyle birlikte kategorize 
+    etmilerdir. Bu tip genel çözümlere "tasarım kalıpları (design patterns) denilmektedir. GoF pattern'lerinden sonra 
+    da pek çok pattern tasarlanmıştır. Bu kurs ve uygulama kurslarında da çeşitli pattern'ler konular içerisinde ele 
+    alınacaktır.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Singleton Tasarım Kalıbı:
+    Singleton GoF'un nesne yaratan (creational) kalıplarından biridir. Problemin tanımı şu şekilde verilebilir:
+    Öyle bir sınıf olsun ki o sınıf türünden program boyunca yalnızca bir tane nesne yaratılabilsin ve istenildiği zaman
+    o nesnenin referansı elde edilebilsin.
+
+    Anahtar Notlar: Singleton kalıbının birçok implementasyonu söz konusudur. Zaman içerisinde bunlar ele alınacaktır.
+
+    Anahtar Notlar: Burada Singleton kalıbının hangi durumlarda kullanılacağı ele alınmayacaktır. Yalnızca probleme ve
+    çözümüne odaklanınız.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Singleton kalıbının bir implementasyınu. Dikkat edilirse bu implementasyonda ilgili nesne ilk getInstance çağrısında
+    yaratılmaktadır. Bu durumda getInstance çağrılmadığı sürece nesne yarartılmamaktadır. Bu sebeple buna "lazy
+    implementation" da denilmektedir.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Point sınıfını kutupsal koordinatlar (polar coordinates) da kullanılarak nesne yaratılabilecek şekilde güncellemek
+    isteyelim. Bu durumda Point sınıfına kutupsal koordinata ilişkin yarıçapı ve açı bilgisini alan bir ctor ile
+    birlikte kartezyen koordinatları alan bir ctor Point sınıfı içerisinde aynı imzaya sahip olduklarından yazılamazlar.
+    Bu durumda Point sınıfına aşağıdaki gibi 3 parametreli bir ctor eklenen bir yaklaşıma gidilebilir.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Bu sınıfın basit bir kullanımı şu şekildedir:
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Yeni eklenen ctor ile birlikte isteniken sağlanmaktadır ancak kullanım biraz karmaşıklaşmaya başlamış ve
+    okunulaabilirlik/ algılanabilirlik görece azalmıştır. Karmaşıklığı azaltmak ve okunulaabilirliği/ algılanabilirliği
+    artırmak için şöyle bir yaklaşım uygulanabilir. Sınıfın ctor'u private yapılır ve createCartesian ve createPolar
+    isimli factory metotlar eklenebilir. Şüphesiz farklı yaklaşımlar da söz konusu olabilir. Point sınıfının bu yaklaşımla
+    olan implementasyonu ve basit kullanım kodları şu şekildedir: 
+----------------------------------------------------------------------------------------------------------------------*/
