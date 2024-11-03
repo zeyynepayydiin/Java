@@ -1,0 +1,6 @@
+/*----------------------------------------------------------------------------------------------------------------------
+  Anahtar Notlar: Bir veri elemanının final olması algoritmik açıdan kodu değiştirimiyorsa ve final yapılması sentaks 
+  olarak error oluşturmuyorsa, final olarak bildirilmesi her zaman iyi bir tekniktir. Pek çok static kod analizi aracı 
+  da default olarak final yapma uyarısı verir. Ancak programcının nasılsa uyarı verir düşüncesiyle değil, iyi bir teknik
+  olarak bunu tasarımda düşünmesi ve ona göre kodu yazması gerekir.
+----------------------------------------------------------------------------------------------------------------------*/
