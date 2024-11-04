@@ -603,6 +603,31 @@ public class StringUtil {
 }
 ----------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------
+    Sınıf Çalışması: Aşağıda açıklanan IntValue isimli sınıfı yazınız.
+    Açıklamalar:
+        - Sınıf int türden bir değeri sarmalayacaktır (wrapping).
+        - Sınıf immutable olarak yazılacaktır. Yani sınıf içerisinde tutulan veri elemanı değiştirilemeyecektir.
+        - Sınıf [-128, 127] aralığındaki değerler için ön bellek (cache) kullanacaktır. Bu aralıktaki bir değer için ilk
+        sarmalamada nesne yaratılacak ve aynı değer tekrar sarmalamak istendiğinde daha önce yaratılmış olan nesnenin
+        referansı verilecektir.
+        - Sınıf [-128, 127] aralığı dışında kalan değerleri ön bellekte tutmayacaktır.
+        - Sınıfa yararlı bazı eklentiler yapılabilir.
+
+        Anahtar Notlar: Ön bellek (cache) genel bir kavramdır ve etkinlik açısından tercih edilir. Bu örnekte sınıf immutable
+        olduğundan belirli aralıktaki değerler için ayrı ayrı nesnelerin yaratılması engellenmiştir. Bu durumda bellekte
+        etkin kullanılmış olur aynı zamanda sarmalama da hızlı yapılmış olur. Daha fazla değere ilişkin nesnelerin saklanmaması
+        yine etkinlik açısından düşünülmüştür. Eğer çok fazla değer saklanırsa belleğin etkin kullanımı azalmış olur.
+
+        Anahtar Notlar: Aslında JavaSE'de örnekteki int türden bir değeri immutable olarak sarmalayan ve [-128, 127]
+        aralığındaki değerler için bir ön bellek kullanan sınıf vardır. Bu sınıf ileride ele alınacaktır. Örneğin amacı
+        programalama açısından böyle bir sınıfın nasıl yazılabileceğini göstermektedir.
+
+        Anahtar Notlar: Bir değerin sarmalanması (wrapping) o değerin bir sınıf içerisinde yani bir nesne içerisinde tutulması
+        anlamındadır. Temel türden bir değerin sarmalanması da aslında o değerin heap'te tutulması anlamına gelir. Temel
+        türden bir değerin sarmalanasına genel olarak boxing denilmektedir. Sarmalanan temel türden bir değerin elde edilmesine 
+        ise unboxing denilmektedir. Bu kavramlar ileride daha detaylı olarak ele alınacaktır.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------
