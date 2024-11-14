@@ -14,4 +14,37 @@
     Bir enum sınıfında sabiti doğrudan bildirmek veya sabit isminden sonra içi boş parantez koymak aynı anlamdadır ve bu
     sabite ilişkin referansın gösterdiği nesnenin default ctor çağrılarak yaratılacağı anlamına gelir.
 ----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki demo örneği inceleyiniz. Örnekte static elemanların yaratıldığını da gözlemleyiniz.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Random;
+
+class App {
+
+    public static void main(String[] args)
+    {
+        Color color1 = Color.randomColor(new Random());
+        System.out.println("---------------------------");
+        Color color2 = Color.randomColor(new Random());
+
+        System.out.println(color1.toString());
+        System.out.println(color2.toString());
+    }
+}
+enum Color {
+   RED(), GREEN(), BLUE(), WHITE, BLACK;
+   private static final Color []  VALUES = values();
+
+   Color()
+   {
+       System.out.println("I am default ctor");
+   }
+
+    public static Color randomColor(Random random)
+    {
+        return VALUES[random.nextInt(VALUES.length)];
+    }
+}
 
