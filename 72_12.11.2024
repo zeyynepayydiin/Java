@@ -1,0 +1,11 @@
+/*----------------------------------------------------------------------------------------------------------------------
+  Enum sınıfları (enum/enumration classes) bir UDT'dir. Aslında genel olarak bakıldığında kendine ait özellikleri olan 
+  bir sınıftır. Bu bölümde anlatılacak özellikleri dışında kalan özellikler klasik sınıflar ile aynıdır. Enum sınıfları 
+  Java 5 ile dile eklenmiştir.
+  
+  Aşağıdaki demo örnekte GameObject sınıfının renk bilgisi ve move metodunun parametre isimleri ne olduğuna ilişkin bir 
+  fikir verse de, türleri hangi değerleri alabileceğine ilişkin bir fikir vermemektedir. Şüphesiz bunlar dökumanlardan 
+  anlaşılabilir. Ayrıca ilgili metotlar çağrılırken geçilen değerler de client code'ların 
+  okunabilirliğini/algılanabilirliğini olumsuz olarak etkileyebilmektedir. Bu anlamda setColor ve move metotları doğru 
+  çalışsalar da okunabilirlik/algılanabilirlik açısından iyi tasarlanmamış olarak düşünülebilir.
+----------------------------------------------------------------------------------------------------------------------*/
