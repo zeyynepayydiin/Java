@@ -9,3 +9,386 @@
   okunabilirliğini/algılanabilirliğini olumsuz olarak etkileyebilmektedir. Bu anlamda setColor ve move metotları doğru 
   çalışsalar da okunabilirlik/algılanabilirlik açısından iyi tasarlanmamış olarak düşünülebilir.
 ----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+/*----------------------------------------------------------------------------------------------------------------------
+    Enum sınıfları (enum/enumration classes) bir UDT'dir. Aslında genel olarak bakıldığında kendine ait özellikleri olan
+    bir sınıftır. Bu bölümde anlatılacak özellikleri dışında kalan özellikler klasik sınıflar ile aynıdır. Enum sınıfları
+    Java 5 ile dile eklenmiştir.
+
+    Aşağıdaki demo örnekte GameObject sınıfının renk bilgisi ve move metodunun parametre isimleri ne olduğuna ilişkin bir
+    fikir verse de, türleri hangi değerleri alabileceğine ilişkin bir fikir vermemektedir. Şüphesiz bunlar dökumanlardan
+    anlaşılabilir. Ayrıca ilgili metotlar çağrılırken geçilen değerler de client code'ların
+    okunabilirliğini/algılanabilirliğini olumsuz olarak etkileyebilmektedir. Bu anlamda setColor ve move metotları doğru
+    çalışsalar da okunabilirlik/algılanabilirlik açısından iyi tasarlanmamış olarak düşünülebilir.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.util.thread.ThreadUtil;
+
+import java.net.SocketOption;
+import java.util.Random;
+import java.util.Scanner;
+
+class App {
+
+    public static void main(String[] args)
+    {
+        DemoGameApp.run(args);
+    }
+}
+class DemoGameApp {
+    public static void run (String [] args)
+    {
+        Random random = new Random();
+        GameObject go1 = new GameObject("Player-1");
+        GameObject go2 = new GameObject("Player-2");
+
+        go1.setColor(0);
+        go2.setColor(2);
+
+        while (true) {
+            int direction1 = random.nextInt(1,5);
+            int direction2 = random.nextInt(1,5);
+
+            go1.move(direction1);
+            go2.move(direction2);
+
+            ThreadUtil.sleep(random.nextLong(600,1500));
+        }
+    }
+}
+class GameObject {
+    private final String m_name;
+    private int m_color;
+
+    public GameObject(String name)
+    {
+        m_name = name;
+    }
+    public void move(int direction)
+    {
+        switch (direction) {
+            case 1 -> System.out.printf("%s moves to right%n", m_name);
+            case 2 -> System.out.printf("%s moves to top%n", m_name);
+            case 3 -> System.out.printf("%s moves to left%n", m_name);
+            case 4 -> System.out.printf("%s moves to bottom%n", m_name);
+            default -> System.out.println("Invalid direction value%n");
+        }
+    }
+    public void setColor(int color)
+    {
+        m_color = color;
+    }
+    public int getColor()
+    {
+        return m_color;
+    }
+}
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ Yukarıdaki örnek aşağıdaki gibi daha okunabilir/algılanabilir hale getirilebilir ancak burada ilgili metotların parametre 
+değişkenleri String türden yapıldığında geçilen değerler açısından okunabilir/algılanabilir olmaktadır ancak hata yapılması 
+olasılığı da görece artmaktadır. Ayrıca unutulmamalıdır ki yazı karşılaştırması karakter karakter yapıldığınde tamsayı 
+karşılaştırmasına göre yavaştır. Ayrıca yine ilgili metotların parametre değişkenleri geçilebilecek değerler açısından çok 
+da fikir vermemektedir. (Alttaki baya kötü bi yaklaşım, baya yavaşlattık programı.)
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+package org.csystem.app;
+
+import org.csystem.util.thread.ThreadUtil;
+
+import java.net.SocketOption;
+import java.util.Random;
+import java.util.Scanner;
+
+class App {
+
+    public static void main(String[] args)
+    {
+        DemoGameApp.run(args);
+    }
+}
+class DemoGameApp {
+    public static void run (String [] args)
+    {
+        String [] directions = {"", "right", "top", "left", "bottom"};
+        Random random = new Random();
+        GameObject go1 = new GameObject("Player-1");
+        GameObject go2 = new GameObject("Player-2");
+
+        go1.setColor("red");
+        go2.setColor("blue");
+
+        while (true) {
+            int direction1 = random.nextInt(1,5);
+            int direction2 = random.nextInt(1,5);
+
+            go1.move(directions[direction1]);
+            go2.move(directions[direction2]);
+
+            ThreadUtil.sleep(random.nextLong(600,1500));
+        }
+    }
+}
+class GameObject {
+    private final String m_name;
+    private String m_color;
+
+    public GameObject(String name)
+    {
+        m_name = name;
+    }
+    public void move(String direction)
+    {
+        switch (direction) {
+            case "right" -> System.out.printf("%s moves to right%n", m_name);
+            case "top" -> System.out.printf("%s moves to top%n", m_name);
+            case "left" -> System.out.printf("%s moves to left%n", m_name);
+            case "bottom" -> System.out.printf("%s moves to bottom%n", m_name);
+            default -> System.out.println("Invalid direction value%n");
+        }
+    }
+    public void setColor(String color)
+    {
+        m_color = color;
+    }
+    public String getColor()
+    {
+        return m_color;
+    }
+}
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+Yukarıdaki demo örnek aşağıdaki gibi geçilecek değer final veri elemanları ile görece okunabilir/algılanabilir hale 
+getirilebilir. Ancak hala ilgili metotların parametre değişkenleri geçilecek değerlere ilişkin bir fikir vermemektedir.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+package org.csystem.app;
+
+import org.csystem.util.thread.ThreadUtil;
+
+import java.net.SocketOption;
+import java.util.Random;
+import java.util.Scanner;
+
+class App {
+
+    public static void main(String[] args)
+    {
+        DemoGameApp.run(args);
+    }
+}
+class DemoGameApp {
+    public static void run (String [] args)
+    {
+        Random random = new Random();
+        GameObject go1 = new GameObject("Player-1");
+        GameObject go2 = new GameObject("Player-2");
+
+        go1.setColor(Color.RED);
+        go2.setColor(Color.BLUE);
+
+        while (true) {
+            int direction1 = random.nextInt(1,5);
+            int direction2 = random.nextInt(1,5);
+
+            go1.move(direction1);
+            go2.move(direction2);
+
+            ThreadUtil.sleep(random.nextLong(600,1500));
+        }
+    }
+}
+class Direction {
+    private Direction()
+    {
+        
+    }
+    public static final int RIGHT = 1;
+    public static final int TOP = 2;
+    public static final int LEFT = 3;
+    public static final int BOTTOM = 4;
+}
+class Color {
+    private Color()
+    {
+
+    }
+    public static final int RED = 0;
+    public static final int GREEN = 1;
+    public static final int BLUE = 2;
+    public static final int WHITE = 3;
+    public static final int BLACK = 4;
+    
+}
+class GameObject {
+    private final String m_name;
+    private int m_color;
+
+    public GameObject(String name)
+    {
+        m_name = name;
+    }
+    public void move(int direction)
+    {
+        switch (direction) {
+            case 1 -> System.out.printf("%s moves to right%n", m_name);
+            case 2 -> System.out.printf("%s moves to top%n", m_name);
+            case 3 -> System.out.printf("%s moves to left%n", m_name);
+            case 4 -> System.out.printf("%s moves to bottom%n", m_name);
+            default -> System.out.println("Invalid direction value%n");
+        }
+    }
+    public void setColor(int color)
+    {
+        m_color = color;
+    }
+    public int getColor()
+    {
+        return m_color;
+    }
+}
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+package org.csystem.app;  
+  
+import org.csystem.util.thread.ThreadUtil;  
+  
+import java.util.Arrays;  
+import java.util.Random;  
+  
+class App {  
+    public static void main(String[] args)  
+    {  
+        DemoGameApp.run(args);  
+    }  
+}  
+  
+class DemoGameApp {  
+    public static void run(String [] args)  
+    {  
+        Direction [] directions = Direction.values();  
+        Random random = new Random();  
+        GameObject go1 = new GameObject("Player-1");  
+        GameObject go2 = new GameObject("Player-2");  
+  
+        go1.setColor(Color.RED);  
+        go2.setColor(Color.BLUE);  
+  
+        while (true) {  
+            int index1 = random.nextInt(0, 4);  
+            int index2 = random.nextInt(0, 4);  
+  
+            //...  
+  
+            go1.move(directions[index1]);  
+            go2.move(directions[index2]);  
+  
+            ThreadUtil.sleep(random.nextLong(300, 900));  
+        }  
+    }  
+  
+}  
+  
+class Direction {  
+    private final int m_ordinal;  
+  
+    private Direction(int ordinal)  
+    {  
+        m_ordinal = ordinal;  
+    }
+  
+    private static final Direction [] m_values = {new Direction(0), new Direction(1), new Direction(2), new Direction(3),};  
+  
+    public static final Direction RIGHT = m_values[0];  
+    public static final Direction TOP = m_values[1];  
+    public static final Direction LEFT = m_values[2];  
+    public static final Direction BOTTOM = m_values[3];  
+  
+    public static Direction [] values()  
+    {  
+        return Arrays.copyOf(m_values, m_values.length);  
+    }  
+  
+    public int ordinal()  
+    {  
+        return m_ordinal;  
+    }  
+}  
+  
+class Color {  
+    private final int m_ordinal;  
+  
+    private Color(int ordinal)  
+    {  
+        m_ordinal = ordinal;  
+    }  
+  
+    //...  
+  
+    public static final Color RED = new Color(0);  
+    public static final Color GREEN = new Color(1);  
+    public static final Color BLUE = new Color(2);  
+    public static final Color WHITE = new Color(3);  
+    public static final Color BLACK = new Color(4);  
+  
+    public int ordinal()  
+    {  
+        return m_ordinal;  
+    }  
+  
+    //...  
+}  
+  
+class GameObject {  
+    private final String m_name;  
+    private Color m_color;  
+    //...  
+  
+    public GameObject(String name)  
+    {  
+        m_name = name;  
+    }  
+  
+    public void move(Direction direction)  
+    {  
+        if (direction == Direction.RIGHT)  
+            System.out.printf("%s moves to right%n", m_name);  
+        else if (direction == Direction.TOP)  
+            System.out.printf("%s moves to top%n", m_name);  
+        else if (direction == Direction.LEFT)  
+            System.out.printf("%s moves to left%n", m_name);  
+        else if (direction == Direction.BOTTOM)  
+            System.out.printf("%s moves to bottom%n", m_name);  
+        else  
+            System.out.println("Invalid direction value");  
+    }  
+  
+    public void setColor(Color color)  
+    {  
+        //...  
+        m_color = color;  
+    }  
+  
+    public Color getColor()  
+    {  
+        return m_color;  
+    }  
+  
+    //...  
+}
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+Yukarıdaki örnekte Color ve Direction sınıfları enum sınıfları olarak bildirildiklerinde, hem daha kolay hem de yetenekli 
+sınıflar olarak bildirilmiş olur. Yani bu iki sınıfın enum class olması yukarıdaki özellikle (hatta daha da fazlasına) 
+otomatik olarak sahip olması anlamına gelir. Detaylar bölüm içerisinde ele alınacaktır
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------*/
