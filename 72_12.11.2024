@@ -250,6 +250,10 @@ class GameObject {
 }
 ----------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------
+Direction ve Color sınıfları yukarıdaki yazıldığında ve ilgili metotların parametre değişkenleri de bu türlerden olduğunda 
+yukarıda anlatılan okunabilirlik/algılanabilirlik artırılmıştır
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
 package org.csystem.app;  
   
 import org.csystem.util.thread.ThreadUtil;  
@@ -380,15 +384,293 @@ class GameObject {
 ----------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------
 Yukarıdaki örnekte Color ve Direction sınıfları enum sınıfları olarak bildirildiklerinde, hem daha kolay hem de yetenekli 
-sınıflar olarak bildirilmiş olur. Yani bu iki sınıfın enum class olması yukarıdaki özellikle (hatta daha da fazlasına) 
+sınıflar olarak bildirilmiş olur. Yani bu iki sınıfın enum class olması yukarıdaki özelliklere (hatta daha da fazlasına) 
 otomatik olarak sahip olması anlamına gelir. Detaylar bölüm içerisinde ele alınacaktır
 ----------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------
+package org.csystem.app;
+
+import org.csystem.util.thread.ThreadUtil;
+
+import java.util.Arrays;
+import java.util.Random;
+
+class App {
+    public static void main(String[] args)
+    {
+        DemoGameApp.run(args);
+    }
+}
+
+class DemoGameApp {
+    public static void run(String [] args)
+    {
+        Direction [] directions = Direction.values();
+        Random random = new Random();
+        GameObject go1 = new GameObject("Player-1");
+        GameObject go2 = new GameObject("Player-2");
+
+        go1.setColor(Color.RED);
+        go2.setColor(Color.BLUE);
+
+        while (true) {
+            int index1 = random.nextInt(0, 4);
+            int index2 = random.nextInt(0, 4);
+
+            //...
+
+            go1.move(directions[index1]);
+            go2.move(directions[index2]);
+
+            ThreadUtil.sleep(random.nextLong(300, 900));
+        }
+    }
+
+}
+
+enum Direction {
+    RIGHT,TOP,LEFT,BOTTOM
+}
+
+enum Color {
+  RED, GREEN, BLUE, WHITE, BLACK
+}
+
+class GameObject {
+    private final String m_name;
+    private Color m_color;
+    //...
+
+    public GameObject(String name)
+    {
+        m_name = name;
+    }
+
+    public void move(Direction direction)
+    {
+        if (direction == Direction.RIGHT)
+            System.out.printf("%s moves to right%n", m_name);
+        else if (direction == Direction.TOP)
+            System.out.printf("%s moves to top%n", m_name);
+        else if (direction == Direction.LEFT)
+            System.out.printf("%s moves to left%n", m_name);
+        else if (direction == Direction.BOTTOM)
+            System.out.printf("%s moves to bottom%n", m_name);
+        else
+            System.out.println("Invalid direction value");
+    }
+
+    public void setColor(Color color)
+    {
+        //...
+        m_color = color;
+    }
+
+    public Color getColor()
+    {
+        return m_color;
+    }
+
+    //...
+}
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+enum sınıfları enum anahtar sözcüğü ile bildirilirler. Bir enum class içerisinde aralarına virgül konularak bildirilen 
+isimlere enum sabitleri (enum constants) denilmektedir. enum sabitlerinin her bir public, static ve final olarak bildirilmiş 
+ait olduğu enum class türünden referans değişkenlerdir ve bu değişkenler yaratıldıklarında her bir ait oldukları enum 
+class türünden bir nesneyi gösterir duruma gelirler. enum sabitleri için public, static, final ve tür ismi yaratılması 
+geçersizdir. Son enum sabitinden sonra noktalı virgül konabilir. Eğer enum class içerisinde yalnızca enum sabitleri 
+olacaksa bu durumda noktalı virgül konmasına gerek yoktur. Enum sınıfına sabit dışında elemanlar eklenecekse noktalı 
+virgül gereklidir. Enum sınıfına sabit dışında eleman eklenmesi bölüm içerisinde ele alınacaktır.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+!!!! Sınıfın static veri elemanları sınıfın bir elemanı (member) ilk kez kullanıldığında yaratılır ve program sonuna 
+kadar yaşarlar.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki enum sınıflarını inceleyiniz
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+enum DayOfWeek {
+    SUN, MON, TUE, WED, THU, FRI, SAT
+}
+
+enum Month {
+    JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC
+}
+
+enum DeviceStatus {
+    OPEN, CLOSED, INDETERMINED
+}
+
+enum MaritalStatus {
+    SINGLE, MARRIED, DIVORCED
+}
+
+enum CardType {
+    SPADE, CLUB, HEART, DIAMOND
+}
+
+enum CardValue {
+    TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, KNAVE, QUEEN, KING, ACE
+}
+
+ENUM Visibility {
+    VISIBLE, INVISIBLE, GONE
+}
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+Bir enum sabitinin, enum içerisindeki birdirim sırasına ilişkin int türden değere ordinal değeri denir. ordinal değerin 
+enum sınıfının ordinal isimli metodu ile elde edilebilir. ordinal değeri sıfırdan başlar. Bir enum sınıfının static olarak 
+bildirilmiş values isimli metodu vardır. Bu metot sabitlere ilişkin referansların ordinal numarasına sırasıyla tutulduğu 
+ilgli enum türünde dizi referansına geri döner. values her çağrıldığında yeni bir dizi referansı elde edilir. enum 
+sınıfının toString metodu ilgili referansın karşılık geldiği sabit ismine geri döner
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örneği inceleyiniz.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+package org.csystem.app;
+import java.util.Random;
+import java.util.Scanner;
+
+import org.csystem.game.card.Card;
+import org.csystem.game.card.CardType;
+import org.csystem.game.card.CardValue;
+import org.csystem.game.card.RandomCardGenerator;
+
+class App {
+    public static void main(String[] args)
+    {
+        Scanner kb = new Scanner(System.in);
+        RandomCardGenerator randomCardGenerator = new RandomCardGenerator(new Random());
+
+        System.out.println("Kaç tane kart istersiniz");
+        int count = kb.nextInt();
+
+        for (int i = 0; i < count; ++i) {
+            System.out.println("----------------------------------");
+            Card card = randomCardGenerator.create();
+            CardType cardType = card.getCardType();
+            CardValue cardValue = card.getCardValue();
+
+            System.out.println(card.toString());
+            System.out.printf("Ordinal of %s is %d%nOrdinal of %s is %d%n", cardType, cardType.ordinal(), cardValue, cardValue.ordinal());
+
+            System.out.println("----------------------------------");
+        }
+    }
+}
 
 ----------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------
+package org.csystem.game.card;
+
+import java.util.Random;
+
+public class RandomCardGenerator {
+    private static final CardType [] CARD_TYPES = CardType.values();
+    private static final CardValue [] CARD_VALUES = CardValue.values();
+    private final Random m_random;
+
+    public RandomCardGenerator(Random random)
+    {
+        m_random = random;
+    }
+
+    public Card create()
+    {
+        return new Card(CARD_TYPES[m_random.nextInt(CARD_TYPES.length)],CARD_VALUES[m_random.nextInt(CARD_VALUES.length)]);
+    }
+}
 
 ----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+package org.csystem.game.card;
+public class Card {
+    private CardType m_cardType;
+    private CardValue m_cardValue;
+
+  public static Card [] getDeck()
+    {
+        Card [] deck = new Card[52];
+        int idx = 0;
+
+        for (CardType cardType : CardType.values())
+            for (CardValue cardValue : CardValue.values())
+                deck[idx++] = new Card(cardType, cardValue);
+
+        return deck;
+    }
+    public Card(CardType cardType, CardValue cardValue) {
+        m_cardType = cardType;
+        m_cardValue = cardValue;
+    }
+
+    public CardType getCardType() {
+        return m_cardType;
+    }
+    public void setCardType(CardType cardType) {
+        m_cardType = cardType;
+    }
+    public CardValue getCardValue() {
+        return m_cardValue;
+    }
+
+    public void setCardValue(CardValue cardValue) {
+        m_cardValue = cardValue;
+    }
+
+    public String toString()
+    {
+        return "%s-%s".formatted(m_cardType.toString(),m_cardValue.toString());
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+package org.csystem.game.card;
+
+public enum CardType {
+    SPADE, CLUB, HEART, DIAMOND
+}
+
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+package org.csystem.game.card;
+
+public enum CardValue {
+    TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, KNAVE, QUEEN, KING, ACE
+}
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+Aşağıdaki demo örneği inceleyiniz.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+package org.csystem.app;
+
+import org.csystem.game.card.Card;
+
+class App {
+    public static void main(String[] args)
+    {
+       for (Card card : Card.getDeck())
+           System.out.println(card.toString());
+    }
+}
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+Yukarıdaki iki demo örnekte kullanılan Card sınıfı, CardType ve CardValue enum sınıflarını inceleyiniz
+----------------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------*/
+
 /*----------------------------------------------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------------------------------------------------*/
