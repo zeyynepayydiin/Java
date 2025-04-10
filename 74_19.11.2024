@@ -1,4 +1,7 @@
 /*----------------------------------------------------------------------------------------------------------------------
+ Bir enum sınıfına ctor eklenmesi mantıksal olarak nesneye bir ya da birden fazla değerin iliştirilmesi (attachment) için kullanılır.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
     Aşağıdaki demo örneği inceleyiniz
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
@@ -25,7 +28,7 @@ class App {
     }
 }
 enum Color {
-   RED(255, 0, 0), GREEN(0, 255, 0), BLUE(0, 0, 255), WHITE(255, 255, 255), BLACK(0, 0, 0);
+   RED(255, 0, 0), GREEN(0, 255, 0), BLUE(0, 0, 255), WHITE(255, 255, 255), BLACK;
    private static final Color []  VALUES = values();
    public final int r, g, b;
    Color()
@@ -44,3 +47,217 @@ enum Color {
         return VALUES[random.nextInt(VALUES.length)];
     }
 }
+/*----------------------------------------------------------------------------------------------------------------------
+ Aşağıdaki demo örneği inceleyiniz.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+package org.csystem.app;
+
+import org.csystem.datetime.Month;
+
+import java.util.Random;
+import java.util.Scanner;
+
+class App {
+
+    public static void main(String[] args)
+    {
+        Random random = new Random();
+        Scanner kb = new Scanner(System.in);
+        Month [] months = Month.values();
+
+        System.out.print("Bir sayı giriniz: ");
+        int count = kb.nextInt();
+
+        for (int i = 0; i < count; ++i)
+        {
+            Month month = months[random.nextInt(months.length)];
+            int year = random.nextInt(1900, 2101);
+
+            System.out.printf("%d -> %s(%d)%n", year, month.toString(), month.getDays(year));
+        }
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ Bir enum sınıfının valueOf static metodu parametresi ile aldığı yazıyla aynı isimde enum sabiti varsa o sabite ilişkin 
+ referansa geri döner. Yoksa exception oluşur,
+ Aşağıdaki demo örneği inceleyiniz
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+package org.csystem.app;
+
+import org.csystem.datetime.Month;
+
+import java.sql.SQLOutput;
+import java.util.Random;
+import java.util.Scanner;
+
+class App {
+
+    public static void main(String[] args)
+    {
+        Random random = new Random();
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Input month as JAN, FEB,..., DEC: ");
+        Month month = Month.valueOf(kb.nextLine());
+        int year = random.nextInt(1900, 2100);
+
+        System.out.printf("%d -> %s(%d)%n", year, month.toString(), month.getDays(year));
+
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ enum referansları == veya != operatörü ile karşılaştırıldığında aslında mantıksal olarak eşitlik karşılaştırması da 
+ yapılmış olur. Yani referans karşılaştırma çoğu zaman mantıksal eşitlik karşılaştırması olarak da kullanılabilir. 
+ Eşitlik karşılaştırması ayrıca equals metodu ile de yapılabillir.
+ Aşağıdaki demo örneği inceleyiniz
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;  
+  
+import org.csystem.datetime.Month;  
+  
+import java.util.Random;  
+import java.util.Scanner;  
+  
+class App {  
+    public static void main(String[] args)  
+    {  
+        Random random = new Random();  
+        Scanner kb = new Scanner(System.in);  
+        Month [] months = Month.values();  
+  
+        System.out.print("Bir sayı giriniz:");  
+        int count = kb.nextInt();  
+  
+        for (int i = 0; i < count; ++i) {  
+            Month month1 = months[random.nextInt(months.length)];  
+            Month month2 = months[random.nextInt(months.length)];  
+            int year = random.nextInt(1900, 2101);  
+  
+            System.out.printf("%d -> %s(%d)%n", year, month1.toString(), month1.getDays(year));  
+            System.out.printf("%d -> %s(%d)%n", year, month2.toString(), month2.getDays(year));  
+            System.out.println(month1 == month2 ? "Aynı ay": "Farklı Aylar");  
+            System.out.println(month1 != month2 ? "Farklı aylar": "Aynı ay");  
+            System.out.println("--------------------------------------------------------");  
+        }  
+    }  
+}
+/*----------------------------------------------------------------------------------------------------------------------
+package org.csystem.app;    
+import org.csystem.datetime.Month;  
+  
+import java.util.Random;  
+import java.util.Scanner;  
+  
+class App {  
+    public static void main(String[] args)  
+    {  
+        Random random = new Random();  
+        Scanner kb = new Scanner(System.in);  
+        Month [] months = Month.values();  
+  
+        System.out.print("Bir sayı giriniz:");  
+        int count = kb.nextInt();  
+  
+        for (int i = 0; i < count; ++i) {  
+            Month month1 = months[random.nextInt(months.length)];  
+            Month month2 = months[random.nextInt(months.length)];  
+            int year = random.nextInt(1900, 2101);  
+  
+            System.out.printf("%d -> %s(%d)%n", year, month1.toString(), month1.getDays(year));  
+            System.out.printf("%d -> %s(%d)%n", year, month2.toString(), month2.getDays(year));  
+            System.out.println(month1.equals(month2) ? "Aynı ay": "Farklı Aylar");  
+            System.out.println("--------------------------------------------------------");  
+        }  
+    }  
+}
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ Bir enum sınıfının compareTo metodu
+ a.compareTo(b) çağrısı için
+
+ a.ordinal() - b.ordinal()
+
+ değerine geri döner. Bu durumda bu değer negatifse a referansının gösterdiği nesneyi gösteren enum sabiti, b referansının 
+ gösterdiği nesneyi gösteren enum sabitinden önce gelir, sıfırsa aynı sabitlerdir, pozitifse sonra gelir.
+ Aşağıdaki demo örneği inceleyiniz
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;  
+  
+import org.csystem.datetime.Month;  
+  
+import java.util.Random;  
+import java.util.Scanner;  
+  
+class App {  
+    public static void main(String[] args)  
+    {  
+        Random random = new Random();  
+        Scanner kb = new Scanner(System.in);  
+        Month [] months = Month.values();  
+  
+        System.out.print("Bir sayı giriniz:");  
+        int count = kb.nextInt();  
+  
+        for (int i = 0; i < count; ++i) {  
+            Month month1 = months[random.nextInt(months.length)];  
+            Month month2 = months[random.nextInt(months.length)];  
+            int diff = month1.compareTo(month2);  
+  
+            if (diff > 0)  
+                System.out.printf("%s ve %s arasında %d ay vardır%n", month2.toString(), month1.toString(), diff);  
+            else if (diff == 0)  
+                System.out.printf("%s ve %s aynı aylardır", month1.toString(), month2.toString());  
+            else  
+                System.out.printf("%s ve %s arasında %d ay vardır%n", month1.toString(), month2.toString(), -diff);  
+  
+            System.out.println("--------------------------------------------------------");  
+        }  
+    }  
+}
+/*----------------------------------------------------------------------------------------------------------------------
+ Örneklerde kullanılan Month enum sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+ package org.csystem.datetime;
+
+public enum Month {
+    JAN(31), FEB(28), MAR(31), APR(30), MAY(31), JUN(30), JUL(31), AUG(31), SEP(30), OCT(31), NOV(30), DEC(31); //enumlar sonlu ve bilindik değerler için anlamlı
+    private final int m_days;
+    Month(int days)
+    {
+        m_days = days;
+    }
+
+    private static boolean isLeapYear(int year)
+    {
+        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+    }
+
+    public int getDays(int year)
+    {
+        return ordinal() == 1 && isLeapYear(year) ? 29 : m_days; //şubatsa ve artık yılsa 29 atıyorum onun dışında zaten üstte verdiğim değerler
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+ 
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ 
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ 
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ 
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ 
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ 
+----------------------------------------------------------------------------------------------------------------------*/
