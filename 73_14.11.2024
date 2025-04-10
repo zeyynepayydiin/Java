@@ -48,6 +48,7 @@ enum Color {
     }
 }
 /*----------------------------------------------------------------------------------------------------------------------
-    Bir sınıfın static veri elemanları, sınıfın bir elemanı ilk kez kullanıldığında yaratılır.
+    Bir sınıfın static veri elemanları, sınıfın bir elemanı ilk kez kullanıldığında yaratılır. Her nesne yaratılıp 
+    kullanıldığında static veri elemanları tekrar tekrar yaratılmaz çünkü static elemanlar class'a aittir nesneye değil
 ----------------------------------------------------------------------------------------------------------------------*/
 
