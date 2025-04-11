@@ -244,20 +244,472 @@ public enum Month {
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
- 
+ ENUM TÜRDEN SABİTLER SABİT İFADESİ KABUL EDİLİR.enum sabitleri sabit ifadesi (constant expression) olarak ele alınır.
+ Dolayısıyla enum sınıfları ve sabitleri switch statement ve switch expression ile de kullanılabilir.
+ Aşağıdaki demo örneği inceleyiniz.
 ----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ package org.csystem.app;
+
+import org.csystem.util.thread.ThreadUtil;
+
+import java.util.Random;
+
+class App {
+    public static void main(String[] args)
+    {
+        DemoGameApp.run(args);
+    }
+}
+
+class DemoGameApp {
+    public static void run(String [] args)
+    {
+        Direction [] directions = Direction.values();
+        Random random = new Random();
+        GameObject go1 = new GameObject("Player-1");
+        GameObject go2 = new GameObject("Player-2");
+
+        go1.setColor(Color.RED);
+        go2.setColor(Color.BLUE);
+
+        while (true) {
+            int index1 = random.nextInt(0, 4);
+            int index2 = random.nextInt(0, 4);
+
+            //...  
+
+            go1.move(directions[index1]);
+            go2.move(directions[index2]);
+
+            ThreadUtil.sleep(random.nextLong(300, 900));
+        }
+    }
+}
+
+enum Direction {
+    RIGHT, TOP, LEFT, BOTTOM
+}
+
+enum Color {
+    RED, GREEN, BLUE, WHITE, BLACK
+}
+
+class GameObject {
+    private final String m_name;
+    private Color m_color;
+    //...  
+
+    public GameObject(String name)
+    {
+        m_name = name;
+    }
+
+    public void move(Direction direction)
+    {
+        switch (direction) {
+            case RIGHT -> System.out.printf("%s moves to right%n", m_name);
+            case TOP -> System.out.printf("%s moves to top%n", m_name);
+            case LEFT -> System.out.printf("%s moves to left%n", m_name);
+            case BOTTOM -> System.out.printf("%s moves to bottom%n", m_name);
+            default -> System.out.println("Invalid direction value");
+        }
+    }
+
+    public void setColor(Color color)
+    {
+        //...  
+        m_color = color;
+    }
+
+    public Color getColor()
+    {
+        return m_color;
+    }
+
+    //...  
+}
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ Aşağıdaki demo örnekte Singleton sınıf eager implementasyon olarak yazılmıştır.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ package org.csystem.app;
+
+class App {
+    public static void main(String[] args)
+    {
+        Singleton s1 = Singleton.INSTANCE;
+        Singleton s2 = Singleton.INSTANCE;
+
+        System.out.println(s1 == s2);
+
+        //...  
+    }
+}
+
+class Singleton {
+    public static final Singleton INSTANCE = new Singleton();
+    private int m_x;
+    //...  
+
+    private Singleton()
+    {
+    }
+
+    public int getX()
+    {
+        return m_x;
+    }
+
+    public void setX(int x)
+    {
+        //...  
+        m_x = x;
+    }
+
+    public String toString()
+    {
+        return String.valueOf(m_x);
+    }
+}
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ Singleton bir sınıfın eager implemantasyonu enum sınıf ile daha basit ve etkin olarak yazılabilir. Lazy implementation
+ gerekmedikçe Java'da en iyi singleton implementasyonu enum ile yapılandır
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ package org.csystem.app;
+
+class App {
+    public static void main(String[] args)
+    {
+        Singleton s1 = Singleton.INSTANCE;
+        Singleton s2 = Singleton.INSTANCE;
+
+        System.out.println(s1 == s2);
+
+        //...
+    }
+}
+
+enum Singleton {
+    INSTANCE;
+    private int m_x;
+    //...
+
+    public int getX()
+    {
+        return m_x;
+    }
+
+    public void setX(int x)
+    {
+        //...
+        m_x = x;
+    }
+
+    public String toString()
+    {
+        return String.valueOf(m_x);
+    }
+}
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+ Anahtar Notlar: Dikkat edilirse enum sabitleri ve gösterdikleri nesneler yaratıldıktan sonra program sonlanana kadar 
+ yaşarlar. Bu durum nadir de olsa önemli bazı uygulamalarda bellek açısından dezavantajlı olabilmektedir. Örneğin çok
+ güçlü olmayan (limited) bir Android cihazın bellek kapasite de kullanımına göre sınırlı olabilir ve yaratılan nesnelerin 
+ sürekli yaşamaması gerekebilir. Böylesi nadir ama önemli durumlarda enum sınıf kullanmak yerine int türden değerler 
+ kullanmak uygun olabilmektedir. Bu durumda performans açısından okunabililrlikten/algılanabilirlikten vazgeçilmiş olur.
+----------------------------------------------------------------------------------------------------------------------*/
+Soru: Aşağıda implementasyonu verilen sınıfı açıklamalara güncelleyiniz.
+/*----------------------------------------------------------------------------------------------------------------------
+class Fighter {
+    private String m_name;
+    private int m_health;
+    private int m_strength;
+    private int m_agility;
+
+    public String getName() {
+        return m_name;
+    }
+
+    public void setName(String name) {
+        m_name = name;
+    }
+
+    public int getHealth() {
+        return m_health;
+    }
+
+    public void setHealth(int health) {
+        m_health = health;
+    }
+
+    public int getStrength() {
+        return m_strength;
+    }
+
+    public void setStrength(int strength) {
+        m_strength = strength;
+    }
+
+    public int getAgility() {
+        return m_agility;
+    }
+
+    public void setAgility(int agility) {
+        m_agility = agility;
+    }
+    
+    public int totalOfAbilities() {
+        return m_health + m_agility + m_strength;
+    }
+    
+    public double averageOfAbilities() {
+        return totalOfAbilities() / 3.;
+    }
+}
+----------------------------------------------------------------------------------------------------------------------*/
+Açıklamalar:
+
+Sınıfa int türden yeni yetenekler eklenecektir.
+Bir yetenek eklendiğinde averageOfAbilities ve totalOfAbilities metotlarının değiştirilmemesi gerekmektedir.
+Bir implementasyon şu şekilde olabilir. Sabitlerin hard coded olarak verilmesi dolayısıyla iyi bir yaklaşım değildir
+/*----------------------------------------------------------------------------------------------------------------------
+ class Fighter {  
+    private String m_name;  
+    private final int [] m_abilities = new int[4];  
+  
+    //...  
+  
+    public String getName()  
+    {  
+        return m_name;  
+    }  
+  
+    public void setName(String name)  
+    {  
+        m_name = name;  
+    }  
+  
+    public int getHealth()  
+    {  
+        return m_abilities[0];  
+    }  
+  
+    public void setHealth(int health)  
+    {  
+        m_abilities[0] = health;  
+    }  
+  
+    public int getStrength()  
+    {  
+        return m_abilities[1];  
+    }  
+  
+    public void setStrength(int strength)  
+    {  
+        m_abilities[1] = strength;  
+    }  
+  
+    public int getAgility()  
+    {  
+        return m_abilities[2];  
+    }  
+  
+    public void setAgility(int agility)  
+    {  
+        m_abilities[2] = agility;  
+    }  
+  
+    public int getRange()  
+    {  
+        return m_abilities[3];  
+    }  
+  
+    public void setRange(int agility)  
+    {  
+        m_abilities[3] = agility;  
+    }  
+  
+    public int totalOfAbilities()  
+    {  
+        return (int)ArrayUtil.sum(m_abilities);  
+    }  
+  
+    public double averageOfAbilities()  
+    {  
+        return totalOfAbilities() / (double)m_abilities.length;  
+    }
+}
+----------------------------------------------------------------------------------------------------------------------*/
+Daha okunabilir bir implementasyon şu şekilde olabilir
+/*----------------------------------------------------------------------------------------------------------------------
+ class Fighter {  
+    private static final int HEALTH = 0;  
+    private static final int STRENGTH = 1;  
+    private static final int AGILITY = 2;  
+    private static final int RANGE = 3;  
+    private static final int COUNT = 4;  
+    private String m_name;  
+    private final int [] m_abilities = new int[COUNT];  
+  
+    //...  
+  
+    public String getName()  
+    {  
+        return m_name;  
+    }  
+  
+    public void setName(String name)  
+    {  
+        m_name = name;  
+    }  
+  
+    public int getHealth()  
+    {  
+        return m_abilities[HEALTH];  
+    }  
+  
+    public void setHealth(int health)  
+    {  
+        m_abilities[HEALTH] = health;  
+    }  
+  
+    public int getStrength()  
+    {  
+        return m_abilities[STRENGTH];  
+    }  
+  
+    public void setStrength(int strength)  
+    {  
+        m_abilities[STRENGTH] = strength;  
+    }  
+  
+    public int getAgility()  
+    {  
+        return m_abilities[AGILITY];  
+    }  
+  
+    public void setAgility(int agility)  
+    {  
+        m_abilities[AGILITY] = agility;  
+    }  
+  
+    public int getRange()  
+    {  
+        return m_abilities[RANGE];  
+    }  
+  
+    public void setRange(int range)  
+    {  
+        m_abilities[RANGE] = range;  
+    }  
+  
+    public int totalOfAbilities()  
+    {  
+        return (int)ArrayUtil.sum(m_abilities);  
+    }  
+  
+    public double averageOfAbilities()  
+    {  
+        return totalOfAbilities() / (double)m_abilities.length;  
+    }  
+}
+----------------------------------------------------------------------------------------------------------------------*/
+enum kullanılan bir implementasyon şu şekilde olabilir
+/*----------------------------------------------------------------------------------------------------------------------
+ class Fighter {  
+    private enum Ability {HEALTH, STRENGTH, AGILITY, RANGE, COUNT}  
+    private String m_name;  
+    private final int [] m_abilities = new int[Ability.COUNT.ordinal()];  
+  
+    //...  
+  
+    public String getName()  
+    {  
+        return m_name;  
+    }  
+  
+    public void setName(String name)  
+    {  
+        m_name = name;  
+    }  
+  
+    public int getHealth()  
+    {  
+        return m_abilities[Ability.HEALTH.ordinal()];  
+    }  
+  
+    public void setHealth(int health)  
+    {  
+        m_abilities[Ability.HEALTH.ordinal()] = health;  
+    }  
+  
+    public int getStrength()  
+    {  
+        return m_abilities[Ability.STRENGTH.ordinal()];  
+    }  
+  
+    public void setStrength(int strength)  
+    {  
+        m_abilities[Ability.STRENGTH.ordinal()] = strength;  
+    }  
+  
+    public int getAgility()  
+    {  
+        return m_abilities[Ability.AGILITY.ordinal()];  
+    }  
+  
+    public void setAgility(int agility)  
+    {  
+        m_abilities[Ability.AGILITY.ordinal()] = agility;  
+    }  
+  
+    public int getRange()  
+    {  
+        return m_abilities[Ability.RANGE.ordinal()];  
+    }  
+  
+    public void setRange(int range)  
+    {  
+        m_abilities[Ability.RANGE.ordinal()] = range;  
+    }  
+  
+    public int totalOfAbilities()  
+    {  
+        return (int)ArrayUtil.sum(m_abilities);  
+    }  
+  
+    public double averageOfAbilities()  
+    {  
+        return totalOfAbilities() / (double)m_abilities.length;  
+    }  
+}
+----------------------------------------------------------------------------------------------------------------------*/
+
 /*----------------------------------------------------------------------------------------------------------------------
  
 ----------------------------------------------------------------------------------------------------------------------*/
+
 /*----------------------------------------------------------------------------------------------------------------------
  
 ----------------------------------------------------------------------------------------------------------------------*/
+
 /*----------------------------------------------------------------------------------------------------------------------
  
 ----------------------------------------------------------------------------------------------------------------------*/
+
 /*----------------------------------------------------------------------------------------------------------------------
  
 ----------------------------------------------------------------------------------------------------------------------*/
+
 /*----------------------------------------------------------------------------------------------------------------------
  
 ----------------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+ 
+----------------------------------------------------------------------------------------------------------------------*/
+
