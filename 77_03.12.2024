@@ -111,7 +111,8 @@ içerisinde a ve b veri elemanları da bulunur. Bu hiyerarşiye ilişkin nesnele
 https://github.com/oguzkaran/Java-Jan-2024/blob/main/doc/media/InheritanceMemory.PNG?raw=true 
 ----------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------
-
+Burada türemiş sınıfa eklenen veri elemanlarının düşük numaralı adreste veya yüksek numaralı adreste olmasının Java 
+programcısı açısından önemi yoktur.
 ----------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------
 
